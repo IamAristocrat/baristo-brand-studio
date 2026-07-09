@@ -1,13 +1,30 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/use-cart";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const fmt = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export function CartDrawer() {
-  const { items, open, setOpen, setQty, remove, count, subtotal, savings, clear } = useCart();
+  const { items, open, setOpen, setQty, remove, count, subtotal, savings, clear, lastAddedId, lastAddedAt } = useCart();
   const [placed, setPlaced] = useState(false);
+  const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
+  const [flashId, setFlashId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!open || !lastAddedId) return;
+    // Wait for the drawer content to mount and layout.
+    const t = window.setTimeout(() => {
+      const el = itemRefs.current[lastAddedId];
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        setFlashId(lastAddedId);
+        window.setTimeout(() => setFlashId(null), 1600);
+      }
+    }, 220);
+    return () => window.clearTimeout(t);
+  }, [open, lastAddedId, lastAddedAt]);
+
 
   return (
     <Sheet
@@ -82,7 +99,18 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto px-6 py-4">
               <ul className="divide-y divide-ivory/10">
                 {items.map((i) => (
-                  <li key={i.id} className="flex gap-4 py-4">
+                  <li
+                    key={i.id}
+                    ref={(el) => {
+                      itemRefs.current[i.id] = el;
+                    }}
+                    className={`flex gap-4 py-4 transition-all duration-500 ${
+                      flashId === i.id
+                        ? "rounded-sm ring-2 ring-rosegold/60 bg-champagne/50 shadow-rose"
+                        : ""
+                    }`}
+                  >
+
                     {i.image ? (
                       <img
                         src={i.image}
