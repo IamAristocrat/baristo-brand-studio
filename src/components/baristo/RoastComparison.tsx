@@ -24,9 +24,9 @@ export function RoastComparison() {
             Compare the Three Masters
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-espresso/70 sm:text-base">
-            Three calibrated expressions of Indian altitude Arabica. Weigh their strength,
-            flavor architecture, and ideal brew methods side by side — then choose the cup
-            that matches your ritual.
+            Three calibrated expressions of single-origin Indian Arabica grown at high altitudes
+            — weigh strength, flavor architecture, and ideal brew methods side by side and choose
+            the cup tuned to your peak performance.
           </p>
         </div>
 
