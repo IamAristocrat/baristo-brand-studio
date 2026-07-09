@@ -32,19 +32,45 @@ export const Route = createFileRoute("/roasts/$roastKey")({
     }
     return { roastKey: params.roastKey as RoastKey };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return { meta: [{ title: "Roast not found — Baristo.Online" }, { name: "robots", content: "noindex" }] };
     }
     const roast = roasts.find((r) => r.key === loaderData.roastKey)!;
     const title = `${roast.name} — Brew Guide & Ritual | Baristo.Online`;
     const desc = `${roast.tagline} Brew guidance, tasting notes, and the linked recipe ecosystem for ${roast.name}.`;
+    const url = `https://baristo.lovable.app/roasts/${params.roastKey}`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: roast.name,
+            description: roast.description,
+            brand: { "@type": "Brand", name: "Baristo.Online" },
+            category: "Coffee",
+            url,
+            offers: roast.sizes.map((s) => ({
+              "@type": "Offer",
+              name: `${roast.name} — ${s.label}`,
+              price: s.price.toFixed(2),
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url,
+            })),
+          }),
+        },
       ],
     };
   },
