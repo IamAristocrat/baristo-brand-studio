@@ -57,6 +57,14 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Readability mask — soft radial clearing behind logo & headings */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 70% at 50% 35%, oklch(0.977 0.011 85 / 0.78) 0%, oklch(0.977 0.011 85 / 0.35) 45%, transparent 75%)',
+        }}
+      />
+
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
         <img
           src={medallion}
@@ -120,6 +128,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-
   );
 }
