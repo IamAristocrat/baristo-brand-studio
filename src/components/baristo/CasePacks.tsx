@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { casePacks } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
-
+import { Minus, Plus } from "lucide-react";
 
 export function CasePacks() {
   const { add, setOpen } = useCart();
   const [added, setAdded] = useState<string | null>(null);
+  const [caseQty, setCaseQty] = useState<Record<string, number>>({});
 
   return (
     <section id="cases" className="relative bg-ivory py-20 text-espresso sm:py-28">
@@ -63,26 +64,53 @@ export function CasePacks() {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => {
-                    add({
-                      id: `case-${c.key}`,
-                      roastKey: `case-${c.key}`,
-                      roastName: c.name,
-                      sizeLabel: "10-Pack Case",
-                      sizeSub: c.total,
-                      price: Number(c.price.replace(/[^\d]/g, "")),
-                      mrp: Number(c.mrp.replace(/[^\d]/g, "")),
-                      image: "",
-                    });
-                    setOpen(true);
-                    setAdded(c.key);
-                    setTimeout(() => setAdded((v) => (v === c.key ? null : v)), 1600);
-                  }}
-                  className="smallcaps mt-6 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.02]"
-                >
-                  {added === c.key ? "Added to Ritual ✓" : "Reserve This Case"}
-                </button>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="flex items-center rounded-sm border border-rosegold/25">
+                    <button
+                      onClick={() => setCaseQty((prev) => ({ ...prev, [c.key]: Math.max(1, (prev[c.key] ?? 1) - 1) }))}
+                      aria-label="Decrease cases"
+                      className="flex h-9 w-9 items-center justify-center text-espresso/70 hover:text-rosegold-light"
+                    >
+                      <Minus className="h-3.5 w-3.5" />
+                    </button>
+                    <span className="w-10 text-center text-sm font-medium tabular-nums">
+                      {caseQty[c.key] ?? 1}
+                    </span>
+                    <button
+                      onClick={() => setCaseQty((prev) => ({ ...prev, [c.key]: (prev[c.key] ?? 1) + 1 }))}
+                      aria-label="Increase cases"
+                      className="flex h-9 w-9 items-center justify-center text-espresso/70 hover:text-rosegold-light"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const qty = caseQty[c.key] ?? 1;
+                      add(
+                        {
+                          id: `case-${c.key}`,
+                          roastKey: `case-${c.key}`,
+                          roastName: c.name,
+                          sizeLabel: "10-Pack Case",
+                          sizeSub: c.total,
+                          price: Number(c.price.replace(/[^\d]/g, "")),
+                          mrp: Number(c.mrp.replace(/[^\d]/g, "")),
+                          image: "",
+                          isCasePack: true,
+                          packsPerCase: 10,
+                        },
+                        qty
+                      );
+                      setOpen(true);
+                      setAdded(c.key);
+                      setTimeout(() => setAdded((v) => (v === c.key ? null : v)), 1600);
+                    }}
+                    className="smallcaps flex-1 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.02]"
+                  >
+                    {added === c.key ? "Added to Ritual ✓" : "Reserve This Case"}
+                  </button>
+                </div>
               </article>
             );
           })}
