@@ -34,7 +34,7 @@ export function Hero() {
         <p className="smallcaps mt-3 text-base text-champagne sm:text-lg">Be Noble</p>
 
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ivory/80 sm:text-lg">
-          Indian altitude Arabica for noble coffee rituals.
+          Single origin premium coffee bean sourced from altitudes and roasted gracefully for Noble minds with Elite attitudes aspiring peak performance altitudes.
         </p>
         <p className="font-display mt-2 text-lg text-champagne italic sm:text-2xl">
           Elite by nature. Roasted for perfection.
