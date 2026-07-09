@@ -6,6 +6,7 @@ import {
   brewGuides,
   recipes,
   roastRecipeName,
+  brandSubtitle,
   type RoastKey,
 } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
@@ -170,6 +171,9 @@ function RoastDetailBody() {
                 {roast.name}
               </h1>
               <p className="smallcaps mt-3 text-sm text-primary">{roast.tagline}</p>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-espresso/70">
+                {brandSubtitle}
+              </p>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                 {roast.description}
               </p>

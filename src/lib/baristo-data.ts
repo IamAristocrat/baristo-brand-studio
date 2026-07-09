@@ -1,3 +1,6 @@
+export const brandSubtitle =
+  "Single-origin premium coffee beans sourced from high altitudes and gracefully roasted for Noble minds with Elite attitudes — fueling peak performance and cognitive sharpness.";
+
 export type RoastKey = "medium" | "medium-dark" | "truly-dark";
 
 export interface Roast {

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Clock, Users, Flame } from "lucide-react";
-import { recipes, roasts, type RoastKey, type Recipe } from "@/lib/baristo-data";
+import { recipes, roasts, brandSubtitle, type RoastKey, type Recipe } from "@/lib/baristo-data";
 import { StoreNav } from "@/components/baristo/StoreNav";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
@@ -140,6 +140,9 @@ function RecipeDetailBody() {
                 {recipe.name}
               </h1>
               <p className="smallcaps mt-3 text-sm text-primary">{recipe.theme}</p>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-espresso/70">
+                {brandSubtitle}
+              </p>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground italic sm:text-lg">
                 {recipe.copy}
               </p>
