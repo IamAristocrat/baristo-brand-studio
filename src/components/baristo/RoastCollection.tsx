@@ -42,8 +42,8 @@ export function RoastCollection() {
           Roast Collection
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-center text-muted-foreground">
-          Three roasts for three altitudes of taste — sculpted by master craftsmen from single-origin
-          Indian Arabica.
+          Single-origin Indian Arabica from high altitudes — three calibrated roasts tuned for
+          peak performance and cognitive sharpness.
         </p>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
