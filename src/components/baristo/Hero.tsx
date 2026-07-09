@@ -1,5 +1,6 @@
 import heroMountains from "@/assets/hero-mountains.jpg";
-import medallion from "@/assets/medallion.png";
+import medallionAsset from "@/assets/baristo-logo.png.asset.json";
+const medallion = medallionAsset.url;
 
 const promises = ["Purity", "Provenance", "Roast", "Evidence"];
 
@@ -15,46 +16,46 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/40 to-obsidian" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-32 pb-16 text-center sm:px-6 sm:pt-40 sm:pb-24">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-28 pb-14 text-center sm:px-6 sm:pt-40 sm:pb-24">
         <img
           src={medallion}
-          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, evidence seal"
+          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, Be Noble"
           width={1024}
           height={1024}
-          className="h-36 w-36 drop-shadow-[0_12px_40px_rgba(183,112,84,0.45)] sm:h-48 sm:w-48"
+          className="h-52 w-52 rounded-full drop-shadow-[0_12px_40px_rgba(183,112,84,0.55)] sm:h-72 sm:w-72 md:h-80 md:w-80"
         />
 
         <p className="smallcaps mt-8 text-xs text-rosegold-light">LifeCodeOS Portfolio Product</p>
 
-        <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight sm:text-7xl">
+        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
           Baristo<span className="text-gradient-rose">.Online</span>
         </h1>
 
-        <p className="smallcaps mt-3 text-lg text-champagne">Be Noble</p>
+        <p className="smallcaps mt-3 text-base text-champagne sm:text-lg">Be Noble</p>
 
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/80 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ivory/80 sm:text-lg">
           Indian altitude Arabica for noble coffee rituals.
         </p>
-        <p className="font-display mt-2 text-xl text-champagne italic sm:text-2xl">
+        <p className="font-display mt-2 text-lg text-champagne italic sm:text-2xl">
           Elite by nature. Roasted for perfection.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-10 grid w-full grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:justify-center">
           <a
             href="#roasts"
-            className="rounded-sm bg-gradient-rose px-6 py-3 text-xs font-semibold tracking-widest uppercase shadow-rose transition-transform hover:scale-[1.03]"
+            className="rounded-sm bg-gradient-rose px-6 py-3 text-center text-xs font-semibold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.03]"
           >
             Shop Medium Roast
           </a>
           <a
             href="#roasts"
-            className="rounded-sm border border-rosegold/60 px-6 py-3 text-xs font-semibold tracking-widest text-rosegold-light uppercase transition-colors hover:bg-rosegold/15"
+            className="rounded-sm border border-rosegold/60 px-6 py-3 text-center text-xs font-semibold tracking-widest text-rosegold-light uppercase transition-colors hover:bg-rosegold/15"
           >
             Shop Medium-Dark
           </a>
           <a
             href="#roasts"
-            className="rounded-sm border border-ivory/25 px-6 py-3 text-xs font-semibold tracking-widest text-ivory uppercase transition-colors hover:bg-ivory/10"
+            className="rounded-sm border border-ivory/25 px-6 py-3 text-center text-xs font-semibold tracking-widest text-ivory uppercase transition-colors hover:bg-ivory/10"
           >
             Shop Truly Dark
           </a>

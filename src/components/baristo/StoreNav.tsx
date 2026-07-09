@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
-import medallion from "@/assets/medallion.png";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -33,20 +32,11 @@ export function StoreNav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#home" className="flex min-w-0 items-center gap-3">
-          <img
-            src={medallion}
-            alt="Baristo.Online medallion"
-            width={1024}
-            height={1024}
-            className="h-10 w-10 shrink-0"
-          />
-          <span className="min-w-0">
-            <span className="block truncate font-display text-lg font-semibold tracking-wide text-ivory">
-              Baristo.Online
-            </span>
-            <span className="smallcaps block text-[10px] leading-none text-rosegold-light">Be Noble</span>
+        <a href="#home" className="flex min-w-0 flex-col leading-none">
+          <span className="truncate font-display text-base font-semibold tracking-wide text-ivory sm:text-lg">
+            Baristo<span className="text-gradient-rose">.Online</span>
           </span>
+          <span className="smallcaps mt-0.5 text-[9px] tracking-[0.3em] text-rosegold-light sm:text-[10px]">Be Noble</span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">
