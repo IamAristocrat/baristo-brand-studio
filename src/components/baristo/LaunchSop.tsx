@@ -70,12 +70,12 @@ export function LaunchSop() {
               </ul>
             </div>
 
-            <div className="rounded-lg bg-gradient-obsidian p-7 text-ivory shadow-luxe">
+            <div className="rounded-lg bg-gradient-ivory p-7 text-espresso shadow-luxe">
               <p className="smallcaps text-xs text-rosegold-light">Brand Hierarchy</p>
               <p className="mt-3 font-display text-xl font-semibold text-champagne">
                 Baristo.Online dominant on the front.
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-ivory/70">
+              <p className="mt-2 text-sm leading-relaxed text-espresso/70">
                 LifeCodeOS and Aristoverse DeepTech appear in the statutory and story area — supporting
                 the noble front-of-pack presence, never competing with it.
               </p>

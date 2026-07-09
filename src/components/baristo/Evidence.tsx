@@ -20,7 +20,7 @@ export function Evidence() {
               key={point.title}
               className="rounded-lg border bg-card p-7 text-center shadow-card-luxe transition-shadow hover:shadow-luxe"
             >
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-rose text-xl text-ivory shadow-rose">
+              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gradient-rose text-xl text-espresso shadow-rose">
                 {icons[i]}
               </span>
               <h3 className="mt-5 font-display text-xl font-semibold">{point.title}</h3>
