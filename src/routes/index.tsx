@@ -50,14 +50,6 @@ function Index() {
         </main>
         <StoreFooter />
         <CartDrawer />
-
-        {/* Floating launch CTA */}
-        <a
-          href="#launch-sop"
-          className="smallcaps fixed right-4 bottom-4 z-40 rounded-full bg-gradient-rose px-6 py-3.5 text-xs font-bold text-espresso shadow-rose transition-transform hover:scale-105 sm:right-6 sm:bottom-6"
-        >
-          Launch Checklist
-        </a>
       </div>
     </CartProvider>
   );
