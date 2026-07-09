@@ -154,6 +154,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
 
 
 export type RecipeRoast = "Medium" | "Medium-Dark" | "Truly Dark";
+export type RecipeBrewMethod = "Moka Pot" | "French Press" | "Pour-Over" | "Espresso";
 
 export interface Recipe {
   slug: string;
@@ -164,6 +165,7 @@ export interface Recipe {
   moment: string;
   copy: string;
   method: string;
+  brewMethods: RecipeBrewMethod[];
   prepTime: string;
   servings: string;
   difficulty: "Easy" | "Considered" | "Ritual";
