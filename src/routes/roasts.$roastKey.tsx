@@ -50,7 +50,7 @@ export const Route = createFileRoute("/roasts/$roastKey")({
       "single-origin arabica",
       "Indian high-altitude coffee",
       "Baristo.Online",
-      ...roast.flavorNotes ?? [],
+      ...roast.notes,
     ].join(", ");
     return {
       meta: [
