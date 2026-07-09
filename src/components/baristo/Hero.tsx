@@ -19,53 +19,12 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />
 
-      {/* Consciousness glow field */}
-      <div
-        className="pointer-events-none absolute inset-0 flex items-start justify-center"
-        style={{ paddingTop: 'clamp(4rem, 10vh, 8rem)', contain: 'layout paint' }}
-      >
-        <div className="relative">
-          {/* Core aura — lighter blur, GPU-promoted */}
-          <div
-            className="absolute -inset-16 rounded-full blur-2xl sm:-inset-20 lg:-inset-24"
-            style={{
-              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.32) 0%, oklch(0.6 0.085 42 / 0.1) 55%, transparent 75%)',
-              animation: 'pulse-glow 8s ease-in-out infinite',
-              willChange: 'transform, opacity',
-            }}
-          />
-          {/* Outer ring */}
-          <div
-            className="absolute -inset-24 rounded-full border border-rosegold/10 sm:-inset-32 lg:-inset-40"
-            style={{ animation: 'rotate-slow 60s linear infinite', willChange: 'transform' }}
-          >
-            <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30" />
-          </div>
-          {/* Inner ring */}
-          <div
-            className="absolute -inset-16 rounded-full border border-rosegold/15 sm:-inset-20 lg:-inset-28"
-            style={{ animation: 'rotate-slow 40s linear infinite reverse', willChange: 'transform' }}
-          >
-            <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25" />
-          </div>
-          {/* Soft geometric pulse — opacity-only, no mask/conic paint */}
-          <div
-            className="absolute -inset-10 rounded-full sm:-inset-14 lg:-inset-18"
-            style={{
-              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.06) 0%, transparent 60%)',
-              animation: 'breathe 10s ease-in-out infinite',
-              willChange: 'opacity',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Readability mask — soft radial clearing behind logo & headings */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 60% 70% at 50% 35%, oklch(0.977 0.011 85 / 0.78) 0%, oklch(0.977 0.011 85 / 0.35) 45%, transparent 75%)',
-        }}
+      <ConsciousnessOverlay
+        intensity="full"
+        spread="md"
+        readabilityMask
+        className="absolute inset-0"
+        style={{ paddingTop: 'clamp(4rem, 10vh, 8rem)' }}
       />
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
