@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { casePacks } from "@/lib/baristo-data";
+import { useCart } from "@/hooks/use-cart";
+
 
 export function CasePacks() {
+  const { add, setOpen } = useCart();
   const [added, setAdded] = useState<string | null>(null);
 
   return (
@@ -62,6 +65,17 @@ export function CasePacks() {
 
                 <button
                   onClick={() => {
+                    add({
+                      id: `case-${c.key}`,
+                      roastKey: `case-${c.key}`,
+                      roastName: c.name,
+                      sizeLabel: "10-Pack Case",
+                      sizeSub: c.total,
+                      price: Number(c.price.replace(/[^\d]/g, "")),
+                      mrp: Number(c.mrp.replace(/[^\d]/g, "")),
+                      image: "",
+                    });
+                    setOpen(true);
                     setAdded(c.key);
                     setTimeout(() => setAdded((v) => (v === c.key ? null : v)), 1600);
                   }}
