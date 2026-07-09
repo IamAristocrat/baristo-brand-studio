@@ -108,6 +108,9 @@ export function CasePacks() {
                       setOpen(true);
                       setAdded(c.key);
                       setTimeout(() => setAdded((v) => (v === c.key ? null : v)), 1600);
+                      toast.success(
+                        `${qty === 1 ? "Case" : `${qty} cases`} of ${c.name} added to your ritual`
+                      );
                     }}
                     className="smallcaps flex-1 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.02]"
                   >
