@@ -6,6 +6,7 @@ import {
   brewGuides,
   recipes,
   roastRecipeName,
+  brandSubtitle,
   type RoastKey,
 } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";

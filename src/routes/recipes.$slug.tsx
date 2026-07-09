@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Clock, Users, Flame } from "lucide-react";
-import { recipes, roasts, type RoastKey, type Recipe } from "@/lib/baristo-data";
+import { recipes, roasts, brandSubtitle, type RoastKey, type Recipe } from "@/lib/baristo-data";
 import { StoreNav } from "@/components/baristo/StoreNav";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
