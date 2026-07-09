@@ -81,13 +81,13 @@ export const Route = createFileRoute("/roasts/$roastKey")({
 
 function RoastNotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-obsidian px-4 text-center text-ivory">
+    <div className="flex min-h-screen items-center justify-center bg-ivory px-4 text-center text-espresso">
       <div>
         <p className="smallcaps text-xs text-rosegold-light">Not found</p>
         <h1 className="mt-3 font-display text-4xl font-semibold">This roast doesn't exist</h1>
         <Link
           to="/"
-          className="smallcaps mt-6 inline-block rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-ivory shadow-rose"
+          className="smallcaps mt-6 inline-block rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-espresso shadow-rose"
         >
           Return to Store
         </Link>
@@ -159,7 +159,7 @@ function RoastDetailBody() {
                 height={1152}
                 className="h-full w-full object-cover"
               />
-              <span className="smallcaps absolute top-5 left-5 rounded-sm bg-obsidian/85 px-3 py-1.5 text-[11px] text-champagne backdrop-blur-sm">
+              <span className="smallcaps absolute top-5 left-5 rounded-sm bg-ivory/85 px-3 py-1.5 text-[11px] text-rosegold backdrop-blur-sm">
                 Single-Origin Indian Arabica
               </span>
             </div>
@@ -213,7 +213,7 @@ function RoastDetailBody() {
 
               <button
                 onClick={handleAdd}
-                className="mt-5 w-full rounded-sm bg-gradient-rose px-5 py-4 text-xs font-bold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.01]"
+                className="mt-5 w-full rounded-sm bg-gradient-rose px-5 py-4 text-xs font-bold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.01]"
               >
                 {added ? "Added to Ritual ✓" : `Add ${size.label} to Cart`}
               </button>
@@ -223,7 +223,7 @@ function RoastDetailBody() {
       </section>
 
       {/* Ritual */}
-      <section className="bg-obsidian py-16 text-ivory sm:py-20">
+      <section className="bg-ivory py-16 text-espresso sm:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <p className="smallcaps text-xs text-rosegold-light">The Ritual</p>
           <p className="mt-5 font-display text-2xl leading-relaxed sm:text-3xl">

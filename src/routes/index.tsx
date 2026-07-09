@@ -5,6 +5,7 @@ import { RoastCollection } from "@/components/baristo/RoastCollection";
 import { CasePacks } from "@/components/baristo/CasePacks";
 import { RoastComparison } from "@/components/baristo/RoastComparison";
 import { APlusModules } from "@/components/baristo/APlusModules";
+import { VisualStory } from "@/components/baristo/VisualStory";
 import { Evidence } from "@/components/baristo/Evidence";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
@@ -25,6 +26,7 @@ function Index() {
         <main>
           <Hero />
           <RoastCollection />
+          <VisualStory />
           <RoastComparison />
           <CasePacks />
           <APlusModules />
@@ -39,7 +41,7 @@ function Index() {
         {/* Floating launch CTA */}
         <a
           href="#launch-sop"
-          className="smallcaps fixed right-4 bottom-4 z-40 rounded-full bg-gradient-rose px-6 py-3.5 text-xs font-bold text-ivory shadow-rose transition-transform hover:scale-105 sm:right-6 sm:bottom-6"
+          className="smallcaps fixed right-4 bottom-4 z-40 rounded-full bg-gradient-rose px-6 py-3.5 text-xs font-bold text-espresso shadow-rose transition-transform hover:scale-105 sm:right-6 sm:bottom-6"
         >
           Launch Checklist
         </a>

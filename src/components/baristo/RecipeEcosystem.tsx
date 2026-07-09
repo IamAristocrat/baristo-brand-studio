@@ -8,7 +8,7 @@ const brewFilters: ("All" | RecipeBrewMethod)[] = ["All", "Moka Pot", "French Pr
 const roastBadgeClasses: Record<RecipeRoast, string> = {
   Medium: "bg-secondary text-secondary-foreground",
   "Medium-Dark": "bg-taupe/30 text-espresso",
-  "Truly Dark": "bg-obsidian text-champagne",
+  "Truly Dark": "bg-ivory text-rosegold",
 };
 
 export function RecipeEcosystem() {

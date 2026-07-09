@@ -122,7 +122,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
   };
 
   return (
-    <section className="border-t border-champagne/40 bg-obsidian py-20 text-ivory sm:py-24">
+    <section className="border-t border-champagne/40 bg-ivory py-20 text-espresso sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
           <span className="smallcaps inline-flex items-center gap-2 rounded-full border border-rosegold/40 bg-rosegold/10 px-3 py-1 text-[10px] text-rosegold-light">
@@ -131,7 +131,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
           <h2 className="hairline hairline-center mt-4 font-display text-4xl font-semibold sm:text-5xl">
             Add the Brew Kit
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-ivory/60">
+          <p className="mx-auto mt-4 max-w-xl text-sm text-espresso/60">
             Everything the {recipe.method.toLowerCase()} needs — the roast, the tools, and the small
             luxuries. Adjust the kit, then add it to your cart in one motion.
           </p>
@@ -139,7 +139,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.05fr_1fr]">
           {/* Roast + size picker */}
-          <div className="rounded-lg border border-ivory/10 bg-obsidian-soft p-7 shadow-luxe">
+          <div className="rounded-lg border border-rosegold/20 bg-champagne/40 p-7 shadow-luxe">
             <p className="smallcaps text-[10px] text-rosegold-light">Step 01 · The Coffee</p>
             <h3 className="mt-2 font-display text-2xl font-semibold">Choose your roast</h3>
 
@@ -154,7 +154,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                     className={`group flex items-center gap-3 rounded-sm border p-3 text-left transition-all ${
                       active
                         ? "border-rosegold bg-gradient-to-br from-rosegold/15 to-transparent"
-                        : "border-ivory/10 hover:border-rosegold/50"
+                        : "border-rosegold/20 hover:border-rosegold/50"
                     }`}
                   >
                     <img
@@ -163,10 +163,10 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                       className="h-14 w-11 shrink-0 rounded-sm object-cover"
                     />
                     <div className="min-w-0 flex-1">
-                      <p className="truncate font-display text-sm font-semibold text-ivory">
+                      <p className="truncate font-display text-sm font-semibold text-espresso">
                         {r.name}
                       </p>
-                      <p className="smallcaps text-[9px] text-ivory/50">{r.tagline}</p>
+                      <p className="smallcaps text-[9px] text-espresso/50">{r.tagline}</p>
                     </div>
                   </button>
                 );
@@ -185,16 +185,16 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                     className={`flex items-center justify-between rounded-sm border p-4 text-left transition-all ${
                       active
                         ? "border-rosegold bg-gradient-to-br from-rosegold/15 to-transparent"
-                        : "border-ivory/10 hover:border-rosegold/50"
+                        : "border-rosegold/20 hover:border-rosegold/50"
                     }`}
                   >
                     <div>
                       <p className="font-display text-base font-semibold">{s.label}</p>
-                      <p className="smallcaps text-[9px] text-ivory/50">{s.sub}</p>
+                      <p className="smallcaps text-[9px] text-espresso/50">{s.sub}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm font-semibold tabular-nums">{fmt(s.price)}</p>
-                      <p className="text-[10px] text-ivory/40 line-through tabular-nums">
+                      <p className="text-[10px] text-espresso/40 line-through tabular-nums">
                         {fmt(s.mrp)}
                       </p>
                     </div>
@@ -205,10 +205,10 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
           </div>
 
           {/* Accessories */}
-          <div className="rounded-lg border border-ivory/10 bg-obsidian-soft p-7 shadow-luxe">
+          <div className="rounded-lg border border-rosegold/20 bg-champagne/40 p-7 shadow-luxe">
             <p className="smallcaps text-[10px] text-rosegold-light">Step 03 · The Instruments</p>
             <h3 className="mt-2 font-display text-2xl font-semibold">Complete the ritual</h3>
-            <p className="mt-2 text-xs text-ivory/50">
+            <p className="mt-2 text-xs text-espresso/50">
               Suggested for {recipe.method.toLowerCase()} — untick anything you already own.
             </p>
 
@@ -227,7 +227,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                       <span
                         className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border transition-all ${
                           on
-                            ? "border-rosegold bg-gradient-rose text-ivory shadow-rose"
+                            ? "border-rosegold bg-gradient-rose text-espresso shadow-rose"
                             : "border-ivory/25"
                         }`}
                       >
@@ -235,7 +235,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <p className="truncate font-display text-sm font-semibold text-ivory">
+                          <p className="truncate font-display text-sm font-semibold text-espresso">
                             {a.name}
                           </p>
                           {isSuggested && (
@@ -244,11 +244,11 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
                             </span>
                           )}
                         </div>
-                        <p className="smallcaps text-[9px] text-ivory/45">{a.sub}</p>
+                        <p className="smallcaps text-[9px] text-espresso/45">{a.sub}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-sm font-semibold tabular-nums">{fmt(a.price)}</p>
-                        <p className="text-[10px] text-ivory/40 line-through tabular-nums">
+                        <p className="text-[10px] text-espresso/40 line-through tabular-nums">
                           {fmt(a.mrp)}
                         </p>
                       </div>
@@ -261,17 +261,17 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
         </div>
 
         {/* Total bar */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-lg border border-rosegold/30 bg-gradient-to-r from-rosegold/15 via-obsidian-soft to-transparent p-6 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-lg border border-rosegold/30 bg-gradient-to-r from-rosegold/15 via-champagne/40 to-transparent p-6 sm:flex-row">
           <div>
             <p className="smallcaps text-[10px] text-rosegold-light">
               Kit Total · {kitCount} {kitCount === 1 ? "piece" : "pieces"}
             </p>
             <div className="mt-1 flex items-baseline gap-3">
-              <span className="font-display text-3xl font-semibold text-ivory tabular-nums">
+              <span className="font-display text-3xl font-semibold text-espresso tabular-nums">
                 {fmt(total)}
               </span>
               {totalMrp > total && (
-                <span className="text-sm text-ivory/40 line-through tabular-nums">
+                <span className="text-sm text-espresso/40 line-through tabular-nums">
                   {fmt(totalMrp)}
                 </span>
               )}
@@ -285,7 +285,7 @@ export function BrewKitBuilder({ recipe }: { recipe: Recipe }) {
           <button
             type="button"
             onClick={handleAdd}
-            className="smallcaps inline-flex items-center gap-2 rounded-sm bg-gradient-rose px-6 py-3.5 text-xs font-bold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.02]"
+            className="smallcaps inline-flex items-center gap-2 rounded-sm bg-gradient-rose px-6 py-3.5 text-xs font-bold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.02]"
           >
             <Plus className="h-4 w-4" /> Add Brew Kit to Cart
           </button>

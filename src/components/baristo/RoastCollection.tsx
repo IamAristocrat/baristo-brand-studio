@@ -61,7 +61,7 @@ export function RoastCollection() {
                   height={1152}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                <span className="smallcaps absolute top-4 left-4 rounded-sm bg-obsidian/80 px-3 py-1.5 text-[11px] text-champagne backdrop-blur-sm">
+                <span className="smallcaps absolute top-4 left-4 rounded-sm bg-ivory/80 px-3 py-1.5 text-[11px] text-rosegold backdrop-blur-sm">
                   Single-Origin Indian Arabica
                 </span>
               </div>
@@ -143,7 +143,7 @@ export function RoastCollection() {
                     setTimeout(() => setAdded((v) => (v === roast.key ? null : v)), 1400);
                     setOpen(true);
                   }}
-                  className="mt-4 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-semibold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.02]"
+                  className="mt-4 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-semibold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.02]"
                 >
                   {added === roast.key ? "Added to Ritual ✓" : roast.cta}
                 </button>
@@ -156,10 +156,10 @@ export function RoastCollection() {
         <div className="mt-16 overflow-x-auto rounded-lg border bg-card shadow-card-luxe">
           <table className="w-full min-w-[640px] text-sm">
             <thead>
-              <tr className="bg-obsidian text-ivory">
+              <tr className="bg-ivory text-espresso">
                 <th className="smallcaps px-5 py-4 text-left text-xs font-semibold">Compare</th>
                 {roasts.map((r) => (
-                  <th key={r.key} className="smallcaps px-5 py-4 text-left text-xs font-semibold text-champagne">
+                  <th key={r.key} className="smallcaps px-5 py-4 text-left text-xs font-semibold text-rosegold">
                     {r.name}
                   </th>
                 ))}

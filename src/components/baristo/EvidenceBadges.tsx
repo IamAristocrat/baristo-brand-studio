@@ -26,12 +26,12 @@ export function EvidenceBadges({
 }: Props) {
   const dark = variant === "dark";
   const chipBase = dark
-    ? "border-ivory/15 bg-obsidian-soft/70 text-ivory hover:border-rosegold hover:bg-rosegold/10"
+    ? "border-rosegold/25 bg-champagne/40/70 text-espresso hover:border-rosegold hover:bg-rosegold/10"
     : "border-champagne bg-card text-espresso hover:border-primary hover:bg-primary/5";
   const iconWrap = dark
-    ? "bg-gradient-rose text-ivory shadow-rose"
-    : "bg-gradient-rose text-ivory shadow-rose";
-  const labelSub = dark ? "text-ivory/50" : "text-muted-foreground";
+    ? "bg-gradient-rose text-espresso shadow-rose"
+    : "bg-gradient-rose text-espresso shadow-rose";
+  const labelSub = dark ? "text-espresso/50" : "text-muted-foreground";
   const headingColor = dark ? "text-rosegold-light" : "text-primary";
 
   return (
@@ -64,7 +64,7 @@ export function EvidenceBadges({
               >
                 <div className="border-b border-champagne/60 bg-gradient-to-br from-rosegold/10 to-transparent px-4 py-3">
                   <div className="flex items-center gap-2">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-rose text-ivory shadow-rose">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-rose text-espresso shadow-rose">
                       <Icon className="h-3.5 w-3.5" strokeWidth={2.4} />
                     </span>
                     <p className="font-display text-sm font-semibold text-espresso">

@@ -6,7 +6,7 @@ const promises = ["Purity", "Provenance", "Roast", "Evidence"];
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-obsidian text-ivory">
+    <section id="home" className="relative overflow-hidden bg-ivory text-espresso">
       <img
         src={heroMountains}
         alt="Misty Indian high-altitude coffee mountains at golden hour"
@@ -14,7 +14,7 @@ export function Hero() {
         height={1080}
         className="absolute inset-0 h-full w-full object-cover opacity-50"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/40 to-obsidian" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-28 pb-14 text-center sm:px-6 sm:pt-40 sm:pb-24">
         <img
@@ -31,19 +31,19 @@ export function Hero() {
           Baristo<span className="text-gradient-rose">.Online</span>
         </h1>
 
-        <p className="smallcaps mt-3 text-base text-champagne sm:text-lg">Be Noble</p>
+        <p className="smallcaps mt-3 text-base text-rosegold sm:text-lg">Be Noble</p>
 
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ivory/80 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-espresso/80 sm:text-lg">
           Single origin premium coffee bean sourced from altitudes and roasted gracefully for Noble minds with Elite attitudes aspiring peak performance altitudes.
         </p>
-        <p className="font-display mt-2 text-lg text-champagne italic sm:text-2xl">
+        <p className="font-display mt-2 text-lg text-rosegold italic sm:text-2xl">
           Elite by nature. Roasted for perfection.
         </p>
 
         <div className="mt-10 grid w-full grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:justify-center">
           <a
             href="#roasts"
-            className="rounded-sm bg-gradient-rose px-6 py-3 text-center text-xs font-semibold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.03]"
+            className="rounded-sm bg-gradient-rose px-6 py-3 text-center text-xs font-semibold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.03]"
           >
             Shop Medium Roast
           </a>
@@ -55,17 +55,17 @@ export function Hero() {
           </a>
           <a
             href="#roasts"
-            className="rounded-sm border border-ivory/25 px-6 py-3 text-center text-xs font-semibold tracking-widest text-ivory uppercase transition-colors hover:bg-ivory/10"
+            className="rounded-sm border border-ivory/25 px-6 py-3 text-center text-xs font-semibold tracking-widest text-espresso uppercase transition-colors hover:bg-champagne/40"
           >
             Shop Truly Dark
           </a>
         </div>
 
-        <div className="mt-16 w-full border-t border-ivory/10 pt-8">
+        <div className="mt-16 w-full border-t border-rosegold/20 pt-8">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {promises.map((p, i) => (
               <span key={p} className="flex items-center gap-10">
-                <span className="smallcaps text-sm text-champagne">{p}</span>
+                <span className="smallcaps text-sm text-rosegold">{p}</span>
                 {i < promises.length - 1 && <span className="hidden text-rosegold sm:inline">•</span>}
               </span>
             ))}
