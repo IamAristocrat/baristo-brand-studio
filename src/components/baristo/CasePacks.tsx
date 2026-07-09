@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { casePacks } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
-
+import { Minus, Plus } from "lucide-react";
 
 export function CasePacks() {
   const { add, setOpen } = useCart();
   const [added, setAdded] = useState<string | null>(null);
+  const [caseQty, setCaseQty] = useState<Record<string, number>>({});
 
   return (
     <section id="cases" className="relative bg-ivory py-20 text-espresso sm:py-28">
