@@ -1,3 +1,4 @@
+import { brandSubtitle } from "@/lib/baristo-data";
 import heroMountains from "@/assets/hero-mountains.jpg";
 import medallionAsset from "@/assets/baristo-logo.png.asset.json";
 const medallion = medallionAsset.url;
