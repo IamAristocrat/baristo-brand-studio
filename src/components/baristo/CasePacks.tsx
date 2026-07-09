@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { casePacks } from "@/lib/baristo-data";
+import { useCart } from "@/hooks/use-cart";
+import { ShoppingBag } from "lucide-react";
 
 export function CasePacks() {
   const [added, setAdded] = useState<string | null>(null);
