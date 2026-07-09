@@ -12,6 +12,7 @@ export interface CartItem {
   image: string;
   isCasePack?: boolean;
   packsPerCase?: number;
+  batchQr?: string;
 }
 
 interface CartCtx {
