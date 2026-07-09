@@ -12,6 +12,7 @@ import { EvidenceStrip } from "@/components/baristo/EvidenceStrip";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
+import { FloatingCTA } from "@/components/baristo/FloatingCTA";
 import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
 
@@ -50,6 +51,7 @@ function Index() {
         </main>
         <StoreFooter />
         <CartDrawer />
+        <FloatingCTA />
       </div>
     </CartProvider>
   );
