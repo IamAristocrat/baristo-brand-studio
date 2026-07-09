@@ -70,12 +70,18 @@ export function CartDrawer() {
               <ul className="divide-y divide-ivory/10">
                 {items.map((i) => (
                   <li key={i.id} className="flex gap-4 py-4">
-                    <img
-                      src={i.image}
-                      alt={i.roastName}
-                      className="h-20 w-16 shrink-0 rounded-sm object-cover"
-                      loading="lazy"
-                    />
+                    {i.image ? (
+                      <img
+                        src={i.image}
+                        alt={i.roastName}
+                        className="h-20 w-16 shrink-0 rounded-sm object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex h-20 w-16 shrink-0 items-center justify-center rounded-sm bg-gradient-rose text-[10px] font-semibold uppercase tracking-widest text-ivory shadow-rose">
+                        Kit
+                      </div>
+                    )}
                     <div className="flex min-w-0 flex-1 flex-col">
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
