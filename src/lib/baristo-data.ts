@@ -37,8 +37,8 @@ export const roasts: Roast[] = [
       "Deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "250 g", sub: "8.8 oz" },
-      { label: "500 g", sub: "17.6 oz" },
+      { label: "250 g", sub: "Everyday" },
+      { label: "500 g", sub: "Reserve" },
     ],
     intensity: 4,
     cta: "Shop Medium-Dark",
