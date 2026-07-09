@@ -16,13 +16,13 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/40 to-obsidian" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-32 pb-16 text-center sm:px-6 sm:pt-40 sm:pb-24">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-28 pb-14 text-center sm:px-6 sm:pt-40 sm:pb-24">
         <img
           src={medallion}
-          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, evidence seal"
+          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, Be Noble"
           width={1024}
           height={1024}
-          className="h-36 w-36 drop-shadow-[0_12px_40px_rgba(183,112,84,0.45)] sm:h-48 sm:w-48"
+          className="h-52 w-52 rounded-full drop-shadow-[0_12px_40px_rgba(183,112,84,0.55)] sm:h-72 sm:w-72 md:h-80 md:w-80"
         />
 
         <p className="smallcaps mt-8 text-xs text-rosegold-light">LifeCodeOS Portfolio Product</p>
