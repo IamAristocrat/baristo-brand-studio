@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Clock, Users, Flame } from "lucide-react";
-import { recipes, roasts, type RoastKey } from "@/lib/baristo-data";
+import { recipes, roasts, type RoastKey, type Recipe } from "@/lib/baristo-data";
 import { StoreNav } from "@/components/baristo/StoreNav";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
@@ -112,7 +112,7 @@ function RecipeDetailPage() {
 }
 
 function RecipeDetailBody() {
-  const { recipe } = Route.useLoaderData();
+  const { recipe } = Route.useLoaderData() as { recipe: Recipe };
   const relatedRoasts = recipe.roasts.map((rn) => roasts.find((r) => r.key === roastNameToKey[rn])!);
   const otherRecipes = recipes
     .filter((r) => r.slug !== recipe.slug && r.roasts.some((rn) => recipe.roasts.includes(rn)))
