@@ -27,6 +27,8 @@ interface CartCtx {
   count: number;
   subtotal: number;
   savings: number;
+  lastAddedId: string | null;
+  lastAddedAt: number;
 }
 
 const Ctx = createContext<CartCtx | null>(null);
