@@ -13,6 +13,7 @@ import { StoreNav } from "@/components/baristo/StoreNav";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
+import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
 import pouchMedium from "@/assets/pouch-medium.jpg";
 import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
@@ -233,7 +234,9 @@ function RoastDetailBody() {
 
       {/* Cupping + Origin */}
       <section className="py-20 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-2">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <EvidenceBadges className="mb-12" align="center" />
+        <div className="grid gap-10 md:grid-cols-2">
           <div className="rounded-lg border bg-card p-8 shadow-card-luxe">
             <p className="smallcaps text-xs text-primary">Cupping Profile</p>
             <h2 className="mt-2 font-display text-3xl font-semibold">Tasting Notes</h2>
@@ -263,6 +266,7 @@ function RoastDetailBody() {
               {guide.pairings.join(" · ")}
             </p>
           </div>
+        </div>
         </div>
       </section>
 
