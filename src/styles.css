@@ -188,3 +188,10 @@ img, video {
   0%, 100% { opacity: 0.25; }
   50% { opacity: 0.5; }
 }
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .consciousness-motion {
+    animation: none !important;
+  }
+}

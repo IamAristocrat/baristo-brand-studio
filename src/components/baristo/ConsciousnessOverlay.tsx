@@ -49,7 +49,7 @@ export function ConsciousnessOverlay({
         <div className="relative">
           {/* Core aura */}
           <div
-            className={cn("absolute rounded-full blur-2xl", s.aura)}
+            className={cn("consciousness-motion absolute rounded-full blur-2xl", s.aura)}
             style={{
               background:
                 "radial-gradient(circle, oklch(0.72 0.075 45 / 0.32) 0%, oklch(0.6 0.085 42 / 0.1) 55%, transparent 75%)",
@@ -61,7 +61,7 @@ export function ConsciousnessOverlay({
           {/* Outer ring */}
           {intensity === "full" && (
             <div
-              className={cn("absolute rounded-full border border-rosegold/10", s.outer)}
+              className={cn("consciousness-motion absolute rounded-full border border-rosegold/10", s.outer)}
               style={{ animation: "rotate-slow 60s linear infinite", willChange: "transform" }}
             >
               <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30" />
@@ -71,7 +71,7 @@ export function ConsciousnessOverlay({
           {/* Inner ring */}
           {intensity === "full" && (
             <div
-              className={cn("absolute rounded-full border border-rosegold/15", s.inner)}
+              className={cn("consciousness-motion absolute rounded-full border border-rosegold/15", s.inner)}
               style={{ animation: "rotate-slow 40s linear infinite reverse", willChange: "transform" }}
             >
               <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25" />
@@ -81,7 +81,7 @@ export function ConsciousnessOverlay({
           {/* Geometric pulse */}
           {intensity !== "subtle" && (
             <div
-              className={cn("absolute rounded-full", s.geo)}
+              className={cn("consciousness-motion absolute rounded-full", s.geo)}
               style={{
                 background:
                   "radial-gradient(circle, oklch(0.72 0.075 45 / 0.06) 0%, transparent 60%)",
