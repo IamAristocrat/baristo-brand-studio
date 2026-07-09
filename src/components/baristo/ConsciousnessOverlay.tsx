@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from "react";
 
 interface ConsciousnessOverlayProps {
   /**
@@ -38,9 +39,28 @@ export function ConsciousnessOverlay({
   children,
 }: ConsciousnessOverlayProps) {
   const s = spreadMap[spread];
+  const glowRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const el = glowRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const motionClass = isVisible ? "" : "motion-paused";
 
   return (
-    <div className={cn("relative", className)} style={style}>
+    <div ref={glowRef} className={cn("relative", className)} style={style}>
       {/* Glow field */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
@@ -49,7 +69,7 @@ export function ConsciousnessOverlay({
         <div className="relative">
           {/* Core aura */}
           <div
-            className={cn("consciousness-motion absolute rounded-full blur-2xl", s.aura)}
+            className={cn("consciousness-motion absolute rounded-full blur-2xl", s.aura, motionClass)}
             style={{
               background:
                 "radial-gradient(circle, oklch(0.72 0.075 45 / 0.32) 0%, oklch(0.6 0.085 42 / 0.1) 55%, transparent 75%)",
@@ -61,7 +81,7 @@ export function ConsciousnessOverlay({
           {/* Outer ring */}
           {intensity === "full" && (
             <div
-              className={cn("consciousness-motion absolute rounded-full border border-rosegold/10", s.outer)}
+              className={cn("consciousness-motion absolute rounded-full border border-rosegold/10", s.outer, motionClass)}
               style={{ animation: "rotate-slow 60s linear infinite", willChange: "transform" }}
             >
               <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30" />
@@ -71,7 +91,7 @@ export function ConsciousnessOverlay({
           {/* Inner ring */}
           {intensity === "full" && (
             <div
-              className={cn("consciousness-motion absolute rounded-full border border-rosegold/15", s.inner)}
+              className={cn("consciousness-motion absolute rounded-full border border-rosegold/15", s.inner, motionClass)}
               style={{ animation: "rotate-slow 40s linear infinite reverse", willChange: "transform" }}
             >
               <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25" />
@@ -81,7 +101,7 @@ export function ConsciousnessOverlay({
           {/* Geometric pulse */}
           {intensity !== "subtle" && (
             <div
-              className={cn("consciousness-motion absolute rounded-full", s.geo)}
+              className={cn("consciousness-motion absolute rounded-full", s.geo, motionClass)}
               style={{
                 background:
                   "radial-gradient(circle, oklch(0.72 0.075 45 / 0.06) 0%, transparent 60%)",

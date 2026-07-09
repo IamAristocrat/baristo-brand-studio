@@ -189,6 +189,11 @@ img, video {
   50% { opacity: 0.5; }
 }
 
+/* Pause when out of viewport to save CPU/GPU */
+.motion-paused {
+  animation-play-state: paused !important;
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .consciousness-motion {
