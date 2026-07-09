@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { roasts, type RoastKey } from "@/lib/baristo-data";
+import { useCart } from "@/hooks/use-cart";
 import pouchMedium from "@/assets/pouch-medium.jpg";
 import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
@@ -30,6 +31,7 @@ export function RoastCollection() {
     "truly-dark": 0,
   });
   const [added, setAdded] = useState<RoastKey | null>(null);
+  const { add, setOpen } = useCart();
 
   return (
     <section id="roasts" className="bg-gradient-ivory py-20 sm:py-28">
@@ -107,10 +109,31 @@ export function RoastCollection() {
                   ))}
                 </div>
 
+                <div className="mt-4 flex items-baseline justify-between">
+                  <span className="font-display text-2xl font-semibold text-foreground tabular-nums">
+                    ₹{roast.sizes[selectedSizes[roast.key]].price.toLocaleString("en-IN")}
+                  </span>
+                  <span className="text-xs text-muted-foreground line-through tabular-nums">
+                    ₹{roast.sizes[selectedSizes[roast.key]].mrp.toLocaleString("en-IN")}
+                  </span>
+                </div>
+
                 <button
                   onClick={() => {
+                    const size = roast.sizes[selectedSizes[roast.key]];
+                    add({
+                      id: `${roast.key}-${size.label}`,
+                      roastKey: roast.key,
+                      roastName: roast.name,
+                      sizeLabel: size.label,
+                      sizeSub: size.sub,
+                      price: size.price,
+                      mrp: size.mrp,
+                      image: pouchImages[roast.key],
+                    });
                     setAdded(roast.key);
-                    setTimeout(() => setAdded((v) => (v === roast.key ? null : v)), 1600);
+                    setTimeout(() => setAdded((v) => (v === roast.key ? null : v)), 1400);
+                    setOpen(true);
                   }}
                   className="mt-4 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-semibold tracking-widest text-ivory uppercase shadow-rose transition-transform hover:scale-[1.02]"
                 >
