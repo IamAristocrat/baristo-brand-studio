@@ -83,7 +83,8 @@ function RoastDetailPage() {
 }
 
 function RoastDetailBody() {
-  const { roastKey } = Route.useLoaderData();
+  const data = Route.useLoaderData() as { roastKey: RoastKey };
+  const roastKey = data.roastKey;
   const roast = roasts.find((r) => r.key === roastKey)!;
   const guide = brewGuides[roastKey];
   const recipeName = roastRecipeName[roastKey];
