@@ -22,8 +22,8 @@ export const roasts: Roast[] = [
       "A clean, elegant, aromatic cup — honeyed almond and soft cacao lifted by gentle citrus, closing on a refined finish.",
     recipeBase: "Baristo Classic · Sage · Zen · Harmony · Glow",
     sizes: [
-      { label: "250 g", sub: "8.8 oz" },
-      { label: "500 g", sub: "17.6 oz" },
+      { label: "250 g", sub: "Everyday" },
+      { label: "500 g", sub: "Reserve" },
     ],
     intensity: 2,
     cta: "Shop Medium Roast",
