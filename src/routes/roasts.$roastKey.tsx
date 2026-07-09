@@ -40,16 +40,36 @@ export const Route = createFileRoute("/roasts/$roastKey")({
     }
     const roast = roasts.find((r) => r.key === loaderData.roastKey)!;
     const title = `${roast.name} — Brew Guide & Ritual | Baristo.Online`;
-    const desc = `${roast.tagline} Brew guidance, tasting notes, and the linked recipe ecosystem for ${roast.name}.`;
+    const rawDesc = `${roast.tagline} Brew guidance, tasting notes, and the linked recipe ecosystem for ${roast.name}.`;
+    const desc = rawDesc.length > 158 ? rawDesc.slice(0, 155) + "…" : rawDesc;
     const url = `https://baristo.lovable.app/roasts/${params.roastKey}`;
+    const image = `https://baristo.lovable.app${pouchImages[loaderData.roastKey]}`;
+    const keywords = [
+      roast.name,
+      `${roast.name} coffee`,
+      "single-origin arabica",
+      "Indian high-altitude coffee",
+      "Baristo.Online",
+      ...roast.flavorNotes ?? [],
+    ].join(", ");
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "keywords", content: keywords },
+        { property: "og:site_name", content: "Baristo.Online" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "product" },
         { property: "og:url", content: url },
+        { property: "og:image", content: image },
+        { property: "og:image:alt", content: `${roast.name} rose-gold pouch — Baristo.Online` },
+        { property: "product:price:amount", content: roast.sizes[0].price.toFixed(2) },
+        { property: "product:price:currency", content: "INR" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: image },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
