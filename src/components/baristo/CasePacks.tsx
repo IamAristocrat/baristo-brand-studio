@@ -4,6 +4,7 @@ import { useCart } from "@/hooks/use-cart";
 import { ShoppingBag } from "lucide-react";
 
 export function CasePacks() {
+  const { add, setOpen } = useCart();
   const [added, setAdded] = useState<string | null>(null);
 
   return (
