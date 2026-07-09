@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { brandSubtitle } from "@/lib/baristo-data";
 
 function NotFoundComponent() {
   return (
@@ -80,20 +81,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Baristo.Online — Be Noble" },
       {
         name: "description",
-        content:
-          "Baristo.Online brand store — single-origin Indian altitude Arabica in Medium, Medium-Dark & Truly Dark roasts. Elite by nature. Roasted for perfection.",
+        content: brandSubtitle,
       },
       { name: "author", content: "Baristo.Online" },
       { property: "og:title", content: "Baristo.Online — Be Noble" },
       {
         property: "og:description",
-        content:
-          "Baristo.Online brand store — single-origin Indian altitude Arabica in Medium, Medium-Dark & Truly Dark roasts. Elite by nature. Roasted for perfection.",
+        content: brandSubtitle,
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Baristo.Online — Be Noble" },
-      { name: "twitter:description", content: "Baristo.Online brand store — single-origin Indian altitude Arabica in Medium, Medium-Dark & Truly Dark roasts. Elite by nature. Roasted for perfection." },
+      { name: "twitter:description", content: brandSubtitle },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/0iCLiARRVrWUsson6lNjwG6xJ1e2/social-images/social-1783630944221-5d2215ee-6a95-46f7-a1ff-496212745580.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/0iCLiARRVrWUsson6lNjwG6xJ1e2/social-images/social-1783630944221-5d2215ee-6a95-46f7-a1ff-496212745580.webp" },
     ],
@@ -122,8 +121,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               name: "Baristo.Online",
               url: "https://baristo.lovable.app",
               logo: "https://baristo.lovable.app/favicon.ico",
-              description:
-                "Baristo.Online — single-origin Indian high-altitude Arabica in Medium, Medium-Dark, and Truly Dark roasts.",
+              description: brandSubtitle,
             },
             {
               "@type": "WebSite",
