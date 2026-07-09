@@ -21,6 +21,7 @@ function Index() {
       <main>
         <Hero />
         <RoastCollection />
+        <CasePacks />
         <APlusModules />
         <Evidence />
         <RecipeEcosystem />
