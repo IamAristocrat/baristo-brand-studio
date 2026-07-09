@@ -10,6 +10,8 @@ export interface CartItem {
   mrp: number;
   qty: number;
   image: string;
+  isCasePack?: boolean;
+  packsPerCase?: number;
 }
 
 interface CartCtx {
