@@ -1,5 +1,6 @@
 import heroMountains from "@/assets/hero-mountains.jpg";
-import medallion from "@/assets/medallion.png";
+import medallionAsset from "@/assets/baristo-logo.png.asset.json";
+const medallion = medallionAsset.url;
 
 const promises = ["Purity", "Provenance", "Roast", "Evidence"];
 
