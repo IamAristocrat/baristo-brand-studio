@@ -51,6 +51,7 @@ function Index() {
         </main>
         <StoreFooter />
         <CartDrawer />
+        <FloatingCTA />
       </div>
     </CartProvider>
   );
