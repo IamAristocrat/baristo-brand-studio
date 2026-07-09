@@ -267,6 +267,7 @@ function RoastDetailBody() {
             </p>
           </div>
         </div>
+        </div>
       </section>
 
       {/* Brew guidance */}
