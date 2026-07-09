@@ -7,6 +7,7 @@ import { RoastComparison } from "@/components/baristo/RoastComparison";
 import { APlusModules } from "@/components/baristo/APlusModules";
 import { VisualStory } from "@/components/baristo/VisualStory";
 import { Evidence } from "@/components/baristo/Evidence";
+import { EvidenceStrip } from "@/components/baristo/EvidenceStrip";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
 import { LaunchSop } from "@/components/baristo/LaunchSop";
