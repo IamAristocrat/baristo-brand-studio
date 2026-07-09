@@ -35,16 +35,36 @@ export const Route = createFileRoute("/recipes/$slug")({
     }
     const r = loaderData.recipe;
     const title = `${r.name} — ${r.theme} | Baristo.Online Recipe`;
-    const desc = `${r.copy} A ${r.method.toLowerCase()} ritual built on ${r.roasts.join(" or ")} roast — ingredients, step-by-step brew, and tasting notes.`;
+    const rawDesc = `${r.copy} A ${r.method.toLowerCase()} ritual on ${r.roasts.join(" or ")} — ingredients, brew steps, and tasting notes.`;
+    const desc = rawDesc.length > 158 ? rawDesc.slice(0, 155) + "…" : rawDesc;
     const url = `https://baristo.lovable.app/recipes/${params.slug}`;
+    const primaryRoast = roastNameToKey[r.roasts[0] as keyof typeof roastNameToKey];
+    const image = `https://baristo.lovable.app${pouchImages[primaryRoast] ?? pouchImages.medium}`;
+    const keywords = [
+      r.name,
+      r.theme,
+      r.method,
+      "coffee recipe",
+      "Baristo.Online",
+      ...r.roasts.map((rn) => `${rn} coffee`),
+    ].join(", ");
     return {
       meta: [
         { title },
         { name: "description", content: desc },
+        { name: "keywords", content: keywords },
+        { property: "og:site_name", content: "Baristo.Online" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        { property: "og:image", content: image },
+        { property: "og:image:alt", content: `${r.name} — Baristo.Online recipe` },
+        { property: "article:section", content: r.theme },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: image },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
