@@ -12,6 +12,8 @@ export function Hero() {
         alt="Misty Indian high-altitude coffee mountains at golden hour"
         width={1920}
         height={1080}
+        loading="eager"
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover opacity-50"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />

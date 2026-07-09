@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import heroMountains from "@/assets/hero-mountains.jpg";
 import { StoreNav } from "@/components/baristo/StoreNav";
 import { Hero } from "@/components/baristo/Hero";
 import { RoastCollection } from "@/components/baristo/RoastCollection";
@@ -16,6 +17,18 @@ import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: heroMountains,
+        imageSrcset: undefined,
+        imageSizes: undefined,
+        fetchPriority: "high",
+      },
+    ],
+  }),
   component: Index,
 });
 
