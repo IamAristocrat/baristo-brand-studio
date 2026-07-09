@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { roasts } from "@/lib/baristo-data";
+import { roasts, recipes } from "@/lib/baristo-data";
 
 const BASE_URL = "https://baristo.lovable.app";
 
@@ -21,6 +21,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/roasts/${r.key}`,
             changefreq: "weekly" as const,
             priority: "0.9",
+          })),
+          ...recipes.map((r) => ({
+            path: `/recipes/${r.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
           })),
         ];
 

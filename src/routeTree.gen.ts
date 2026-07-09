@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoastsRoastKeyRouteImport } from './routes/roasts.$roastKey'
+import { Route as RecipesSlugRouteImport } from './routes/recipes.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -28,34 +29,43 @@ const RoastsRoastKeyRoute = RoastsRoastKeyRouteImport.update({
   path: '/roasts/$roastKey',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecipesSlugRoute = RecipesSlugRouteImport.update({
+  id: '/recipes/$slug',
+  path: '/recipes/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
   '/roasts/$roastKey': typeof RoastsRoastKeyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
   '/roasts/$roastKey': typeof RoastsRoastKeyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/recipes/$slug': typeof RecipesSlugRoute
   '/roasts/$roastKey': typeof RoastsRoastKeyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/roasts/$roastKey'
+  fullPaths: '/' | '/sitemap.xml' | '/recipes/$slug' | '/roasts/$roastKey'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/roasts/$roastKey'
-  id: '__root__' | '/' | '/sitemap.xml' | '/roasts/$roastKey'
+  to: '/' | '/sitemap.xml' | '/recipes/$slug' | '/roasts/$roastKey'
+  id: '__root__' | '/' | '/sitemap.xml' | '/recipes/$slug' | '/roasts/$roastKey'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  RecipesSlugRoute: typeof RecipesSlugRoute
   RoastsRoastKeyRoute: typeof RoastsRoastKeyRoute
 }
 
@@ -82,12 +92,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoastsRoastKeyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recipes/$slug': {
+      id: '/recipes/$slug'
+      path: '/recipes/$slug'
+      fullPath: '/recipes/$slug'
+      preLoaderRoute: typeof RecipesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  RecipesSlugRoute: RecipesSlugRoute,
   RoastsRoastKeyRoute: RoastsRoastKeyRoute,
 }
 export const routeTree = rootRouteImport
