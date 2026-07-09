@@ -78,14 +78,14 @@ export const Route = createFileRoute("/recipes/$slug")({
 
 function RecipeNotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-obsidian px-4 text-center text-ivory">
+    <div className="flex min-h-screen items-center justify-center bg-ivory px-4 text-center text-espresso">
       <div>
         <p className="smallcaps text-xs text-rosegold-light">Not found</p>
         <h1 className="mt-3 font-display text-4xl font-semibold">This recipe doesn't exist</h1>
         <Link
           to="/"
           hash="recipes"
-          className="smallcaps mt-6 inline-block rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-ivory shadow-rose"
+          className="smallcaps mt-6 inline-block rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-espresso shadow-rose"
         >
           Back to Recipes
         </Link>
@@ -97,7 +97,7 @@ function RecipeNotFound() {
 const difficultyBadge: Record<"Easy" | "Considered" | "Ritual", string> = {
   Easy: "bg-secondary text-secondary-foreground",
   Considered: "bg-champagne text-espresso",
-  Ritual: "bg-obsidian text-champagne",
+  Ritual: "bg-ivory text-champagne",
 };
 
 function RecipeDetailPage() {
@@ -246,7 +246,7 @@ function RecipeDetailBody() {
             <ol className="mt-8 space-y-6">
               {recipe.steps.map((step, i) => (
                 <li key={i} className="flex gap-5">
-                  <span className="smallcaps flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-gradient-rose font-display text-sm font-semibold text-ivory shadow-rose">
+                  <span className="smallcaps flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-gradient-rose font-display text-sm font-semibold text-espresso shadow-rose">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="pt-2 text-sm leading-relaxed text-foreground">{step}</p>
@@ -261,13 +261,13 @@ function RecipeDetailBody() {
       <BrewKitBuilder recipe={recipe} />
 
       {/* Tasting notes */}
-      <section className="bg-obsidian py-20 text-ivory sm:py-24">
+      <section className="bg-ivory py-20 text-espresso sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <p className="smallcaps text-center text-xs text-rosegold-light">The Cupping</p>
           <h2 className="hairline hairline-center mt-3 text-center font-display text-4xl font-semibold sm:text-5xl">
             Tasting Notes
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-center text-ivory/60">
+          <p className="mx-auto mt-5 max-w-xl text-center text-espresso/60">
             What to look for when you take the first sip.
           </p>
 
@@ -275,7 +275,7 @@ function RecipeDetailBody() {
             {recipe.tastingNotes.map((note, i) => (
               <li
                 key={i}
-                className="rounded-lg border border-ivory/10 bg-obsidian-soft p-6 transition-colors hover:border-rosegold/50"
+                className="rounded-lg border border-rosegold/20 bg-champagne/40 p-6 transition-colors hover:border-rosegold/50"
               >
                 <p className="smallcaps text-[10px] text-rosegold-light">Note {i + 1}</p>
                 <p className="mt-3 text-sm leading-relaxed text-champagne">{note}</p>
@@ -285,7 +285,7 @@ function RecipeDetailBody() {
 
           <div className="mt-12 rounded-lg border border-rosegold/30 bg-gradient-to-r from-rosegold/10 to-transparent p-6 text-center">
             <p className="smallcaps text-[10px] text-rosegold-light">Suggested Pairing</p>
-            <p className="mt-2 font-display text-xl text-ivory">{recipe.pairing}</p>
+            <p className="mt-2 font-display text-xl text-espresso">{recipe.pairing}</p>
           </div>
         </div>
       </section>
