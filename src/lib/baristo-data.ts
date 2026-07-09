@@ -7,7 +7,7 @@ export interface Roast {
   notes: string[];
   description: string;
   recipeBase: string;
-  sizes: { label: string; sub: string }[];
+  sizes: { label: string; sub: string; grams: number; price: number; mrp: number }[];
   intensity: number; // 1–5
   cta: string;
 }
@@ -22,8 +22,8 @@ export const roasts: Roast[] = [
       "A clean, elegant, aromatic cup — honeyed almond and soft cacao lifted by gentle citrus, closing on a refined finish.",
     recipeBase: "Baristo Classic · Sage · Zen · Harmony · Glow",
     sizes: [
-      { label: "250 g", sub: "Everyday" },
-      { label: "500 g", sub: "Reserve" },
+      { label: "250 g", sub: "Everyday", grams: 250, price: 549, mrp: 699 },
+      { label: "500 g", sub: "Reserve", grams: 500, price: 999, mrp: 1299 },
     ],
     intensity: 2,
     cta: "Shop Medium Roast",
@@ -37,8 +37,8 @@ export const roasts: Roast[] = [
       "Deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "250 g", sub: "Everyday" },
-      { label: "500 g", sub: "Reserve" },
+      { label: "250 g", sub: "Everyday", grams: 250, price: 599, mrp: 799 },
+      { label: "500 g", sub: "Reserve", grams: 500, price: 1099, mrp: 1449 },
     ],
     intensity: 4,
     cta: "Shop Medium-Dark",
@@ -52,8 +52,8 @@ export const roasts: Roast[] = [
       "Bold, intense, roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "250 g", sub: "Everyday" },
-      { label: "500 g", sub: "Reserve" },
+      { label: "250 g", sub: "Everyday", grams: 250, price: 649, mrp: 849 },
+      { label: "500 g", sub: "Reserve", grams: 500, price: 1199, mrp: 1599 },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
