@@ -34,7 +34,7 @@ export function Hero() {
         <p className="smallcaps mt-3 text-base text-rosegold sm:text-lg">Be Noble</p>
 
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-espresso/80 sm:text-lg">
-          Single origin premium coffee bean sourced from altitudes and roasted gracefully for Noble minds with Elite attitudes aspiring peak performance altitudes.
+          Single-origin premium coffee beans sourced from high altitudes and gracefully roasted for Noble minds with Elite attitudes — fueling peak performance and cognitive sharpness.
         </p>
         <p className="font-display mt-2 text-lg text-rosegold italic sm:text-2xl">
           Elite by nature. Roasted for perfection.
