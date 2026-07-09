@@ -77,19 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Baristo.Online — Be Noble | Indian Altitude Arabica" },
+      {
+        name: "description",
+        content:
+          "Baristo.Online brand store — single-origin Indian altitude Arabica in Medium, Medium-Dark & Truly Dark roasts. Elite by nature. Roasted for perfection.",
+      },
+      { name: "author", content: "Baristo.Online" },
+      { property: "og:title", content: "Baristo.Online — Be Noble | Indian Altitude Arabica" },
+      {
+        property: "og:description",
+        content:
+          "Evidence-based noble Indian Arabica. Three master roasts, twelve elevated recipes, one refined daily ritual.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],

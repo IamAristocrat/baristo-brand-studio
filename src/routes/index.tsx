@@ -1,24 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { StoreNav } from "@/components/baristo/StoreNav";
+import { Hero } from "@/components/baristo/Hero";
+import { RoastCollection } from "@/components/baristo/RoastCollection";
+import { APlusModules } from "@/components/baristo/APlusModules";
+import { Evidence } from "@/components/baristo/Evidence";
+import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
+import { AmazonCopy } from "@/components/baristo/AmazonCopy";
+import { LaunchSop } from "@/components/baristo/LaunchSop";
+import { StoreFooter } from "@/components/baristo/StoreFooter";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <StoreNav />
+      <main>
+        <Hero />
+        <RoastCollection />
+        <APlusModules />
+        <Evidence />
+        <RecipeEcosystem />
+        <AmazonCopy />
+        <LaunchSop />
+      </main>
+      <StoreFooter />
+
+      {/* Floating launch CTA */}
+      <a
+        href="#launch-sop"
+        className="smallcaps fixed right-4 bottom-4 z-50 rounded-full bg-gradient-rose px-6 py-3.5 text-xs font-bold text-ivory shadow-rose transition-transform hover:scale-105 sm:right-6 sm:bottom-6"
+      >
+        Launch Checklist
+      </a>
     </div>
   );
 }
