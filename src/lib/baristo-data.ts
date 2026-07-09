@@ -22,8 +22,8 @@ export const roasts: Roast[] = [
       "A clean, elegant, aromatic cup — honeyed almond and soft cacao lifted by gentle citrus, closing on a refined finish.",
     recipeBase: "Baristo Classic · Sage · Zen · Harmony · Glow",
     sizes: [
-      { label: "250 g", sub: "8.8 oz" },
-      { label: "500 g", sub: "17.6 oz" },
+      { label: "250 g", sub: "Everyday" },
+      { label: "500 g", sub: "Reserve" },
     ],
     intensity: 2,
     cta: "Shop Medium Roast",
@@ -37,8 +37,8 @@ export const roasts: Roast[] = [
       "Deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "250 g", sub: "8.8 oz" },
-      { label: "500 g", sub: "17.6 oz" },
+      { label: "250 g", sub: "Everyday" },
+      { label: "500 g", sub: "Reserve" },
     ],
     intensity: 4,
     cta: "Shop Medium-Dark",
@@ -52,8 +52,8 @@ export const roasts: Roast[] = [
       "Bold, intense, roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "250 g", sub: "8.8 oz" },
-      { label: "500 g", sub: "17.6 oz" },
+      { label: "250 g", sub: "Everyday" },
+      { label: "500 g", sub: "Reserve" },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
@@ -249,4 +249,81 @@ export const sopPackaging = [
   "One-way degassing valve",
   "Baristo.Online dominant on front panel",
   "LifeCodeOS & Aristoverse DeepTech in statutory / story area",
+];
+
+export interface CasePack {
+  key: string;
+  name: string;
+  packSplit: string;
+  total: string;
+  mrp: string;
+  price: string;
+  useCase: string;
+  accent: "medium" | "medium-dark" | "truly-dark" | "discovery" | "executive" | "altitude";
+}
+
+export const casePacks: CasePack[] = [
+  {
+    key: "medium",
+    name: "Baristo Medium Roast Case",
+    packSplit: "5 × 250 g Medium + 5 × 500 g Medium",
+    total: "3.75 kg",
+    mrp: "₹14,490",
+    price: "₹10,999",
+    useCase: "Daily luxury drinkers",
+    accent: "medium",
+  },
+  {
+    key: "medium-dark",
+    name: "Baristo Medium-Dark Roast Case",
+    packSplit: "5 × 250 g Medium-Dark + 5 × 500 g Medium-Dark",
+    total: "3.75 kg",
+    mrp: "₹15,990",
+    price: "₹12,499",
+    useCase: "Espresso-minded users",
+    accent: "medium-dark",
+  },
+  {
+    key: "truly-dark",
+    name: "Baristo Truly Dark Roast Case",
+    packSplit: "5 × 250 g Truly Dark + 5 × 500 g Truly Dark",
+    total: "3.75 kg",
+    mrp: "₹17,490",
+    price: "₹13,999",
+    useCase: "Bold premium users",
+    accent: "truly-dark",
+  },
+  {
+    key: "discovery",
+    name: "Baristo Noble Discovery Case",
+    packSplit:
+      "2 × 250 g Medium + 2 × 500 g Medium + 2 × 250 g Medium-Dark + 2 × 500 g Medium-Dark + 1 × 250 g Truly Dark + 1 × 500 g Truly Dark",
+    total: "3.75 kg",
+    mrp: "₹15,690",
+    price: "₹12,199",
+    useCase: "Best mixed launch pack",
+    accent: "discovery",
+  },
+  {
+    key: "executive",
+    name: "Baristo Executive Ritual Case",
+    packSplit:
+      "1 × 250 g Medium + 2 × 500 g Medium + 2 × 250 g Medium-Dark + 3 × 500 g Medium-Dark + 1 × 250 g Truly Dark + 1 × 500 g Truly Dark",
+    total: "4 kg",
+    mrp: "₹16,790",
+    price: "₹13,299",
+    useCase: "Founders / CEOs / offices",
+    accent: "executive",
+  },
+  {
+    key: "altitude",
+    name: "Baristo Dark Altitude Case",
+    packSplit:
+      "1 × 250 g Medium + 1 × 500 g Medium + 1 × 250 g Medium-Dark + 2 × 500 g Medium-Dark + 2 × 250 g Truly Dark + 3 × 500 g Truly Dark",
+    total: "4 kg",
+    mrp: "₹17,490",
+    price: "₹13,999",
+    useCase: "Dark roast lovers",
+    accent: "altitude",
+  },
 ];
