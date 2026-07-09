@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
-import medallion from "@/assets/medallion.png";
 
 const links = [
   { label: "Home", href: "#home" },
