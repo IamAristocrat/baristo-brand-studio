@@ -19,39 +19,41 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />
 
       {/* Consciousness glow field */}
-      <div className="pointer-events-none absolute inset-0 flex items-start justify-center" style={{ paddingTop: 'clamp(4rem, 10vh, 8rem)' }}>
+      <div
+        className="pointer-events-none absolute inset-0 flex items-start justify-center"
+        style={{ paddingTop: 'clamp(4rem, 10vh, 8rem)', contain: 'layout paint' }}
+      >
         <div className="relative">
-          {/* Core aura */}
+          {/* Core aura — lighter blur, GPU-promoted */}
           <div
-            className="absolute -inset-12 rounded-full blur-3xl sm:-inset-16 lg:-inset-20"
+            className="absolute -inset-16 rounded-full blur-2xl sm:-inset-20 lg:-inset-24"
             style={{
-              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.35) 0%, oklch(0.6 0.085 42 / 0.12) 50%, transparent 70%)',
+              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.32) 0%, oklch(0.6 0.085 42 / 0.1) 55%, transparent 75%)',
               animation: 'pulse-glow 8s ease-in-out infinite',
+              willChange: 'transform, opacity',
             }}
           />
           {/* Outer ring */}
           <div
             className="absolute -inset-24 rounded-full border border-rosegold/10 sm:-inset-32 lg:-inset-40"
-            style={{ animation: 'rotate-slow 60s linear infinite' }}
+            style={{ animation: 'rotate-slow 60s linear infinite', willChange: 'transform' }}
           >
-            <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30 blur-[1px]" />
+            <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30" />
           </div>
           {/* Inner ring */}
           <div
             className="absolute -inset-16 rounded-full border border-rosegold/15 sm:-inset-20 lg:-inset-28"
-            style={{ animation: 'rotate-slow 40s linear infinite reverse' }}
+            style={{ animation: 'rotate-slow 40s linear infinite reverse', willChange: 'transform' }}
           >
-            <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25 blur-[1px]" />
+            <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25" />
           </div>
-          {/* Geometric hex hint */}
+          {/* Soft geometric pulse — opacity-only, no mask/conic paint */}
           <div
-            className="absolute -inset-8 opacity-0 sm:-inset-12 lg:-inset-16"
+            className="absolute -inset-10 rounded-full sm:-inset-14 lg:-inset-18"
             style={{
-              opacity: 0.08,
-              background: `repeating-conic-gradient(from 0deg, oklch(0.72 0.075 45) 0deg 60deg, transparent 60deg 120deg)`,
-              maskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
-              WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.06) 0%, transparent 60%)',
               animation: 'breathe 10s ease-in-out infinite',
+              willChange: 'opacity',
             }}
           />
         </div>
@@ -72,7 +74,7 @@ export function Hero() {
           width={1024}
           height={1024}
           fetchPriority="high"
-          className="aspect-square w-[min(72vw,18rem)] max-w-full rounded-full drop-shadow-[0_16px_48px_rgba(183,112,84,0.5)] sm:w-[min(52vw,22rem)] md:w-[26rem] lg:w-[30rem]"
+          className="aspect-square w-[min(72vw,18rem)] max-w-full rounded-full drop-shadow-[0_8px_28px_rgba(183,112,84,0.45)] sm:w-[min(52vw,22rem)] md:w-[26rem] lg:w-[30rem]"
         />
 
         <p className="smallcaps mt-5 text-[10px] text-rosegold-light sm:mt-6 sm:text-xs">
