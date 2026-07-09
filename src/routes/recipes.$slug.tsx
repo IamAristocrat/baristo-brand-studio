@@ -254,6 +254,9 @@ function RecipeDetailBody() {
         </div>
       </section>
 
+      {/* Brew Kit builder */}
+      <BrewKitBuilder recipe={recipe} />
+
       {/* Tasting notes */}
       <section className="bg-obsidian py-20 text-ivory sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
