@@ -78,8 +78,7 @@ export function Hero() {
           </ul>
         </div>
       </div>
-
-      </div>
     </section>
+
   );
 }
