@@ -57,12 +57,25 @@ export function CartDrawer() {
             <p className="text-sm text-espresso/50">
               Select a roast and size to begin your Baristo ritual.
             </p>
-            <button
-              onClick={() => setOpen(false)}
-              className="smallcaps mt-3 rounded-sm bg-gradient-rose px-5 py-2.5 text-xs font-semibold text-espresso shadow-rose"
-            >
-              Shop Roasts
-            </button>
+            <div className="mt-3 flex flex-col gap-2">
+              <button
+                onClick={() => setOpen(false)}
+                className="smallcaps rounded-sm bg-gradient-rose px-5 py-2.5 text-xs font-semibold text-espresso shadow-rose"
+              >
+                Shop Roasts
+              </button>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  setTimeout(() => {
+                    document.getElementById("cases")?.scrollIntoView({ behavior: "smooth" });
+                  }, 300);
+                }}
+                className="smallcaps rounded-sm border border-rosegold/25 px-5 py-2.5 text-xs font-semibold text-espresso hover:border-rosegold-light hover:text-rosegold-light"
+              >
+                Shop Case Collections
+              </button>
+            </div>
           </div>
         ) : (
           <>
