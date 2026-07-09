@@ -18,6 +18,45 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />
 
+      {/* Consciousness glow field */}
+      <div className="pointer-events-none absolute inset-0 flex items-start justify-center" style={{ paddingTop: 'clamp(4rem, 10vh, 8rem)' }}>
+        <div className="relative">
+          {/* Core aura */}
+          <div
+            className="absolute -inset-12 rounded-full blur-3xl sm:-inset-16 lg:-inset-20"
+            style={{
+              background: 'radial-gradient(circle, oklch(0.72 0.075 45 / 0.35) 0%, oklch(0.6 0.085 42 / 0.12) 50%, transparent 70%)',
+              animation: 'pulse-glow 8s ease-in-out infinite',
+            }}
+          />
+          {/* Outer ring */}
+          <div
+            className="absolute -inset-24 rounded-full border border-rosegold/10 sm:-inset-32 lg:-inset-40"
+            style={{ animation: 'rotate-slow 60s linear infinite' }}
+          >
+            <div className="absolute top-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-rosegold/30 blur-[1px]" />
+          </div>
+          {/* Inner ring */}
+          <div
+            className="absolute -inset-16 rounded-full border border-rosegold/15 sm:-inset-20 lg:-inset-28"
+            style={{ animation: 'rotate-slow 40s linear infinite reverse' }}
+          >
+            <div className="absolute bottom-0 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-rosegold/25 blur-[1px]" />
+          </div>
+          {/* Geometric hex hint */}
+          <div
+            className="absolute -inset-8 opacity-0 sm:-inset-12 lg:-inset-16"
+            style={{
+              opacity: 0.08,
+              background: `repeating-conic-gradient(from 0deg, oklch(0.72 0.075 45) 0deg 60deg, transparent 60deg 120deg)`,
+              maskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+              WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+              animation: 'breathe 10s ease-in-out infinite',
+            }}
+          />
+        </div>
+      </div>
+
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
         <img
           src={medallion}
