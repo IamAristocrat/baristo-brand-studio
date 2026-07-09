@@ -19,7 +19,25 @@ export function FloatingCTA() {
   const scrollToRoasts = () => {
     const el = document.getElementById("roasts");
     if (el) {
+      el.classList.remove("scroll-highlight");
       el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Trigger highlight after scroll completes (~smooth scroll duration)
+      const onScrollEnd = () => {
+        el.classList.add("scroll-highlight");
+        window.removeEventListener("scroll", onScrollEnd);
+        setTimeout(() => el.classList.remove("scroll-highlight"), 1400);
+      };
+      // Wait for scroll motion to settle
+      let lastY = window.scrollY;
+      const checkSettled = () => {
+        if (window.scrollY === lastY) {
+          onScrollEnd();
+        } else {
+          lastY = window.scrollY;
+          requestAnimationFrame(checkSettled);
+        }
+      };
+      requestAnimationFrame(checkSettled);
     }
   };
 

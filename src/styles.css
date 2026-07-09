@@ -200,3 +200,14 @@ img, video {
     animation: none !important;
   }
 }
+
+/* Section scroll-highlight — brief rose-gold glow pulse */
+@keyframes section-highlight {
+  0%   { box-shadow: inset 0 0 0 0 transparent; }
+  30%  { box-shadow: inset 0 0 0 3px var(--rosegold), 0 0 40px -10px color-mix(in oklab, var(--rosegold) 45%, transparent); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+.scroll-highlight {
+  animation: section-highlight 1.2s ease-out forwards;
+}
