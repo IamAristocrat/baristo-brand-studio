@@ -11,7 +11,6 @@ import { Evidence } from "@/components/baristo/Evidence";
 import { EvidenceStrip } from "@/components/baristo/EvidenceStrip";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
-import { LaunchSop } from "@/components/baristo/LaunchSop";
 import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
