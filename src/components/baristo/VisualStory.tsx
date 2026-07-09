@@ -48,7 +48,7 @@ export function VisualStory() {
             <span className="text-gradient-rose"> Roasted for perfection.</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-espresso/75 sm:text-lg">
-            Every pouch carries the same promise — single-origin altitude Arabica, graceful roast profile, and evidence at every step. Made for the bright minds who chase sharper mornings and higher peaks.
+            Every pouch carries the same promise — single-origin Arabica from high altitudes, gracefully roasted, and evidence at every step. Made for Noble minds with Elite attitudes chasing peak performance and cognitive sharpness.
           </p>
         </div>
 
