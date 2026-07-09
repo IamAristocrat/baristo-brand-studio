@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { roasts, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
 import pouchMedium from "@/assets/pouch-medium.jpg";
@@ -66,8 +67,15 @@ export function RoastCollection() {
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-2xl font-semibold">{roast.name}</h3>
+                <Link
+                  to="/roasts/$roastKey"
+                  params={{ roastKey: roast.key }}
+                  className="font-display text-2xl font-semibold transition-colors hover:text-primary"
+                >
+                  {roast.name}
+                </Link>
                 <p className="smallcaps mt-1 text-xs text-primary">{roast.tagline}</p>
+
 
                 <div className="mt-4">
                   <IntensityDots level={roast.intensity} />
