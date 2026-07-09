@@ -67,7 +67,7 @@ export function CasePacks() {
                 <div className="mt-6 flex items-center gap-3">
                   <div className="flex items-center rounded-sm border border-rosegold/25">
                     <button
-                      onClick={() => setCaseQty((prev) => Math.max(1, (prev[c.key] ?? 1) - 1))}
+                      onClick={() => setCaseQty((prev) => ({ ...prev, [c.key]: Math.max(1, (prev[c.key] ?? 1) - 1) }))}
                       aria-label="Decrease cases"
                       className="flex h-9 w-9 items-center justify-center text-espresso/70 hover:text-rosegold-light"
                     >
