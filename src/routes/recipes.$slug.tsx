@@ -140,6 +140,9 @@ function RecipeDetailBody() {
                 {recipe.name}
               </h1>
               <p className="smallcaps mt-3 text-sm text-primary">{recipe.theme}</p>
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-espresso/70">
+                {brandSubtitle}
+              </p>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground italic sm:text-lg">
                 {recipe.copy}
               </p>
