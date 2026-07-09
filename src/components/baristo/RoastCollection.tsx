@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { roasts, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
 import pouchMedium from "@/assets/pouch-medium.jpg";

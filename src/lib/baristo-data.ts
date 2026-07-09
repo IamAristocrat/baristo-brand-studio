@@ -60,6 +60,99 @@ export const roasts: Roast[] = [
   },
 ];
 
+export const roastRecipeName: Record<RoastKey, "Medium" | "Medium-Dark" | "Truly Dark"> = {
+  medium: "Medium",
+  "medium-dark": "Medium-Dark",
+  "truly-dark": "Truly Dark",
+};
+
+export interface BrewMethod {
+  method: string;
+  grind: string;
+  ratio: string;
+  temp: string;
+  time: string;
+  note: string;
+}
+
+export interface BrewGuide {
+  ritual: string;
+  cupping: { attribute: string; value: string }[];
+  origin: { label: string; value: string }[];
+  methods: BrewMethod[];
+  pairings: string[];
+}
+
+export const brewGuides: Record<RoastKey, BrewGuide> = {
+  medium: {
+    ritual:
+      "Poured slowly into porcelain at first light — a clean, elegant cup for minds that begin the day with intention.",
+    cupping: [
+      { attribute: "Body", value: "Light–Medium" },
+      { attribute: "Acidity", value: "Bright, citrus-forward" },
+      { attribute: "Sweetness", value: "Honeyed almond" },
+      { attribute: "Finish", value: "Refined, lingering" },
+    ],
+    origin: [
+      { label: "Origin", value: "Single-origin Indian Arabica" },
+      { label: "Altitude", value: "1,400–1,600 m" },
+      { label: "Process", value: "Washed" },
+      { label: "Roast Level", value: "Medium (City)" },
+    ],
+    methods: [
+      { method: "Pour-Over", grind: "Medium", ratio: "1:16", temp: "94°C", time: "3:30", note: "Best canvas for citrus lift." },
+      { method: "French Press", grind: "Coarse", ratio: "1:15", temp: "94°C", time: "4:00", note: "Rounder body, honeyed close." },
+      { method: "Moka Pot", grind: "Fine–Medium", ratio: "1:10", temp: "Off boil", time: "4:00", note: "Elegant, cocoa-toned espresso-style." },
+    ],
+    pairings: ["Almond croissant", "Honey toast", "Soft cheeses"],
+  },
+  "medium-dark": {
+    ritual:
+      "The espresso-minded pour — cocoa warmth and structured depth, sculpted for the ritual between meetings.",
+    cupping: [
+      { attribute: "Body", value: "Medium–Full" },
+      { attribute: "Acidity", value: "Soft, balanced" },
+      { attribute: "Sweetness", value: "Warm caramel" },
+      { attribute: "Finish", value: "Long, noble" },
+    ],
+    origin: [
+      { label: "Origin", value: "Single-origin Indian Arabica" },
+      { label: "Altitude", value: "1,400–1,600 m" },
+      { label: "Process", value: "Washed / Natural blend" },
+      { label: "Roast Level", value: "Medium-Dark (Full City)" },
+    ],
+    methods: [
+      { method: "Espresso", grind: "Fine", ratio: "1:2", temp: "93°C", time: "27–30 s", note: "Signature cocoa-caramel shot." },
+      { method: "Moka Pot", grind: "Fine", ratio: "1:10", temp: "Off boil", time: "4:00", note: "Dense crema, milk-ready." },
+      { method: "French Press", grind: "Coarse", ratio: "1:15", temp: "94°C", time: "4:30", note: "Full-bodied, cacao-forward." },
+    ],
+    pairings: ["Dark chocolate 70%", "Cardamom biscuits", "Toasted brioche"],
+  },
+  "truly-dark": {
+    ritual:
+      "The command cup — bold intensity for decisive hours. Poured heavy, drunk with purpose.",
+    cupping: [
+      { attribute: "Body", value: "Full, syrupy" },
+      { attribute: "Acidity", value: "Low, tamed" },
+      { attribute: "Sweetness", value: "Smoked caramel" },
+      { attribute: "Finish", value: "Bold, roasted depth" },
+    ],
+    origin: [
+      { label: "Origin", value: "Single-origin Indian Arabica" },
+      { label: "Altitude", value: "1,400–1,600 m" },
+      { label: "Process", value: "Natural" },
+      { label: "Roast Level", value: "Dark (Vienna)" },
+    ],
+    methods: [
+      { method: "Espresso", grind: "Fine", ratio: "1:2", temp: "92°C", time: "26–28 s", note: "Dense, smoked-caramel intensity." },
+      { method: "Moka Pot", grind: "Fine", ratio: "1:10", temp: "Off boil", time: "4:00", note: "Bold, syrupy pour." },
+      { method: "Cold Brew", grind: "Coarse", ratio: "1:8", temp: "Cold", time: "16 h", note: "Chocolate-forward, smooth." },
+    ],
+    pairings: ["Espresso tartufo", "Salted caramel", "Aged gouda"],
+  },
+};
+
+
 export type RecipeRoast = "Medium" | "Medium-Dark" | "Truly Dark";
 
 export interface Recipe {
