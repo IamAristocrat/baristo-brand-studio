@@ -16,63 +16,69 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/40 to-champagne" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pt-28 pb-14 text-center sm:px-6 sm:pt-40 sm:pb-24">
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-24 pb-16 text-center sm:px-6 sm:pt-32 sm:pb-24 lg:pt-40">
         <img
           src={medallion}
           alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, Be Noble"
           width={1024}
           height={1024}
           fetchPriority="high"
-          className="aspect-square w-[min(92vw,28rem)] max-w-full rounded-full drop-shadow-[0_20px_60px_rgba(183,112,84,0.6)] sm:w-[min(80vw,32rem)] md:w-[36rem] lg:w-[42rem]"
+          className="aspect-square w-[min(78vw,20rem)] max-w-full rounded-full drop-shadow-[0_20px_60px_rgba(183,112,84,0.55)] sm:w-[min(60vw,26rem)] md:w-[30rem] lg:w-[34rem]"
         />
 
-        <p className="smallcaps mt-8 text-xs text-rosegold-light">LifeCodeOS Portfolio Product</p>
+        <p className="smallcaps mt-8 text-[10px] text-rosegold-light sm:text-xs">
+          LifeCodeOS Portfolio Product
+        </p>
 
-        <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
+        <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-6xl md:text-7xl">
           Baristo<span className="text-gradient-rose">.Online</span>
         </h1>
 
-        <p className="smallcaps mt-3 text-base text-rosegold sm:text-lg">Be Noble</p>
+        <p className="smallcaps mt-4 text-sm text-rosegold sm:text-base">Be Noble</p>
 
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-espresso/80 sm:text-lg">
+        <p className="mx-auto mt-6 max-w-[36ch] text-base leading-relaxed text-espresso/80 sm:max-w-2xl sm:text-lg sm:leading-relaxed text-balance">
           {brandSubtitle}
         </p>
-        <p className="font-display mt-2 text-lg text-rosegold italic sm:text-2xl">
+
+        <p className="font-display mt-4 text-lg italic text-rosegold sm:mt-5 sm:text-2xl text-balance">
           Elite by nature. Roasted for perfection.
         </p>
 
-        <div className="mt-10 grid w-full grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:justify-center">
+        <div className="mt-10 grid w-full max-w-md grid-cols-1 gap-3 sm:mt-12 sm:max-w-none sm:grid-cols-3 sm:gap-4">
           <a
             href="#roasts"
-            className="rounded-sm bg-gradient-rose px-6 py-3 text-center text-xs font-semibold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.03]"
+            className="inline-flex h-12 items-center justify-center rounded-sm bg-gradient-rose px-6 text-xs font-semibold uppercase tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.03]"
           >
             Shop Medium Roast
           </a>
           <a
             href="#roasts"
-            className="rounded-sm border border-rosegold/60 px-6 py-3 text-center text-xs font-semibold tracking-widest text-rosegold-light uppercase transition-colors hover:bg-rosegold/15"
+            className="inline-flex h-12 items-center justify-center rounded-sm border border-rosegold/60 px-6 text-xs font-semibold uppercase tracking-widest text-rosegold-light transition-colors hover:bg-rosegold/15"
           >
             Shop Medium-Dark
           </a>
           <a
             href="#roasts"
-            className="rounded-sm border border-ivory/25 px-6 py-3 text-center text-xs font-semibold tracking-widest text-espresso uppercase transition-colors hover:bg-champagne/40"
+            className="inline-flex h-12 items-center justify-center rounded-sm border border-rosegold/40 px-6 text-xs font-semibold uppercase tracking-widest text-espresso transition-colors hover:bg-champagne/40"
           >
             Shop Truly Dark
           </a>
         </div>
 
         <div className="mt-16 w-full border-t border-rosegold/20 pt-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-10">
             {promises.map((p, i) => (
-              <span key={p} className="flex items-center gap-10">
-                <span className="smallcaps text-sm text-rosegold">{p}</span>
-                {i < promises.length - 1 && <span className="hidden text-rosegold sm:inline">•</span>}
-              </span>
+              <li key={p} className="flex items-center gap-x-6 sm:gap-x-10">
+                <span className="smallcaps text-xs text-rosegold sm:text-sm">{p}</span>
+                {i < promises.length - 1 && (
+                  <span aria-hidden className="text-rosegold/60">•</span>
+                )}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
+
   );
 }
