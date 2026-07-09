@@ -154,6 +154,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
 
 
 export type RecipeRoast = "Medium" | "Medium-Dark" | "Truly Dark";
+export type RecipeBrewMethod = "Moka Pot" | "French Press" | "Pour-Over" | "Espresso";
 
 export interface Recipe {
   slug: string;
@@ -164,6 +165,7 @@ export interface Recipe {
   moment: string;
   copy: string;
   method: string;
+  brewMethods: RecipeBrewMethod[];
   prepTime: string;
   servings: string;
   difficulty: "Easy" | "Considered" | "Ritual";
@@ -182,6 +184,7 @@ export const recipes: Recipe[] = [
     moment: "The first noble cup of the day",
     copy: "The unadorned expression of Indian altitude Arabica — a sovereign daily cup, poured without compromise.",
     method: "Pour-Over",
+    brewMethods: ["Pour-Over", "French Press", "Moka Pot"],
     prepTime: "4 min",
     servings: "1 cup",
     difficulty: "Easy",
@@ -208,6 +211,7 @@ export const recipes: Recipe[] = [
     moment: "Deep-work mornings",
     copy: "A composed, buttery ritual for minds that think in long arcs — clarity, blended slowly.",
     method: "Blender ritual",
+    brewMethods: ["Espresso", "Pour-Over"],
     prepTime: "5 min",
     servings: "1 tall cup",
     difficulty: "Considered",
@@ -234,6 +238,7 @@ export const recipes: Recipe[] = [
     moment: "The quiet hour before dusk",
     copy: "Nobility in its softest register — florals, cardamom, and a cup that lowers the volume of the day.",
     method: "Infusion & pour",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "6 min",
     servings: "1 mug",
     difficulty: "Considered",
@@ -260,6 +265,7 @@ export const recipes: Recipe[] = [
     moment: "Mindful mid-mornings",
     copy: "Green luxury meets roasted elegance — a balanced-body blend for refined, intentional living.",
     method: "Cold blend",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "5 min",
     servings: "1 tall glass",
     difficulty: "Considered",
@@ -286,6 +292,7 @@ export const recipes: Recipe[] = [
     moment: "Golden-hour afternoons",
     copy: "Turmeric gold folded into altitude Arabica — elegance you can pour into a cup.",
     method: "Steamed ritual",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "5 min",
     servings: "1 cup",
     difficulty: "Considered",
@@ -312,6 +319,7 @@ export const recipes: Recipe[] = [
     moment: "Before decisive days",
     copy: "The command ritual — dark intensity fortified for those who set the agenda.",
     method: "Shake & pour",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "3 min",
     servings: "1 tall cup",
     difficulty: "Easy",
@@ -338,6 +346,7 @@ export const recipes: Recipe[] = [
     moment: "When momentum matters",
     copy: "Cacao fire with a cayenne edge — momentum, engineered in a cup.",
     method: "Stovetop mocha",
+    brewMethods: ["Moka Pot", "Espresso"],
     prepTime: "6 min",
     servings: "1 short mug",
     difficulty: "Considered",
@@ -364,6 +373,7 @@ export const recipes: Recipe[] = [
     moment: "Long focus blocks",
     copy: "Dark roast held inside matcha green — contained, cooled, and pointed at one thing.",
     method: "Cold layered",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "5 min",
     servings: "1 short glass",
     difficulty: "Considered",
@@ -390,6 +400,7 @@ export const recipes: Recipe[] = [
     moment: "Solitary excellence hours",
     copy: "A private-luxury pour — maca, vanilla, and steamed silk for those who need no audience.",
     method: "Steamed latte",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "5 min",
     servings: "1 mug",
     difficulty: "Considered",
@@ -416,6 +427,7 @@ export const recipes: Recipe[] = [
     moment: "High-output afternoons",
     copy: "Raw cacao and roasted depth, whipped into a dense, energetic ritual.",
     method: "Whipped shot",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "3 min",
     servings: "1 short cup",
     difficulty: "Easy",
@@ -442,6 +454,7 @@ export const recipes: Recipe[] = [
     moment: "Before training",
     copy: "Beetroot crimson meets truly dark roast — a charge ritual for physical altitude.",
     method: "Shake & shoot",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "4 min",
     servings: "1 short glass",
     difficulty: "Considered",
@@ -468,6 +481,7 @@ export const recipes: Recipe[] = [
     moment: "New beginnings",
     copy: "Fire, citrus, and renewal — the cup you pour when you rise again.",
     method: "Aromatic pour",
+    brewMethods: ["Espresso", "Moka Pot"],
     prepTime: "5 min",
     servings: "1 mug",
     difficulty: "Considered",
