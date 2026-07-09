@@ -6,7 +6,7 @@ export function FloatingCTA() {
 
   useEffect(() => {
     const onScroll = () => {
-      const hero = document.getElementById("hero");
+      const hero = document.getElementById("home");
       if (!hero) return;
       const heroBottom = hero.getBoundingClientRect().bottom;
       setVisible(heroBottom < 0);
