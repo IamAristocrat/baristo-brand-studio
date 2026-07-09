@@ -544,7 +544,7 @@ export const listingTitles = [
 export const listingBullets = [
   {
     lead: "Single-Origin Indian Arabica",
-    body: "Carefully sourced from mountain-altitude coffee regions for a refined origin-first cup.",
+    body: "Sourced from India's high altitudes for an origin-first cup tuned to peak performance and cognitive sharpness.",
   },
   {
     lead: "Master Roast Ladder",
