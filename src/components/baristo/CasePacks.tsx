@@ -28,7 +28,7 @@ export function CasePacks() {
             return (
               <article
                 key={c.key}
-                className="group relative flex flex-col overflow-hidden rounded-lg border border-rosegold/25 bg-gradient-to-b from-obsidian-light to-obsidian p-6 shadow-luxe transition-all hover:border-rosegold/60 hover:shadow-rose"
+                className="group relative flex flex-col overflow-hidden rounded-lg border border-rosegold/25 bg-gradient-to-b from-obsidian-soft to-obsidian p-6 shadow-luxe transition-all hover:border-rosegold/60 hover:shadow-rose"
               >
                 <span className="smallcaps absolute top-4 right-4 rounded-sm bg-gradient-rose px-2.5 py-1 text-[10px] font-bold text-ivory">
                   −{discount}%
