@@ -1,4 +1,5 @@
 import { brandSubtitle } from "@/lib/baristo-data";
+import { ConsciousnessOverlay } from "./ConsciousnessOverlay";
 import heroMountains from "@/assets/hero-mountains.jpg";
 import medallion from "@/assets/medallion.png";
 
