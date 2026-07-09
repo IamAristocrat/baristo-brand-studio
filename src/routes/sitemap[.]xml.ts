@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { roasts } from "@/lib/baristo-data";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://baristo.lovable.app";
 
 interface SitemapEntry {
   path: string;
@@ -15,7 +15,14 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
+        const entries: SitemapEntry[] = [
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          ...roasts.map((r) => ({
+            path: `/roasts/${r.key}`,
+            changefreq: "weekly" as const,
+            priority: "0.9",
+          })),
+        ];
 
         const urls = entries.map((e) =>
           [
