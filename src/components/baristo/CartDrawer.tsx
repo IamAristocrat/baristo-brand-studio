@@ -99,7 +99,18 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto px-6 py-4">
               <ul className="divide-y divide-ivory/10">
                 {items.map((i) => (
-                  <li key={i.id} className="flex gap-4 py-4">
+                  <li
+                    key={i.id}
+                    ref={(el) => {
+                      itemRefs.current[i.id] = el;
+                    }}
+                    className={`flex gap-4 py-4 transition-all duration-500 ${
+                      flashId === i.id
+                        ? "rounded-sm ring-2 ring-rosegold/60 bg-champagne/50 shadow-rose"
+                        : ""
+                    }`}
+                  >
+
                     {i.image ? (
                       <img
                         src={i.image}
