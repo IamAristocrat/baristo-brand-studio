@@ -175,6 +175,8 @@ function RecipeDetailBody() {
                 <span className="smallcaps font-semibold text-foreground">Best moment</span> —{" "}
                 {recipe.moment}
               </p>
+
+              <EvidenceBadges className="mt-8" />
             </div>
 
             {/* Roast basis card */}
