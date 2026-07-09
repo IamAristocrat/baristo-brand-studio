@@ -97,7 +97,7 @@ function RecipeNotFound() {
 const difficultyBadge: Record<"Easy" | "Considered" | "Ritual", string> = {
   Easy: "bg-secondary text-secondary-foreground",
   Considered: "bg-champagne text-espresso",
-  Ritual: "bg-ivory text-champagne",
+  Ritual: "bg-ivory text-rosegold",
 };
 
 function RecipeDetailPage() {
@@ -278,7 +278,7 @@ function RecipeDetailBody() {
                 className="rounded-lg border border-rosegold/20 bg-champagne/40 p-6 transition-colors hover:border-rosegold/50"
               >
                 <p className="smallcaps text-[10px] text-rosegold-light">Note {i + 1}</p>
-                <p className="mt-3 text-sm leading-relaxed text-champagne">{note}</p>
+                <p className="mt-3 text-sm leading-relaxed text-rosegold">{note}</p>
               </li>
             ))}
           </ul>

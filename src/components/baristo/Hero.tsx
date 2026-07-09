@@ -31,12 +31,12 @@ export function Hero() {
           Baristo<span className="text-gradient-rose">.Online</span>
         </h1>
 
-        <p className="smallcaps mt-3 text-base text-champagne sm:text-lg">Be Noble</p>
+        <p className="smallcaps mt-3 text-base text-rosegold sm:text-lg">Be Noble</p>
 
         <p className="mt-6 max-w-2xl text-sm leading-relaxed text-espresso/80 sm:text-lg">
           Single origin premium coffee bean sourced from altitudes and roasted gracefully for Noble minds with Elite attitudes aspiring peak performance altitudes.
         </p>
-        <p className="font-display mt-2 text-lg text-champagne italic sm:text-2xl">
+        <p className="font-display mt-2 text-lg text-rosegold italic sm:text-2xl">
           Elite by nature. Roasted for perfection.
         </p>
 
@@ -65,7 +65,7 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {promises.map((p, i) => (
               <span key={p} className="flex items-center gap-10">
-                <span className="smallcaps text-sm text-champagne">{p}</span>
+                <span className="smallcaps text-sm text-rosegold">{p}</span>
                 {i < promises.length - 1 && <span className="hidden text-rosegold sm:inline">•</span>}
               </span>
             ))}

@@ -44,7 +44,7 @@ export function AmazonCopy() {
 
         <div className="mt-8 rounded-lg border border-rosegold/20 bg-champagne/40 p-6 sm:p-8">
           <p className="smallcaps text-[11px] text-rosegold-light">Product Title</p>
-          <p className="mt-2 font-medium leading-relaxed text-champagne">{listingTitles[tab]}</p>
+          <p className="mt-2 font-medium leading-relaxed text-rosegold">{listingTitles[tab]}</p>
 
           <p className="smallcaps mt-8 text-[11px] text-rosegold-light">Five Bullet Points</p>
           <ul className="mt-3 space-y-4">

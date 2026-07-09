@@ -72,7 +72,7 @@ export function LaunchSop() {
 
             <div className="rounded-lg bg-gradient-ivory p-7 text-espresso shadow-luxe">
               <p className="smallcaps text-xs text-rosegold-light">Brand Hierarchy</p>
-              <p className="mt-3 font-display text-xl font-semibold text-champagne">
+              <p className="mt-3 font-display text-xl font-semibold text-rosegold">
                 Baristo.Online dominant on the front.
               </p>
               <p className="mt-2 text-sm leading-relaxed text-espresso/70">

@@ -159,7 +159,7 @@ function RoastDetailBody() {
                 height={1152}
                 className="h-full w-full object-cover"
               />
-              <span className="smallcaps absolute top-5 left-5 rounded-sm bg-ivory/85 px-3 py-1.5 text-[11px] text-champagne backdrop-blur-sm">
+              <span className="smallcaps absolute top-5 left-5 rounded-sm bg-ivory/85 px-3 py-1.5 text-[11px] text-rosegold backdrop-blur-sm">
                 Single-Origin Indian Arabica
               </span>
             </div>

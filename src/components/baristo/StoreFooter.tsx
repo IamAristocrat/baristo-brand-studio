@@ -14,7 +14,7 @@ export function StoreFooter() {
         />
         <p className="mt-5 font-display text-xl font-semibold">
           Baristo.Online <span className="mx-2 text-rosegold">|</span>
-          <span className="smallcaps text-champagne">Be Noble</span>
+          <span className="smallcaps text-rosegold">Be Noble</span>
           <span className="mx-2 text-rosegold">|</span>
           <span className="text-espresso/70">LifeCodeOS Portfolio</span>
         </p>

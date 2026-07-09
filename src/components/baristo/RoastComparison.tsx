@@ -73,7 +73,7 @@ export function RoastComparison() {
                     <h3 className="mt-2 font-display text-2xl font-semibold text-espresso">
                       {roast.name}
                     </h3>
-                    <p className="mt-1 text-xs italic text-champagne/80">{roast.tagline}</p>
+                    <p className="mt-1 text-xs italic text-rosegold/80">{roast.tagline}</p>
                   </div>
                 </div>
 
@@ -106,7 +106,7 @@ export function RoastComparison() {
                     {roast.notes.map((note) => (
                       <span
                         key={note}
-                        className="rounded-full border border-rosegold/30 bg-rosegold/5 px-3 py-1 text-[11px] font-medium text-champagne"
+                        className="rounded-full border border-rosegold/30 bg-rosegold/5 px-3 py-1 text-[11px] font-medium text-rosegold"
                       >
                         {note}
                       </span>

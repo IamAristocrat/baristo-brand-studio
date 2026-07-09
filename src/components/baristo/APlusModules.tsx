@@ -32,7 +32,7 @@ export function APlusModules() {
                 <span className="smallcaps text-[11px] text-rosegold-light">
                   Module {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 font-display text-2xl font-semibold text-champagne sm:text-3xl">
+                <h3 className="mt-2 font-display text-2xl font-semibold text-rosegold sm:text-3xl">
                   {mod.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-espresso/70">{mod.body}</p>

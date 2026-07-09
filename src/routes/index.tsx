@@ -5,6 +5,7 @@ import { RoastCollection } from "@/components/baristo/RoastCollection";
 import { CasePacks } from "@/components/baristo/CasePacks";
 import { RoastComparison } from "@/components/baristo/RoastComparison";
 import { APlusModules } from "@/components/baristo/APlusModules";
+import { VisualStory } from "@/components/baristo/VisualStory";
 import { Evidence } from "@/components/baristo/Evidence";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
@@ -25,6 +26,7 @@ function Index() {
         <main>
           <Hero />
           <RoastCollection />
+          <VisualStory />
           <RoastComparison />
           <CasePacks />
           <APlusModules />
