@@ -47,7 +47,6 @@ function Index() {
           <Evidence />
           <RecipeEcosystem />
           <AmazonCopy />
-          <LaunchSop />
         </main>
         <StoreFooter />
         <CartDrawer />
