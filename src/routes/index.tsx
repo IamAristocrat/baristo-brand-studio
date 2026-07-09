@@ -26,6 +26,7 @@ function Index() {
         <StoreNav />
         <main>
           <Hero />
+          <EvidenceStrip />
           <RoastCollection />
           <VisualStory />
           <RoastComparison />
