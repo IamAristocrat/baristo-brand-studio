@@ -6,6 +6,7 @@ import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
 import { BrewKitBuilder } from "@/components/baristo/BrewKitBuilder";
+import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
 import pouchMedium from "@/assets/pouch-medium.jpg";
 import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
