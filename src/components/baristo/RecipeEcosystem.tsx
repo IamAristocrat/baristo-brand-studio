@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { recipes, type RecipeRoast } from "@/lib/baristo-data";
 
 const filters: ("All" | RecipeRoast)[] = ["All", "Medium", "Medium-Dark", "Truly Dark"];
@@ -43,12 +44,16 @@ export function RecipeEcosystem() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((recipe) => (
-            <article
-              key={recipe.name}
-              className="flex flex-col rounded-lg border bg-card p-7 shadow-card-luxe transition-all hover:-translate-y-1 hover:shadow-luxe"
+            <Link
+              key={recipe.slug}
+              to="/recipes/$slug"
+              params={{ slug: recipe.slug }}
+              className="group flex flex-col rounded-lg border bg-card p-7 shadow-card-luxe transition-all hover:-translate-y-1 hover:shadow-luxe"
             >
               <div className="flex items-start justify-between gap-3">
-                <h3 className="font-display text-2xl font-semibold">{recipe.name}</h3>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-primary">
+                  {recipe.name}
+                </h3>
                 <div className="flex shrink-0 flex-col items-end gap-1">
                   {recipe.roasts.map((r) => (
                     <span
@@ -65,7 +70,7 @@ export function RecipeEcosystem() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground italic">{recipe.copy}</p>
 
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {recipe.ingredients.map((ing) => (
+                {recipe.ingredients.slice(0, 4).map((ing) => (
                   <span
                     key={ing}
                     className="rounded-sm bg-muted px-2 py-1 text-[11px] font-medium text-muted-foreground"
@@ -75,10 +80,15 @@ export function RecipeEcosystem() {
                 ))}
               </div>
 
-              <p className="mt-auto pt-4 text-xs text-muted-foreground">
-                <span className="smallcaps font-semibold text-foreground">Best moment</span> — {recipe.moment}
-              </p>
-            </article>
+              <div className="mt-auto flex items-end justify-between gap-3 pt-4">
+                <p className="text-xs text-muted-foreground">
+                  <span className="smallcaps font-semibold text-foreground">Best moment</span> — {recipe.moment}
+                </p>
+                <span className="smallcaps shrink-0 text-[10px] text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Open →
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

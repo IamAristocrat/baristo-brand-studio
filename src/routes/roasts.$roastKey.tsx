@@ -325,17 +325,19 @@ function RoastDetailBody() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {linkedRecipes.map((r) => (
-              <article
-                key={r.name}
-                className="flex flex-col rounded-lg border bg-card p-7 shadow-card-luxe transition-all hover:-translate-y-1 hover:shadow-luxe"
+              <Link
+                key={r.slug}
+                to="/recipes/$slug"
+                params={{ slug: r.slug }}
+                className="group flex flex-col rounded-lg border bg-card p-7 shadow-card-luxe transition-all hover:-translate-y-1 hover:shadow-luxe"
               >
-                <h3 className="font-display text-2xl font-semibold">{r.name}</h3>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-primary">{r.name}</h3>
                 <p className="smallcaps mt-1 text-xs text-primary">{r.theme}</p>
                 <p className="mt-3 text-sm leading-relaxed italic text-muted-foreground">
                   {r.copy}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
-                  {r.ingredients.map((ing) => (
+                  {r.ingredients.slice(0, 4).map((ing) => (
                     <span
                       key={ing}
                       className="rounded-sm bg-muted px-2 py-1 text-[11px] font-medium text-muted-foreground"
@@ -344,11 +346,16 @@ function RoastDetailBody() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-auto pt-4 text-xs text-muted-foreground">
-                  <span className="smallcaps font-semibold text-foreground">Best moment</span> —{" "}
-                  {r.moment}
-                </p>
-              </article>
+                <div className="mt-auto flex items-end justify-between gap-3 pt-4">
+                  <p className="text-xs text-muted-foreground">
+                    <span className="smallcaps font-semibold text-foreground">Best moment</span> —{" "}
+                    {r.moment}
+                  </p>
+                  <span className="smallcaps shrink-0 text-[10px] text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                    Open →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
 
