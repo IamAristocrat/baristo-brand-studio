@@ -106,6 +106,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://baristo.lovable.app/#organization",
+              name: "Baristo.Online",
+              url: "https://baristo.lovable.app",
+              logo: "https://baristo.lovable.app/favicon.ico",
+              description:
+                "Baristo.Online — single-origin Indian high-altitude Arabica in Medium, Medium-Dark, and Truly Dark roasts.",
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://baristo.lovable.app/#website",
+              url: "https://baristo.lovable.app",
+              name: "Baristo.Online",
+              publisher: { "@id": "https://baristo.lovable.app/#organization" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
