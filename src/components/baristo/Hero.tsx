@@ -1,7 +1,6 @@
 import { brandSubtitle } from "@/lib/baristo-data";
 import heroMountains from "@/assets/hero-mountains.jpg";
-import medallionAsset from "@/assets/baristo-logo.png.asset.json";
-const medallion = medallionAsset.url;
+import medallion from "@/assets/medallion.png";
 
 const promises = ["Purity", "Provenance", "Roast", "Evidence"];
 
@@ -23,7 +22,8 @@ export function Hero() {
           alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, Be Noble"
           width={1024}
           height={1024}
-          className="h-52 w-52 rounded-full drop-shadow-[0_12px_40px_rgba(183,112,84,0.55)] sm:h-72 sm:w-72 md:h-80 md:w-80"
+          fetchPriority="high"
+          className="aspect-square w-[min(92vw,28rem)] max-w-full rounded-full drop-shadow-[0_20px_60px_rgba(183,112,84,0.6)] sm:w-[min(80vw,32rem)] md:w-[36rem] lg:w-[42rem]"
         />
 
         <p className="smallcaps mt-8 text-xs text-rosegold-light">LifeCodeOS Portfolio Product</p>
