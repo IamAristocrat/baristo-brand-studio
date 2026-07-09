@@ -81,6 +81,7 @@ export function StoreNav() {
               </span>
             )}
           </button>
+          <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-ivory/20 text-ivory lg:hidden"
