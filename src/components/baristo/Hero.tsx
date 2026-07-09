@@ -74,7 +74,7 @@ export function Hero() {
           width={1024}
           height={1024}
           fetchPriority="high"
-          className="aspect-square w-[min(72vw,18rem)] max-w-full rounded-full drop-shadow-[0_16px_48px_rgba(183,112,84,0.5)] sm:w-[min(52vw,22rem)] md:w-[26rem] lg:w-[30rem]"
+          className="aspect-square w-[min(72vw,18rem)] max-w-full rounded-full drop-shadow-[0_8px_28px_rgba(183,112,84,0.45)] sm:w-[min(52vw,22rem)] md:w-[26rem] lg:w-[30rem]"
         />
 
         <p className="smallcaps mt-5 text-[10px] text-rosegold-light sm:mt-6 sm:text-xs">
