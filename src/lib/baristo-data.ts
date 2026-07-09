@@ -507,12 +507,12 @@ export const recipes: Recipe[] = [
 
 export const aPlusModules = [
   {
-    title: "Indian Altitude. Noble Ritual.",
-    body: "For noble attitudes aspiring altitudes — single-origin Arabica sourced from the mountain altitudes of India, crafted to surpass imported international sophistication with a nobler, rarer, more intelligent expression of premium coffee.",
+    title: "Single-Origin. High Altitudes. Noble Ritual.",
+    body: "Single-origin Arabica sourced from the high altitudes of India and gracefully roasted for Noble minds with Elite attitudes — a rarer, more intelligent expression of premium coffee tuned to peak performance and cognitive sharpness.",
   },
   {
-    title: "Three Roasts for Three Altitudes of Taste.",
-    body: "Medium for elegance. Medium-Dark for structure. Truly Dark for espresso-minded intensity. One master roast ladder, sculpted by craftsmen for minds operating at peak-performance altitudes.",
+    title: "Three Roasts. One Peak Performance Ladder.",
+    body: "Medium for elegance. Medium-Dark for structure. Truly Dark for espresso-minded intensity. One master roast ladder, sculpted for minds chasing cognitive sharpness and higher altitudes of thought.",
   },
   {
     title: "Purity, Provenance & Roast — Visible in Every Pack.",
@@ -524,7 +524,7 @@ export const aPlusModules = [
   },
   {
     title: "One Coffee. Twelve Elevated Recipes.",
-    body: "A functional recipe ecosystem — from the sovereign Baristo Classic to Phoenix — turning one noble roast ladder into twelve elevated rituals.",
+    body: "A functional recipe ecosystem — from the sovereign Baristo Classic to Phoenix — turning one single-origin roast ladder into twelve rituals for peak performance and cognitive sharpness.",
   },
 ];
 
