@@ -27,17 +27,17 @@ interface Accessory {
 }
 
 const ALL_ACCESSORIES: Record<string, Accessory> = {
-  scale: { id: "acc-scale", name: "Precision Brew Scale", sub: "0.1g · timer", price: 1899, mrp: 2499 },
-  kettle: { id: "acc-kettle", name: "Gooseneck Kettle", sub: "Matte black · 1L", price: 3499, mrp: 4499 },
-  grinder: { id: "acc-grinder", name: "Hand Grinder", sub: "Conical burr · 40 clicks", price: 4499, mrp: 5999 },
-  v60: { id: "acc-v60", name: "V60 Dripper Set", sub: "Ceramic · 02 size", price: 1299, mrp: 1699 },
-  filters: { id: "acc-filters", name: "Filter Papers", sub: "Unbleached · 100 ct", price: 349, mrp: 449 },
-  french: { id: "acc-french", name: "French Press", sub: "Double-wall · 600ml", price: 2499, mrp: 3199 },
-  moka: { id: "acc-moka", name: "Moka Pot", sub: "Stovetop · 3 cup", price: 1999, mrp: 2599 },
-  aeropress: { id: "acc-aeropress", name: "AeroPress Set", sub: "Original + filters", price: 3199, mrp: 3899 },
-  coldbrew: { id: "acc-coldbrew", name: "Cold Brew Carafe", sub: "1L · steel mesh", price: 2299, mrp: 2999 },
-  frother: { id: "acc-frother", name: "Milk Frother", sub: "Handheld · rose gold", price: 899, mrp: 1199 },
-  glass: { id: "acc-glass", name: "Ritual Glass Set", sub: "Pair · double-wall", price: 1499, mrp: 1899 },
+  scale: { id: "acc-scale", name: "Precision Brew Scale", sub: "0.1g · timer", price: 2999, mrp: 3599 },
+  kettle: { id: "acc-kettle", name: "Gooseneck Kettle", sub: "Matte black · 1L", price: 4599, mrp: 5599 },
+  grinder: { id: "acc-grinder", name: "Hand Grinder", sub: "Conical burr · 40 clicks", price: 5599, mrp: 7099 },
+  v60: { id: "acc-v60", name: "V60 Dripper Set", sub: "Ceramic · 02 size", price: 2399, mrp: 2799 },
+  filters: { id: "acc-filters", name: "Filter Papers", sub: "Unbleached · 100 ct", price: 1449, mrp: 1549 },
+  french: { id: "acc-french", name: "French Press", sub: "Double-wall · 600ml", price: 3599, mrp: 4299 },
+  moka: { id: "acc-moka", name: "Moka Pot", sub: "Stovetop · 3 cup", price: 3099, mrp: 3699 },
+  aeropress: { id: "acc-aeropress", name: "AeroPress Set", sub: "Original + filters", price: 4299, mrp: 4999 },
+  coldbrew: { id: "acc-coldbrew", name: "Cold Brew Carafe", sub: "1L · steel mesh", price: 3399, mrp: 4099 },
+  frother: { id: "acc-frother", name: "Milk Frother", sub: "Handheld · rose gold", price: 1999, mrp: 2299 },
+  glass: { id: "acc-glass", name: "Ritual Glass Set", sub: "Pair · double-wall", price: 2599, mrp: 2999 },
 };
 
 function suggestFor(method: string): string[] {
