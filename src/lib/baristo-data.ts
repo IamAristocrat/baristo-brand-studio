@@ -634,8 +634,8 @@ export const casePacks: CasePack[] = [
     packSplit:
       "2 × 250 g Medium + 2 × 500 g Medium + 2 × 250 g Medium-Dark + 2 × 500 g Medium-Dark + 1 × 250 g Truly Dark + 1 × 500 g Truly Dark",
     total: "3.75 kg",
-    mrp: "₹15,690",
-    price: "₹12,199",
+    mrp: "₹16,790",
+    price: "₹13,299",
     useCase: "Best mixed launch pack",
     accent: "discovery",
   },
