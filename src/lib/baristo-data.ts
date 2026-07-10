@@ -645,8 +645,8 @@ export const casePacks: CasePack[] = [
     packSplit:
       "1 × 250 g Medium + 2 × 500 g Medium + 2 × 250 g Medium-Dark + 3 × 500 g Medium-Dark + 1 × 250 g Truly Dark + 1 × 500 g Truly Dark",
     total: "4 kg",
-    mrp: "₹16,790",
-    price: "₹13,299",
+    mrp: "₹17,890",
+    price: "₹14,399",
     useCase: "Founders / CEOs / offices",
     accent: "executive",
   },
