@@ -25,7 +25,7 @@ export const roasts: Roast[] = [
       "A clean, elegant, aromatic cup — honeyed almond and soft cacao lifted by gentle citrus, closing on a refined finish.",
     recipeBase: "Baristo Classic · Sage · Zen · Harmony · Glow",
     sizes: [
-      { label: "340 g", sub: "Signature 12 oz Pouch", grams: 340, price: 1749, mrp: 1949 },
+      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
     ],
     intensity: 2,
     cta: "Shop Medium Roast",
@@ -39,7 +39,7 @@ export const roasts: Roast[] = [
       "Deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "340 g", sub: "Signature 12 oz Pouch", grams: 340, price: 1749, mrp: 1949 },
+      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
     ],
     intensity: 4,
     cta: "Shop Medium-Dark",
@@ -53,7 +53,7 @@ export const roasts: Roast[] = [
       "Bold, intense, roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "340 g", sub: "Signature 12 oz Pouch", grams: 340, price: 1749, mrp: 1949 },
+      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
@@ -533,9 +533,9 @@ export const evidencePoints = [
 ];
 
 export const listingTitles = [
-  "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 340 g (12 oz)",
-  "Baristo.Online Medium-Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 340 g (12 oz)",
-  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 340 g (12 oz)",
+  "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 12 oz",
+  "Baristo.Online Medium-Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
+  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 12 oz",
 ];
 
 export const listingBullets = [
@@ -598,8 +598,8 @@ export const casePacks: CasePack[] = [
   {
     key: "medium",
     name: "Baristo Medium Roast Case",
-    packSplit: "10 × 340 g Medium",
-    total: "3.4 kg",
+    packSplit: "10 × 12 oz Medium",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹14,999",
     useCase: "Daily luxury drinkers",
@@ -608,8 +608,8 @@ export const casePacks: CasePack[] = [
   {
     key: "medium-dark",
     name: "Baristo Medium-Dark Roast Case",
-    packSplit: "10 × 340 g Medium-Dark",
-    total: "3.4 kg",
+    packSplit: "10 × 12 oz Medium-Dark",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹14,999",
     useCase: "Espresso-minded users",
@@ -618,8 +618,8 @@ export const casePacks: CasePack[] = [
   {
     key: "truly-dark",
     name: "Baristo Truly Dark Roast Case",
-    packSplit: "10 × 340 g Truly Dark",
-    total: "3.4 kg",
+    packSplit: "10 × 12 oz Truly Dark",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹14,999",
     useCase: "Bold premium users",
@@ -628,8 +628,8 @@ export const casePacks: CasePack[] = [
   {
     key: "discovery",
     name: "Baristo Noble Discovery Case",
-    packSplit: "4 × 340 g Medium + 4 × 340 g Medium-Dark + 2 × 340 g Truly Dark",
-    total: "3.4 kg",
+    packSplit: "4 × 12 oz Medium + 4 × 12 oz Medium-Dark + 2 × 12 oz Truly Dark",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,299",
     useCase: "Best mixed launch pack",
@@ -638,8 +638,8 @@ export const casePacks: CasePack[] = [
   {
     key: "executive",
     name: "Baristo Executive Ritual Case",
-    packSplit: "3 × 340 g Medium + 4 × 340 g Medium-Dark + 3 × 340 g Truly Dark",
-    total: "3.4 kg",
+    packSplit: "3 × 12 oz Medium + 4 × 12 oz Medium-Dark + 3 × 12 oz Truly Dark",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",
     useCase: "Founders / CEOs / offices",
@@ -648,8 +648,8 @@ export const casePacks: CasePack[] = [
   {
     key: "altitude",
     name: "Baristo Dark Altitude Case",
-    packSplit: "2 × 340 g Medium + 3 × 340 g Medium-Dark + 5 × 340 g Truly Dark",
-    total: "3.4 kg",
+    packSplit: "2 × 12 oz Medium + 3 × 12 oz Medium-Dark + 5 × 12 oz Truly Dark",
+    total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",
     useCase: "Dark roast lovers",
