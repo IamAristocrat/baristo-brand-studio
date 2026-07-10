@@ -533,9 +533,9 @@ export const evidencePoints = [
 ];
 
 export const listingTitles = [
-  "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 250 g",
-  "Baristo.Online Medium-Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 250 g / 500 g",
-  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 250 g / 500 g",
+  "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 340 g (12 oz)",
+  "Baristo.Online Medium-Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 340 g (12 oz)",
+  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 340 g (12 oz)",
 ];
 
 export const listingBullets = [
