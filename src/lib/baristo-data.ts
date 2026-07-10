@@ -53,8 +53,7 @@ export const roasts: Roast[] = [
       "Bold, intense, roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "250 g", sub: "Everyday", grams: 250, price: 1749, mrp: 1949 },
-      { label: "500 g", sub: "Reserve", grams: 500, price: 2299, mrp: 2699 },
+      { label: "340 g", sub: "Signature 12 oz Pouch", grams: 340, price: 1749, mrp: 1949 },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
