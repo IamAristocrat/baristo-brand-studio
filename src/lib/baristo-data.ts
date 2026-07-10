@@ -656,8 +656,8 @@ export const casePacks: CasePack[] = [
     packSplit:
       "1 × 250 g Medium + 1 × 500 g Medium + 1 × 250 g Medium-Dark + 2 × 500 g Medium-Dark + 2 × 250 g Truly Dark + 3 × 500 g Truly Dark",
     total: "4 kg",
-    mrp: "₹17,490",
-    price: "₹13,999",
+    mrp: "₹18,590",
+    price: "₹15,099",
     useCase: "Dark roast lovers",
     accent: "altitude",
   },
