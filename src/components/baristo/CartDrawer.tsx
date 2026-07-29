@@ -164,10 +164,6 @@ export function CartDrawer() {
                             <span className="block text-[9px] uppercase tracking-wider text-rosegold">Pack</span>
                             <span className="block text-[11px] text-espresso/80">{i.packSplit}</span>
                           </div>
-                          <div className="col-span-2">
-                            <span className="block text-[9px] uppercase tracking-wider text-rosegold">Batch</span>
-                            <span className="block text-[11px] font-mono text-espresso/80">{i.batchQr}</span>
-                          </div>
                         </div>
                       )}
 

@@ -100,7 +100,6 @@ export function CasePacks() {
                           image: "",
                           isCasePack: true,
                           packsPerCase: 10,
-                          batchQr: `BAR-${new Date().getFullYear()}-${c.key.slice(0, 3).toUpperCase()}-A1`,
                           packSplit: c.packSplit,
                         },
                         qty
