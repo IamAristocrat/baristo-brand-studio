@@ -1,7 +1,7 @@
 export const brandSubtitle =
   "Single-origin premium coffee beans sourced from high altitudes and gracefully roasted for Noble minds with Elite attitudes — fueling peak performance and cognitive sharpness.";
 
-export type RoastKey = "medium" | "dark" | "truly-dark";
+export type RoastKey = "dark" | "truly-dark";
 
 export interface Roast {
   key: RoastKey;
@@ -16,20 +16,6 @@ export interface Roast {
 }
 
 export const roasts: Roast[] = [
-  {
-    key: "medium",
-    name: "Medium Roast",
-    tagline: "Clean. Elegant. Aromatic.",
-    notes: ["Honeyed Almond", "Soft Cacao", "Gentle Citrus", "Refined Finish"],
-    description:
-      "A clean, elegant, aromatic cup — honeyed almond and soft cacao lifted by gentle citrus, closing on a refined finish.",
-    recipeBase: "Baristo Classic · Sage · Zen · Harmony · Glow",
-    sizes: [
-      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
-    ],
-    intensity: 2,
-    cta: "Shop Medium Roast",
-  },
   {
     key: "dark",
     name: "Dark Roast",
@@ -60,9 +46,8 @@ export const roasts: Roast[] = [
   },
 ];
 
-export const roastRecipeName: Record<RoastKey, "Medium" | "Dark" | "Truly Dark"> = {
-  medium: "Medium",
-  "dark": "Dark",
+export const roastRecipeName: Record<RoastKey, "Dark" | "Truly Dark"> = {
+  dark: "Dark",
   "truly-dark": "Truly Dark",
 };
 
@@ -84,29 +69,7 @@ export interface BrewGuide {
 }
 
 export const brewGuides: Record<RoastKey, BrewGuide> = {
-  medium: {
-    ritual:
-      "Poured slowly into porcelain at first light — a clean, elegant cup for minds that begin the day with intention.",
-    cupping: [
-      { attribute: "Body", value: "Light–Medium" },
-      { attribute: "Acidity", value: "Bright, citrus-forward" },
-      { attribute: "Sweetness", value: "Honeyed almond" },
-      { attribute: "Finish", value: "Refined, lingering" },
-    ],
-    origin: [
-      { label: "Origin", value: "Single-origin Indian Arabica" },
-      { label: "Altitude", value: "1,400–1,600 m" },
-      { label: "Process", value: "Washed" },
-      { label: "Roast Level", value: "Medium (City)" },
-    ],
-    methods: [
-      { method: "Pour-Over", grind: "Medium", ratio: "1:16", temp: "94°C", time: "3:30", note: "Best canvas for citrus lift." },
-      { method: "French Press", grind: "Coarse", ratio: "1:15", temp: "94°C", time: "4:00", note: "Rounder body, honeyed close." },
-      { method: "Moka Pot", grind: "Fine–Medium", ratio: "1:10", temp: "Off boil", time: "4:00", note: "Elegant, cocoa-toned espresso-style." },
-    ],
-    pairings: ["Almond croissant", "Honey toast", "Soft cheeses"],
-  },
-  "dark": {
+  dark: {
     ritual:
       "The espresso-minded pour — cocoa warmth and structured depth, sculpted for the ritual between meetings.",
     cupping: [
@@ -153,7 +116,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
 };
 
 
-export type RecipeRoast = "Medium" | "Dark" | "Truly Dark";
+export type RecipeRoast = "Dark" | "Truly Dark";
 export type RecipeBrewMethod = "Moka Pot" | "French Press" | "Pour-Over" | "Espresso";
 
 export interface Recipe {
@@ -178,7 +141,7 @@ export const recipes: Recipe[] = [
   {
     slug: "baristo-classic",
     name: "Baristo Classic",
-    roasts: ["Medium", "Dark"],
+    roasts: ["Dark"],
     theme: "Sovereign daily cup",
     ingredients: ["18 g Baristo (freshly ground)", "220 ml filtered water at 94°C", "Warmed porcelain cup"],
     moment: "The first noble cup of the day",
@@ -205,9 +168,9 @@ export const recipes: Recipe[] = [
   {
     slug: "sage",
     name: "Sage",
-    roasts: ["Medium"],
+    roasts: ["Dark"],
     theme: "Composed clarity",
-    ingredients: ["1 shot Baristo Medium (double)", "1 tsp almond or cashew butter", "1 tsp olive or MCT oil", "1 pitted date or 1 tsp honey", "Pinch of Ceylon cinnamon"],
+    ingredients: ["1 shot Baristo Dark (double)", "1 tsp almond or cashew butter", "1 tsp olive or MCT oil", "1 pitted date or 1 tsp honey", "Pinch of Ceylon cinnamon"],
     moment: "Deep-work mornings",
     copy: "A composed, buttery ritual for minds that think in long arcs — clarity, blended slowly.",
     method: "Blender ritual",
@@ -216,7 +179,7 @@ export const recipes: Recipe[] = [
     servings: "1 tall cup",
     difficulty: "Considered",
     steps: [
-      "Pull a double espresso-style shot of Baristo Medium (or brew 60 ml of strong pour-over).",
+      "Pull a double espresso-style shot of Baristo Dark (or brew 60 ml of strong pour-over).",
       "Add the nut butter, oil, date, and cinnamon to a high-speed blender.",
       "Pour the hot coffee over the ingredients and blend on high for 25 seconds.",
       "Pour into a warm cup — the crema should be thick and glossy.",
@@ -232,9 +195,9 @@ export const recipes: Recipe[] = [
   {
     slug: "zen",
     name: "Zen",
-    roasts: ["Medium"],
+    roasts: ["Dark"],
     theme: "Soft evening nobility",
-    ingredients: ["1 shot Baristo Medium", "150 ml warm almond or oat milk", "1 chamomile tea bag", "1 tsp lavender honey", "2 cardamom pods, crushed"],
+    ingredients: ["1 shot Baristo Dark", "150 ml warm almond or oat milk", "1 chamomile tea bag", "1 tsp lavender honey", "2 cardamom pods, crushed"],
     moment: "The quiet hour before dusk",
     copy: "Nobility in its softest register — florals, cardamom, and a cup that lowers the volume of the day.",
     method: "Infusion & pour",
@@ -246,7 +209,7 @@ export const recipes: Recipe[] = [
       "Warm the milk gently with crushed cardamom pods; do not boil.",
       "Steep the chamomile bag in the warm milk for 3 minutes, then remove.",
       "Stir in the lavender honey until fully dissolved.",
-      "Pour a fresh shot of Baristo Medium into a mug, then float the infused milk on top.",
+      "Pour a fresh shot of Baristo Dark into a mug, then float the infused milk on top.",
       "Dust with a whisper of extra cardamom before serving.",
     ],
     tastingNotes: [
@@ -259,9 +222,9 @@ export const recipes: Recipe[] = [
   {
     slug: "harmony",
     name: "Harmony",
-    roasts: ["Medium"],
+    roasts: ["Dark"],
     theme: "Balanced body & green luxury",
-    ingredients: ["1 shot Baristo Medium, cooled", "1/4 ripe avocado", "1 tsp walnut or almond butter", "180 ml almond milk", "1/2 tsp spirulina or moringa"],
+    ingredients: ["1 shot Baristo Dark, cooled", "1/4 ripe avocado", "1 tsp walnut or almond butter", "180 ml almond milk", "1/2 tsp spirulina or moringa"],
     moment: "Mindful mid-mornings",
     copy: "Green luxury meets roasted elegance — a balanced-body blend for refined, intentional living.",
     method: "Cold blend",
@@ -270,7 +233,7 @@ export const recipes: Recipe[] = [
     servings: "1 tall glass",
     difficulty: "Considered",
     steps: [
-      "Brew and cool a shot of Baristo Medium; place in the freezer while prepping.",
+      "Brew and cool a shot of Baristo Dark; place in the freezer while prepping.",
       "Add avocado, nut butter, almond milk, and spirulina to a blender.",
       "Pour in the cooled coffee and blend on high for 30 seconds.",
       "Pour over one large ice cube in a tall glass.",
@@ -286,9 +249,9 @@ export const recipes: Recipe[] = [
   {
     slug: "glow",
     name: "Glow",
-    roasts: ["Medium"],
+    roasts: ["Dark"],
     theme: "Beauty-coded elegance",
-    ingredients: ["1 shot Baristo Medium", "150 ml coconut or almond milk", "1/2 tsp fresh turmeric paste", "Pinch of black pepper", "1 tsp honey"],
+    ingredients: ["1 shot Baristo Dark", "150 ml coconut or almond milk", "1/2 tsp fresh turmeric paste", "Pinch of black pepper", "1 tsp honey"],
     moment: "Golden-hour afternoons",
     copy: "Turmeric gold folded into altitude Arabica — elegance you can pour into a cup.",
     method: "Steamed ritual",
@@ -299,7 +262,7 @@ export const recipes: Recipe[] = [
     steps: [
       "Whisk turmeric, black pepper, and honey into the milk in a small saucepan.",
       "Warm gently until steaming, whisking to a soft foam — do not boil.",
-      "Pull a fresh shot of Baristo Medium into a warmed cup.",
+      "Pull a fresh shot of Baristo Dark into a warmed cup.",
       "Pour the golden milk over the shot in a slow spiral.",
       "Finish with a fine grate of cinnamon or dried rose petals.",
     ],
@@ -533,7 +496,7 @@ export const evidencePoints = [
 ];
 
 export const listingTitles = [
-  "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 12 oz",
+  "Baristo.Online Dark Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 12 oz",
   "Baristo.Online Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
   "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 12 oz",
 ];
@@ -595,16 +558,6 @@ export interface CasePack {
 }
 
 export const casePacks: CasePack[] = [
-  {
-    key: "medium",
-    name: "Baristo Medium Roast Case",
-    packSplit: "10 × 12 oz Medium",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹14,999",
-    useCase: "Daily luxury drinkers",
-    accent: "medium",
-  },
   {
     key: "dark",
     name: "Baristo Dark Roast Case",
