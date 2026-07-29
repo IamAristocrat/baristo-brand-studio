@@ -7,6 +7,7 @@ import { CasePacks } from "@/components/baristo/CasePacks";
 import { RoastComparison } from "@/components/baristo/RoastComparison";
 import { APlusModules } from "@/components/baristo/APlusModules";
 import { BrandStory } from "@/components/baristo/BrandStory";
+import { BenefitGallery } from "@/components/baristo/BenefitGallery";
 import { VisualStory } from "@/components/baristo/VisualStory";
 import { Evidence } from "@/components/baristo/Evidence";
 import { EvidenceStrip } from "@/components/baristo/EvidenceStrip";
@@ -43,6 +44,7 @@ function Index() {
           <EvidenceStrip />
           <RoastCollection />
           <VisualStory />
+          <BenefitGallery />
           <BrandStory />
           <RoastComparison />
           <CasePacks />
