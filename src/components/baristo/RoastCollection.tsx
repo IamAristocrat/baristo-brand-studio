@@ -25,8 +25,7 @@ function IntensityDots({ level }: { level: number }) {
 
 export function RoastCollection() {
   const [selectedSizes, setSelectedSizes] = useState<Record<RoastKey, number>>({
-    medium: 0,
-    "dark": 0,
+    dark: 0,
     "truly-dark": 0,
   });
   const [added, setAdded] = useState<RoastKey | null>(null);
@@ -40,7 +39,7 @@ export function RoastCollection() {
           Roast Collection
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-center text-muted-foreground">
-          Single-origin Indian Arabica from high altitudes — three calibrated roasts tuned for
+          Single-origin Indian Arabica from high altitudes — two calibrated roasts tuned for
           peak performance and cognitive sharpness.
         </p>
 

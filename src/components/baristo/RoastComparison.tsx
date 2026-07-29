@@ -21,10 +21,10 @@ export function RoastComparison() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="smallcaps text-xs text-rosegold-light">The Roast Atlas</p>
           <h2 className="hairline hairline-center mt-3 font-display text-4xl font-semibold sm:text-5xl">
-            Compare the Three Masters
+            Compare the Two Masters
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-espresso/70 sm:text-base">
-            Three calibrated expressions of single-origin Indian Arabica grown at high altitudes
+            Two calibrated expressions of single-origin Indian Arabica grown at high altitudes
             — weigh strength, flavor architecture, and ideal brew methods side by side and choose
             the cup tuned to your peak performance.
           </p>
@@ -33,7 +33,7 @@ export function RoastComparison() {
         {/* Focus toggle */}
         <div className="mt-10 flex flex-wrap justify-center gap-2">
           <FocusChip active={focus === "all"} onClick={() => setFocus("all")}>
-            All Three
+            Both
           </FocusChip>
           {roasts.map((r) => (
             <FocusChip
@@ -47,7 +47,7 @@ export function RoastComparison() {
         </div>
 
         {/* Comparison grid */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {roasts.map((roast) => {
             const guide = brewGuides[roast.key];
             const dimmed = focus !== "all" && focus !== roast.key;
@@ -68,7 +68,7 @@ export function RoastComparison() {
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="smallcaps text-[10px] text-rosegold-light">
-                      Master No. {["medium", "dark", "truly-dark"].indexOf(roast.key) + 1}
+                      Master No. {["dark", "truly-dark"].indexOf(roast.key) + 1}
                     </p>
                     <h3 className="mt-2 font-display text-2xl font-semibold text-espresso">
                       {roast.name}

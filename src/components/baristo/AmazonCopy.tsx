@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { listingTitles, listingBullets } from "@/lib/baristo-data";
 
-const tabs = ["Medium Roast", "Dark Roast", "Truly Dark Roast"];
+const tabs = ["Dark Roast", "Truly Dark Roast"];
 
 export function AmazonCopy() {
   const [tab, setTab] = useState(0);

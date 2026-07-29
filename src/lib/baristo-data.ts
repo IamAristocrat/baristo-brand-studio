@@ -471,8 +471,8 @@ export const aPlusModules = [
     body: "Single-origin Arabica sourced from the high altitudes of India and gracefully roasted for Noble minds with Elite attitudes — a rarer, more intelligent expression of premium coffee tuned to peak performance and cognitive sharpness.",
   },
   {
-    title: "Three Roasts. One Peak Performance Ladder.",
-    body: "Medium for elegance. Dark for structure. Truly Dark for espresso-minded intensity. One master roast ladder, sculpted for minds chasing cognitive sharpness and higher altitudes of thought.",
+    title: "Two Roasts. One Peak Performance Ladder.",
+    body: "Dark for espresso-minded structure. Truly Dark for uncompromising intensity. A two-step master roast ladder, sculpted for minds chasing cognitive sharpness and higher altitudes of thought.",
   },
   {
     title: "Purity, Provenance & Roast — Visible in Every Pack.",
@@ -496,8 +496,7 @@ export const evidencePoints = [
 ];
 
 export const listingTitles = [
-  "Baristo.Online Dark Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 12 oz",
-  "Baristo.Online Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
+  "Baristo.Online Dark Roast Coffee | 100% Single-Origin Indian Arabica | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
   "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 12 oz",
 ];
 
@@ -508,7 +507,7 @@ export const listingBullets = [
   },
   {
     lead: "Master Roast Ladder",
-    body: "Choose Medium for elegance, Dark for structure, or Truly Dark for espresso-minded intensity.",
+    body: "Choose Dark for espresso-minded structure, or Truly Dark for uncompromising roasted intensity.",
   },
   {
     lead: "Pure Ground Roasted Coffee",
@@ -554,7 +553,7 @@ export interface CasePack {
   mrp: string;
   price: string;
   useCase: string;
-  accent: "medium" | "dark" | "truly-dark" | "discovery" | "executive" | "altitude";
+  accent: "dark" | "truly-dark" | "discovery" | "executive" | "altitude";
 }
 
 export const casePacks: CasePack[] = [
@@ -581,7 +580,7 @@ export const casePacks: CasePack[] = [
   {
     key: "discovery",
     name: "Baristo Noble Discovery Case",
-    packSplit: "4 × 12 oz Medium + 4 × 12 oz Dark + 2 × 12 oz Truly Dark",
+    packSplit: "5 × 12 oz Dark + 5 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,299",
@@ -591,7 +590,7 @@ export const casePacks: CasePack[] = [
   {
     key: "executive",
     name: "Baristo Executive Ritual Case",
-    packSplit: "3 × 12 oz Medium + 4 × 12 oz Dark + 3 × 12 oz Truly Dark",
+    packSplit: "6 × 12 oz Dark + 4 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",
@@ -601,7 +600,7 @@ export const casePacks: CasePack[] = [
   {
     key: "altitude",
     name: "Baristo Dark Altitude Case",
-    packSplit: "2 × 12 oz Medium + 3 × 12 oz Dark + 5 × 12 oz Truly Dark",
+    packSplit: "3 × 12 oz Dark + 7 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",

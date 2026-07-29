@@ -6,9 +6,9 @@ export default defineTool({
   name: "list_recipes",
   title: "List Baristo recipes",
   description:
-    "List Baristo recipes with optional filters by roast (Medium, Dark, Truly Dark) and brew method (Moka Pot, French Press, Pour-Over, Espresso). Returns a summary; use get_recipe for full brewing steps.",
+    "List Baristo recipes with optional filters by roast (Dark, Truly Dark) and brew method (Moka Pot, French Press, Pour-Over, Espresso). Returns a summary; use get_recipe for full brewing steps.",
   inputSchema: {
-    roast: z.enum(["Medium", "Dark", "Truly Dark"]).optional(),
+    roast: z.enum(["Dark", "Truly Dark"]).optional(),
     brewMethod: z.enum(["Moka Pot", "French Press", "Pour-Over", "Espresso"]).optional(),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },

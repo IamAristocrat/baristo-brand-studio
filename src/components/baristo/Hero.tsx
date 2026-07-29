@@ -55,12 +55,12 @@ export function Hero() {
           Elite by nature. Roasted for perfection.
         </p>
 
-        <div className="mt-8 grid w-full max-w-md grid-cols-1 gap-3 sm:mt-10 sm:max-w-none sm:grid-cols-3 sm:gap-4">
+        <div className="mt-8 grid w-full max-w-md grid-cols-1 gap-3 sm:mt-10 sm:max-w-none sm:grid-cols-2 sm:gap-4">
           <a
             href="#roasts"
             className="inline-flex h-12 items-center justify-center rounded-sm bg-gradient-rose px-6 text-xs font-semibold uppercase tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.03]"
           >
-            Shop Medium Roast
+            Shop Dark Roast
           </a>
           <a
             href="#roasts"
