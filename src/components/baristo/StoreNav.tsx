@@ -7,6 +7,7 @@ const links = [
   { label: "Roasts", href: "#roasts" },
   { label: "Story", href: "#story" },
   { label: "Evidence", href: "#evidence" },
+  { label: "Evidence Hub", href: "/evidence-hub" },
   { label: "Recipes", href: "#recipes" },
   { label: "Amazon Copy", href: "#amazon-copy" },
   { label: "Launch SOP", href: "#launch-sop" },

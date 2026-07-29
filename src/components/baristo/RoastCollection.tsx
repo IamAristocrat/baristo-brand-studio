@@ -52,7 +52,7 @@ export function RoastCollection() {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
                   src={pouchImages[roast.key]}
-                  alt={`${roast.name} pouch`}
+                  alt={`${roast.name} premium ground coffee pouch — 12 oz / 340 g Limited Reserve Edition`}
                   loading="lazy"
                   width={896}
                   height={1152}
@@ -190,7 +190,7 @@ export function RoastCollection() {
               <tr>
                 <td className="smallcaps px-5 py-4 text-xs font-semibold text-muted-foreground">Sizes</td>
                 {roasts.map((r) => (
-                  <td key={r.key} className="px-5 py-4">12 oz / 340 g · Limited Reserve Edition</td>
+                  <td key={r.key} className="px-5 py-4">12 oz / 340 g · Limited Reserve Edition · Premium Ground Coffee</td>
                 ))}
               </tr>
             </tbody>

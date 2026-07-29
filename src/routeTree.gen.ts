@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as EvidenceHubRouteImport } from './routes/evidence-hub'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RoastsRoastKeyRouteImport } from './routes/roasts.$roastKey'
 import { Route as RecipesSlugRouteImport } from './routes/recipes.$slug'
@@ -32,6 +33,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvidenceHubRoute = EvidenceHubRouteImport.update({
+  id: '/evidence-hub',
+  path: '/evidence-hub',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -70,6 +76,7 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/evidence-hub': typeof EvidenceHubRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/evidence-hub': typeof EvidenceHubRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
@@ -93,6 +101,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/evidence-hub': typeof EvidenceHubRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/evidence-hub'
     | '/mcp'
     | '/sitemap.xml'
     | '/story'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/evidence-hub'
     | '/mcp'
     | '/sitemap.xml'
     | '/story'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/evidence-hub'
     | '/mcp'
     | '/sitemap.xml'
     | '/story'
@@ -140,6 +152,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EvidenceHubRoute: typeof EvidenceHubRoute
   McpRoute: typeof McpRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StoryRoute: typeof StoryRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evidence-hub': {
+      id: '/evidence-hub'
+      path: '/evidence-hub'
+      fullPath: '/evidence-hub'
+      preLoaderRoute: typeof EvidenceHubRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -220,6 +240,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EvidenceHubRoute: EvidenceHubRoute,
   McpRoute: McpRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StoryRoute: StoryRoute,
