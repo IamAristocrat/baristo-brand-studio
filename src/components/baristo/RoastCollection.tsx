@@ -2,14 +2,12 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { roasts, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
-import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchDark from "@/assets/pouch-medium-dark.jpg";
-import pouchDark from "@/assets/pouch-dark.jpg";
+import pouchDarkRoast from "@/assets/pouch-medium-dark.jpg";
+import pouchTrulyDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
-  medium: pouchMedium,
-  "dark": pouchDark,
-  "truly-dark": pouchDark,
+  dark: pouchDarkRoast,
+  "truly-dark": pouchTrulyDark,
 };
 
 function IntensityDots({ level }: { level: number }) {

@@ -2,14 +2,12 @@ import { useMemo, useState } from "react";
 import { Check, Plus, Sparkles } from "lucide-react";
 import { roasts, type Recipe, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
-import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchDark from "@/assets/pouch-medium-dark.jpg";
-import pouchDark from "@/assets/pouch-dark.jpg";
+import pouchDarkRoast from "@/assets/pouch-medium-dark.jpg";
+import pouchTrulyDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
-  medium: pouchMedium,
-  "dark": pouchDark,
-  "truly-dark": pouchDark,
+  dark: pouchDarkRoast,
+  "truly-dark": pouchTrulyDark,
 };
 
 const roastNameToKey: Record<"Medium" | "Dark" | "Truly Dark", RoastKey> = {
