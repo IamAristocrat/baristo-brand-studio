@@ -8,18 +8,18 @@ import { CartDrawer } from "@/components/baristo/CartDrawer";
 import { BrewKitBuilder } from "@/components/baristo/BrewKitBuilder";
 import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
 import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
+import pouchDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
   medium: pouchMedium,
-  "medium-dark": pouchMediumDark,
+  "dark": pouchDark,
   "truly-dark": pouchDark,
 };
 
-const roastNameToKey: Record<"Medium" | "Medium-Dark" | "Truly Dark", RoastKey> = {
+const roastNameToKey: Record<"Medium" | "Dark" | "Truly Dark", RoastKey> = {
   Medium: "medium",
-  "Medium-Dark": "medium-dark",
+  "Dark": "dark",
   "Truly Dark": "truly-dark",
 };
 

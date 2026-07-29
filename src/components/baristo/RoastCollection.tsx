@@ -3,12 +3,12 @@ import { Link } from "@tanstack/react-router";
 import { roasts, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
 import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
+import pouchDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
   medium: pouchMedium,
-  "medium-dark": pouchMediumDark,
+  "dark": pouchDark,
   "truly-dark": pouchDark,
 };
 
@@ -28,7 +28,7 @@ function IntensityDots({ level }: { level: number }) {
 export function RoastCollection() {
   const [selectedSizes, setSelectedSizes] = useState<Record<RoastKey, number>>({
     medium: 0,
-    "medium-dark": 0,
+    "dark": 0,
     "truly-dark": 0,
   });
   const [added, setAdded] = useState<RoastKey | null>(null);

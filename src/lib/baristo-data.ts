@@ -1,7 +1,7 @@
 export const brandSubtitle =
   "Single-origin premium coffee beans sourced from high altitudes and gracefully roasted for Noble minds with Elite attitudes — fueling peak performance and cognitive sharpness.";
 
-export type RoastKey = "medium" | "medium-dark" | "truly-dark";
+export type RoastKey = "medium" | "dark" | "truly-dark";
 
 export interface Roast {
   key: RoastKey;
@@ -31,8 +31,8 @@ export const roasts: Roast[] = [
     cta: "Shop Medium Roast",
   },
   {
-    key: "medium-dark",
-    name: "Medium-Dark Roast",
+    key: "dark",
+    name: "Dark Roast",
     tagline: "Deeper Body. Espresso-Minded Structure.",
     notes: ["Cacao", "Toasted Almond", "Warm Caramel", "Long Noble Finish"],
     description:
@@ -42,7 +42,7 @@ export const roasts: Roast[] = [
       { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
     ],
     intensity: 4,
-    cta: "Shop Medium-Dark",
+    cta: "Shop Dark",
   },
   {
     key: "truly-dark",
@@ -60,9 +60,9 @@ export const roasts: Roast[] = [
   },
 ];
 
-export const roastRecipeName: Record<RoastKey, "Medium" | "Medium-Dark" | "Truly Dark"> = {
+export const roastRecipeName: Record<RoastKey, "Medium" | "Dark" | "Truly Dark"> = {
   medium: "Medium",
-  "medium-dark": "Medium-Dark",
+  "dark": "Dark",
   "truly-dark": "Truly Dark",
 };
 
@@ -106,7 +106,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
     ],
     pairings: ["Almond croissant", "Honey toast", "Soft cheeses"],
   },
-  "medium-dark": {
+  "dark": {
     ritual:
       "The espresso-minded pour — cocoa warmth and structured depth, sculpted for the ritual between meetings.",
     cupping: [
@@ -119,7 +119,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
       { label: "Origin", value: "Single-origin Indian Arabica" },
       { label: "Altitude", value: "1,400–1,600 m" },
       { label: "Process", value: "Washed / Natural blend" },
-      { label: "Roast Level", value: "Medium-Dark (Full City)" },
+      { label: "Roast Level", value: "Dark (Full City)" },
     ],
     methods: [
       { method: "Espresso", grind: "Fine", ratio: "1:2", temp: "93°C", time: "27–30 s", note: "Signature cocoa-caramel shot." },
@@ -153,7 +153,7 @@ export const brewGuides: Record<RoastKey, BrewGuide> = {
 };
 
 
-export type RecipeRoast = "Medium" | "Medium-Dark" | "Truly Dark";
+export type RecipeRoast = "Medium" | "Dark" | "Truly Dark";
 export type RecipeBrewMethod = "Moka Pot" | "French Press" | "Pour-Over" | "Espresso";
 
 export interface Recipe {
@@ -178,7 +178,7 @@ export const recipes: Recipe[] = [
   {
     slug: "baristo-classic",
     name: "Baristo Classic",
-    roasts: ["Medium", "Medium-Dark"],
+    roasts: ["Medium", "Dark"],
     theme: "Sovereign daily cup",
     ingredients: ["18 g Baristo (freshly ground)", "220 ml filtered water at 94°C", "Warmed porcelain cup"],
     moment: "The first noble cup of the day",
@@ -394,9 +394,9 @@ export const recipes: Recipe[] = [
   {
     slug: "sigma",
     name: "Sigma",
-    roasts: ["Medium-Dark"],
+    roasts: ["Dark"],
     theme: "Private luxury",
-    ingredients: ["1 shot Baristo Medium-Dark", "1/2 tsp maca powder", "1/2 tsp vanilla extract", "1 tsp maple syrup", "180 ml steamed whole or oat milk"],
+    ingredients: ["1 shot Baristo Dark", "1/2 tsp maca powder", "1/2 tsp vanilla extract", "1 tsp maple syrup", "180 ml steamed whole or oat milk"],
     moment: "Solitary excellence hours",
     copy: "A private-luxury pour — maca, vanilla, and steamed silk for those who need no audience.",
     method: "Steamed latte",
@@ -406,7 +406,7 @@ export const recipes: Recipe[] = [
     difficulty: "Considered",
     steps: [
       "Whisk maca, vanilla, and maple into a paste at the bottom of a warm mug.",
-      "Pull a fresh shot of Baristo Medium-Dark directly over the paste and stir.",
+      "Pull a fresh shot of Baristo Dark directly over the paste and stir.",
       "Steam the milk to a fine, glossy microfoam at 60–65°C.",
       "Pour the milk from height, then close in tight to draw a single tulip.",
       "Serve immediately with no dusting — the pour is the finish.",
@@ -421,9 +421,9 @@ export const recipes: Recipe[] = [
   {
     slug: "burst",
     name: "Burst",
-    roasts: ["Medium-Dark", "Truly Dark"],
+    roasts: ["Dark", "Truly Dark"],
     theme: "Cacao-driven energy ritual",
-    ingredients: ["1 double shot Baristo Medium-Dark or Truly Dark", "1 tsp grass-fed butter or ghee", "1 tsp raw cacao", "Pinch of sea salt"],
+    ingredients: ["1 double shot Baristo Dark or Truly Dark", "1 tsp grass-fed butter or ghee", "1 tsp raw cacao", "Pinch of sea salt"],
     moment: "High-output afternoons",
     copy: "Raw cacao and roasted depth, whipped into a dense, energetic ritual.",
     method: "Whipped shot",
@@ -509,7 +509,7 @@ export const aPlusModules = [
   },
   {
     title: "Three Roasts. One Peak Performance Ladder.",
-    body: "Medium for elegance. Medium-Dark for structure. Truly Dark for espresso-minded intensity. One master roast ladder, sculpted for minds chasing cognitive sharpness and higher altitudes of thought.",
+    body: "Medium for elegance. Dark for structure. Truly Dark for espresso-minded intensity. One master roast ladder, sculpted for minds chasing cognitive sharpness and higher altitudes of thought.",
   },
   {
     title: "Purity, Provenance & Roast — Visible in Every Pack.",
@@ -534,7 +534,7 @@ export const evidencePoints = [
 
 export const listingTitles = [
   "Baristo.Online Medium Roast Coffee | 100% Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Chicory, No Fillers | 12 oz",
-  "Baristo.Online Medium-Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
+  "Baristo.Online Dark Roast Coffee | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
   "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 12 oz",
 ];
 
@@ -545,7 +545,7 @@ export const listingBullets = [
   },
   {
     lead: "Master Roast Ladder",
-    body: "Choose Medium for elegance, Medium-Dark for structure, or Truly Dark for espresso-minded intensity.",
+    body: "Choose Medium for elegance, Dark for structure, or Truly Dark for espresso-minded intensity.",
   },
   {
     lead: "Pure Ground Roasted Coffee",
@@ -591,7 +591,7 @@ export interface CasePack {
   mrp: string;
   price: string;
   useCase: string;
-  accent: "medium" | "medium-dark" | "truly-dark" | "discovery" | "executive" | "altitude";
+  accent: "medium" | "dark" | "truly-dark" | "discovery" | "executive" | "altitude";
 }
 
 export const casePacks: CasePack[] = [
@@ -606,14 +606,14 @@ export const casePacks: CasePack[] = [
     accent: "medium",
   },
   {
-    key: "medium-dark",
-    name: "Baristo Medium-Dark Roast Case",
-    packSplit: "10 × 12 oz Medium-Dark",
+    key: "dark",
+    name: "Baristo Dark Roast Case",
+    packSplit: "10 × 12 oz Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹14,999",
     useCase: "Espresso-minded users",
-    accent: "medium-dark",
+    accent: "dark",
   },
   {
     key: "truly-dark",
@@ -628,7 +628,7 @@ export const casePacks: CasePack[] = [
   {
     key: "discovery",
     name: "Baristo Noble Discovery Case",
-    packSplit: "4 × 12 oz Medium + 4 × 12 oz Medium-Dark + 2 × 12 oz Truly Dark",
+    packSplit: "4 × 12 oz Medium + 4 × 12 oz Dark + 2 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,299",
@@ -638,7 +638,7 @@ export const casePacks: CasePack[] = [
   {
     key: "executive",
     name: "Baristo Executive Ritual Case",
-    packSplit: "3 × 12 oz Medium + 4 × 12 oz Medium-Dark + 3 × 12 oz Truly Dark",
+    packSplit: "3 × 12 oz Medium + 4 × 12 oz Dark + 3 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",
@@ -648,7 +648,7 @@ export const casePacks: CasePack[] = [
   {
     key: "altitude",
     name: "Baristo Dark Altitude Case",
-    packSplit: "2 × 12 oz Medium + 3 × 12 oz Medium-Dark + 5 × 12 oz Truly Dark",
+    packSplit: "2 × 12 oz Medium + 3 × 12 oz Dark + 5 × 12 oz Truly Dark",
     total: "120 oz",
     mrp: "₹19,490",
     price: "₹15,499",

@@ -3,18 +3,18 @@ import { Check, Plus, Sparkles } from "lucide-react";
 import { roasts, type Recipe, type RoastKey } from "@/lib/baristo-data";
 import { useCart } from "@/hooks/use-cart";
 import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
+import pouchDark from "@/assets/pouch-medium-dark.jpg";
 import pouchDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
   medium: pouchMedium,
-  "medium-dark": pouchMediumDark,
+  "dark": pouchDark,
   "truly-dark": pouchDark,
 };
 
-const roastNameToKey: Record<"Medium" | "Medium-Dark" | "Truly Dark", RoastKey> = {
+const roastNameToKey: Record<"Medium" | "Dark" | "Truly Dark", RoastKey> = {
   Medium: "medium",
-  "Medium-Dark": "medium-dark",
+  "Dark": "dark",
   "Truly Dark": "truly-dark",
 };
 

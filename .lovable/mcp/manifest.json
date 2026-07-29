@@ -15,7 +15,7 @@
       {
         "name": "list_roasts",
         "title": "List Baristo roasts",
-        "description": "List all Baristo.Online single-origin roasts (Medium, Medium-Dark, Truly Dark) with tasting notes, intensity, pricing (INR), and pouch size.",
+        "description": "List all Baristo.Online single-origin roasts (Medium, Dark, Truly Dark) with tasting notes, intensity, pricing (INR), and pouch size.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -31,7 +31,7 @@
       {
         "name": "get_roast",
         "title": "Get Baristo roast details",
-        "description": "Get full details for one Baristo roast by key: medium, medium-dark, or truly-dark.",
+        "description": "Get full details for one Baristo roast by key: medium, dark, or truly-dark.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -45,7 +45,7 @@
               "type": "string",
               "enum": [
                 "medium",
-                "medium-dark",
+                "dark",
                 "truly-dark"
               ],
               "description": "The roast key"
@@ -76,7 +76,7 @@
       {
         "name": "list_recipes",
         "title": "List Baristo recipes",
-        "description": "List Baristo recipes with optional filters by roast (Medium, Medium-Dark, Truly Dark) and brew method (Moka Pot, French Press, Pour-Over, Espresso). Returns a summary; use get_recipe for full brewing steps.",
+        "description": "List Baristo recipes with optional filters by roast (Medium, Dark, Truly Dark) and brew method (Moka Pot, French Press, Pour-Over, Espresso). Returns a summary; use get_recipe for full brewing steps.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -90,7 +90,7 @@
               "type": "string",
               "enum": [
                 "Medium",
-                "Medium-Dark",
+                "Dark",
                 "Truly Dark"
               ]
             },

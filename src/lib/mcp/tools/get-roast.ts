@@ -5,9 +5,9 @@ import { roasts } from "@/lib/baristo-data";
 export default defineTool({
   name: "get_roast",
   title: "Get Baristo roast details",
-  description: "Get full details for one Baristo roast by key: medium, medium-dark, or truly-dark.",
+  description: "Get full details for one Baristo roast by key: medium, dark, or truly-dark.",
   inputSchema: {
-    roastKey: z.enum(["medium", "medium-dark", "truly-dark"]).describe("The roast key"),
+    roastKey: z.enum(["medium", "dark", "truly-dark"]).describe("The roast key"),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ roastKey }) => {

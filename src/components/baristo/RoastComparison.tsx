@@ -68,7 +68,7 @@ export function RoastComparison() {
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="smallcaps text-[10px] text-rosegold-light">
-                      Master No. {["medium", "medium-dark", "truly-dark"].indexOf(roast.key) + 1}
+                      Master No. {["medium", "dark", "truly-dark"].indexOf(roast.key) + 1}
                     </p>
                     <h3 className="mt-2 font-display text-2xl font-semibold text-espresso">
                       {roast.name}
