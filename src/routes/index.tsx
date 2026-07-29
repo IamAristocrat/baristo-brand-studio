@@ -10,6 +10,7 @@ import { BrandStory } from "@/components/baristo/BrandStory";
 import { BenefitGallery } from "@/components/baristo/BenefitGallery";
 import { VisualStory } from "@/components/baristo/VisualStory";
 import { Evidence } from "@/components/baristo/Evidence";
+import { Testimonials } from "@/components/baristo/Testimonials";
 import { EvidenceStrip } from "@/components/baristo/EvidenceStrip";
 import { RecipeEcosystem } from "@/components/baristo/RecipeEcosystem";
 import { AmazonCopy } from "@/components/baristo/AmazonCopy";
@@ -50,6 +51,7 @@ function Index() {
           <CasePacks />
           <APlusModules />
           <Evidence />
+          <Testimonials />
           <RecipeEcosystem />
           <AmazonCopy />
         </main>

@@ -47,7 +47,7 @@ export function BenefitGallery() {
               <div className={`overflow-hidden ${i === 0 || i === 5 ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
                 <img
                   src={f.src}
-                  alt={f.title}
+                  alt={`${f.title} — Baristo.Online premium ground coffee ritual`}
                   loading="lazy"
                   width={1024}
                   height={1024}
