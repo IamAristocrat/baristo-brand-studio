@@ -8,7 +8,7 @@ import { CartDrawer } from "@/components/baristo/CartDrawer";
 
 const title = "Our Story — Dark & Truly Dark Single-Origin | Baristo.Online";
 const description =
-  "How Baristo.Online sources high-altitude single-origin Indian Arabica, roasts it dark in small batches, and evidences every pouch with batch codes and QR records.";
+  "How Baristo.Online sources high-altitude single-origin Indian Arabica, roasts it dark in small batches, and evidences every pouch with batch codes and documented records.";
 
 export const Route = createFileRoute("/story")({
   head: () => ({

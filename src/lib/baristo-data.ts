@@ -25,7 +25,7 @@ export const roasts: Roast[] = [
       "Deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
+      { label: "12 oz / 340 g", sub: "Limited Reserve Edition", grams: 340, price: 4279, mrp: 4779 },
     ],
     intensity: 4,
     cta: "Shop Dark",
@@ -39,7 +39,7 @@ export const roasts: Roast[] = [
       "Bold, intense, roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "12 oz", sub: "Signature Ritual Pouch", grams: 340, price: 1749, mrp: 1949 },
+      { label: "12 oz / 340 g", sub: "Limited Reserve Edition", grams: 340, price: 4279, mrp: 4779 },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
@@ -476,7 +476,7 @@ export const aPlusModules = [
   },
   {
     title: "Purity, Provenance & Roast — Visible in Every Pack.",
-    body: "Batch-coded, QR-enabled, quality-tested. Origin, roast profile, brewing guidance, and available testing documentation — evidence, not adjectives.",
+    body: "Batch-coded and quality-tested. Origin, roast profile, brewing guidance, and available testing documentation — evidence, not adjectives.",
   },
   {
     title: "Designed for Espresso-Minded Homes.",
@@ -491,13 +491,13 @@ export const aPlusModules = [
 export const evidencePoints = [
   { title: "100% Roasted Arabica", body: "Nothing but single-origin Indian Arabica coffee — roasted, ground, sealed." },
   { title: "No Chicory. No Fillers.", body: "No chicory, no fillers, no artificial flavor. Purity as a standing policy." },
-  { title: "Batch-Coded & QR-Enabled", body: "Every batch carries QR-enabled origin, roast, brewing, and available testing documentation." },
+  { title: "Batch-Coded & Traceable", body: "Every batch carries documented origin, roast, brewing, and available testing records." },
   { title: "Compliant by Design", body: "Lifestyle and sensory language only — not intended to diagnose, treat, cure, or prevent any disease." },
 ];
 
 export const listingTitles = [
-  "Baristo.Online Dark Roast Coffee | 100% Single-Origin Indian Arabica | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | 12 oz",
-  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | 12 oz",
+  "Baristo.Online Dark Roast Coffee | 100% Single-Origin Indian Arabica | Espresso-Minded Indian Arabica | High-Altitude Ground Roasted Coffee | Quality-Tested | Limited Reserve Edition | 12 oz / 340 g",
+  "Baristo.Online Truly Dark Roast Coffee | Bold Single-Origin Indian Arabica | High-Altitude Ground Roasted Coffee | No Artificial Flavor | Limited Reserve Edition | 12 oz / 340 g",
 ];
 
 export const listingBullets = [
@@ -515,7 +515,7 @@ export const listingBullets = [
   },
   {
     lead: "Quality-Tested Ritual",
-    body: "Batch-coded coffee with QR-enabled origin, roast, brewing, and available testing documentation.",
+    body: "Batch-coded coffee with documented origin, roast, brewing, and available testing records.",
   },
   {
     lead: "Made for Home Cafe Luxury",
@@ -532,7 +532,6 @@ export const sopChecklist = [
   "Roast date",
   "Packed date",
   "Best-before declaration",
-  "QR code — origin, roast, brewing & testing docs",
   "Customer care contact details",
   "Registered legal address",
 ];
@@ -560,50 +559,50 @@ export const casePacks: CasePack[] = [
   {
     key: "dark",
     name: "Baristo Dark Roast Case",
-    packSplit: "10 × 12 oz Dark",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹14,999",
+    packSplit: "10 × 12 oz / 340 g Dark",
+    total: "120 oz / 3.4 kg",
+    mrp: "₹47,790",
+    price: "₹36,999",
     useCase: "Espresso-minded users",
     accent: "dark",
   },
   {
     key: "truly-dark",
     name: "Baristo Truly Dark Roast Case",
-    packSplit: "10 × 12 oz Truly Dark",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹14,999",
+    packSplit: "10 × 12 oz / 340 g Truly Dark",
+    total: "120 oz / 3.4 kg",
+    mrp: "₹47,790",
+    price: "₹36,999",
     useCase: "Bold premium users",
     accent: "truly-dark",
   },
   {
     key: "discovery",
     name: "Baristo Noble Discovery Case",
-    packSplit: "5 × 12 oz Dark + 5 × 12 oz Truly Dark",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹15,299",
+    packSplit: "5 × 12 oz / 340 g Dark + 5 × 12 oz / 340 g Truly Dark",
+    total: "120 oz / 3.4 kg",
+    mrp: "₹47,790",
+    price: "₹37,499",
     useCase: "Best mixed launch pack",
     accent: "discovery",
   },
   {
     key: "executive",
     name: "Baristo Executive Ritual Case",
-    packSplit: "6 × 12 oz Dark + 4 × 12 oz Truly Dark",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹15,499",
+    packSplit: "6 × 12 oz / 340 g Dark + 4 × 12 oz / 340 g Truly Dark",
+    total: "120 oz / 3.4 kg",
+    mrp: "₹47,790",
+    price: "₹37,999",
     useCase: "Founders / CEOs / offices",
     accent: "executive",
   },
   {
     key: "altitude",
     name: "Baristo Dark Altitude Case",
-    packSplit: "3 × 12 oz Dark + 7 × 12 oz Truly Dark",
-    total: "120 oz",
-    mrp: "₹19,490",
-    price: "₹15,499",
+    packSplit: "3 × 12 oz / 340 g Dark + 7 × 12 oz / 340 g Truly Dark",
+    total: "120 oz / 3.4 kg",
+    mrp: "₹47,790",
+    price: "₹37,999",
     useCase: "Dark roast lovers",
     accent: "altitude",
   },

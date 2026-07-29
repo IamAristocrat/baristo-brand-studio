@@ -190,7 +190,7 @@ export function RoastCollection() {
               <tr>
                 <td className="smallcaps px-5 py-4 text-xs font-semibold text-muted-foreground">Sizes</td>
                 {roasts.map((r) => (
-                  <td key={r.key} className="px-5 py-4">12 oz</td>
+                  <td key={r.key} className="px-5 py-4">12 oz / 340 g · Limited Reserve Edition</td>
                 ))}
               </tr>
             </tbody>

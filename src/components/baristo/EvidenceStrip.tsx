@@ -1,4 +1,4 @@
-import { Leaf, ShieldCheck, QrCode, BadgeCheck } from "lucide-react";
+import { Leaf, ShieldCheck, FileCheck, BadgeCheck } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/tooltip";
 import { evidencePoints } from "@/lib/baristo-data";
 
-const icons = [Leaf, ShieldCheck, QrCode, BadgeCheck] as const;
+const icons = [Leaf, ShieldCheck, FileCheck, BadgeCheck] as const;
 
 export function EvidenceStrip() {
   return (

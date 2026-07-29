@@ -37,7 +37,7 @@ export function StoreNav() {
           <span className="truncate font-display text-base font-semibold tracking-wide text-espresso sm:text-lg">
             Baristo<span className="text-gradient-rose">.Online</span>
           </span>
-          <span className="smallcaps mt-0.5 text-[9px] tracking-[0.3em] text-rosegold-light sm:text-[10px]">Be Noble</span>
+          <span className="smallcaps mt-0.5 text-[9px] tracking-[0.3em] text-rosegold-light sm:text-[10px]">For Expresso Noble Minds</span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex">

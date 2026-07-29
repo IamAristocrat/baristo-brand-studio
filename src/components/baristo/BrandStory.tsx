@@ -26,7 +26,7 @@ const chapters = [
     no: "IV",
     tag: "Proof, Not Adjectives",
     title: "Traceable from lot to pour",
-    body: "Each pouch carries a batch code and a QR that opens the record behind it: origin tier, process, roast profile, roast date, brewing guidance, and available testing documentation. If a claim cannot be evidenced on the pack, we do not print it. Purity is a standing policy — 100% roasted Arabica, no chicory, no fillers, no artificial flavour.",
+    body: "Each pouch carries a batch code and a documented record behind it: origin tier, process, roast profile, roast date, brewing guidance, and available testing documentation. If a claim cannot be evidenced on the pack, we do not print it. Purity is a standing policy — 100% roasted Arabica, no chicory, no fillers, no artificial flavour.",
   },
   {
     no: "V",
