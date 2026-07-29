@@ -29,6 +29,15 @@ export function Evidence() {
           ))}
         </div>
 
+        <div className="mt-10 text-center">
+          <a
+            href="/evidence-hub"
+            className="smallcaps inline-block rounded-sm bg-gradient-rose px-6 py-3 text-[10px] tracking-widest text-espresso shadow-rose transition-transform hover:scale-[1.03]"
+          >
+            Open the Evidence Hub
+          </a>
+        </div>
+
         <div className="mt-12 rounded-lg border border-primary/30 bg-secondary/50 p-6 text-center">
           <p className="smallcaps text-xs text-primary">Compliance Note</p>
           <p className="mt-2 text-sm text-muted-foreground">
