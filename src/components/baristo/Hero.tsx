@@ -30,7 +30,7 @@ export function Hero() {
       <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-16 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20">
         <img
           src={medallion}
-          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains, Be Noble"
+          alt="Baristo.Online rose-gold medallion — crown, coffee bean, Indian altitude mountains — For Expresso Noble Minds"
           width={1024}
           height={1024}
           fetchPriority="high"
@@ -45,7 +45,7 @@ export function Hero() {
           Baristo<span className="text-gradient-rose">.Online</span>
         </h1>
 
-        <p className="smallcaps mt-2 text-sm text-rosegold sm:mt-3 sm:text-base">Be Noble</p>
+        <p className="smallcaps mt-2 text-sm text-rosegold sm:mt-3 sm:text-base">For Expresso Noble Minds</p>
 
         <p className="mx-auto mt-4 max-w-[36ch] text-base leading-relaxed text-espresso/80 sm:mt-5 sm:max-w-2xl sm:text-lg sm:leading-relaxed text-balance">
           {brandSubtitle}

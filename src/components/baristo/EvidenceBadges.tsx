@@ -1,13 +1,13 @@
-import { Leaf, ShieldCheck, QrCode, BadgeCheck, Info } from "lucide-react";
+import { Leaf, ShieldCheck, FileCheck, BadgeCheck, Info } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { evidencePoints } from "@/lib/baristo-data";
 
-const icons = [Leaf, ShieldCheck, QrCode, BadgeCheck] as const;
+const icons = [Leaf, ShieldCheck, FileCheck, BadgeCheck] as const;
 
 const proofs = [
-  "Sourced from single-estate Indian Arabica lots. Every pouch is traceable to the origin region on the QR code.",
+  "Sourced from single-estate Indian Arabica lots. Every pouch is traceable to its origin region through the batch record.",
   "Zero chicory, zero fillers, zero flavour additives. Verified against every batch's ingredient declaration.",
-  "Batch code + roast date + packed date + best-before printed on pack. Scan the QR for the full dossier.",
+  "Batch code + roast date + packed date + best-before printed on pack. Request the full dossier by batch code.",
   "Sensory and lifestyle language only. FSSAI-compliant labeling — no medicinal or disease claims.",
 ];
 
