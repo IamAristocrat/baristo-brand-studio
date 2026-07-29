@@ -15,17 +15,15 @@ import { StoreFooter } from "@/components/baristo/StoreFooter";
 import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
 import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
-import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
-import pouchDark from "@/assets/pouch-dark.jpg";
+import pouchDarkRoast from "@/assets/pouch-medium-dark.jpg";
+import pouchTrulyDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
-  medium: pouchMedium,
-  "medium-dark": pouchMediumDark,
-  "truly-dark": pouchDark,
+  dark: pouchDarkRoast,
+  "truly-dark": pouchTrulyDark,
 };
 
-const validKeys: RoastKey[] = ["medium", "medium-dark", "truly-dark"];
+const validKeys: RoastKey[] = ["dark", "truly-dark"];
 
 export const Route = createFileRoute("/roasts/$roastKey")({
   loader: ({ params }) => {

@@ -147,13 +147,11 @@ export function CartDrawer() {
                           <div>
                             <span className="block text-[9px] uppercase tracking-wider text-rosegold">Roast</span>
                             <span className="block text-[11px] text-espresso/80">
-                              {i.roastKey === "case-medium"
-                                ? "Medium Roast"
-                                : i.roastKey === "case-medium-dark"
-                                  ? "Medium-Dark Roast"
-                                  : i.roastKey === "case-truly-dark"
-                                    ? "Truly Dark Roast"
-                                    : "Mixed Roasts"}
+                              {i.roastKey === "case-dark"
+                                ? "Dark Roast"
+                                : i.roastKey === "case-truly-dark"
+                                  ? "Truly Dark Roast"
+                                  : "Mixed Roasts"}
                             </span>
                           </div>
                           <div>

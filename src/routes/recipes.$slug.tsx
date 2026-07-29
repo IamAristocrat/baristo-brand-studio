@@ -7,19 +7,16 @@ import { CartProvider } from "@/hooks/use-cart";
 import { CartDrawer } from "@/components/baristo/CartDrawer";
 import { BrewKitBuilder } from "@/components/baristo/BrewKitBuilder";
 import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
-import pouchMedium from "@/assets/pouch-medium.jpg";
-import pouchMediumDark from "@/assets/pouch-medium-dark.jpg";
-import pouchDark from "@/assets/pouch-dark.jpg";
+import pouchDarkRoast from "@/assets/pouch-medium-dark.jpg";
+import pouchTrulyDark from "@/assets/pouch-dark.jpg";
 
 const pouchImages: Record<RoastKey, string> = {
-  medium: pouchMedium,
-  "medium-dark": pouchMediumDark,
-  "truly-dark": pouchDark,
+  dark: pouchDarkRoast,
+  "truly-dark": pouchTrulyDark,
 };
 
-const roastNameToKey: Record<"Medium" | "Medium-Dark" | "Truly Dark", RoastKey> = {
-  Medium: "medium",
-  "Medium-Dark": "medium-dark",
+const roastNameToKey: Record<"Dark" | "Truly Dark", RoastKey> = {
+  "Dark": "dark",
   "Truly Dark": "truly-dark",
 };
 
@@ -39,7 +36,7 @@ export const Route = createFileRoute("/recipes/$slug")({
     const desc = rawDesc.length > 158 ? rawDesc.slice(0, 155) + "…" : rawDesc;
     const url = `https://baristo.lovable.app/recipes/${params.slug}`;
     const primaryRoast = roastNameToKey[r.roasts[0] as keyof typeof roastNameToKey];
-    const image = `https://baristo.lovable.app${pouchImages[primaryRoast] ?? pouchImages.medium}`;
+    const image = `https://baristo.lovable.app${pouchImages[primaryRoast] ?? pouchImages.dark}`;
     const keywords = [
       r.name,
       r.theme,

@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { recipes, type RecipeRoast, type RecipeBrewMethod } from "@/lib/baristo-data";
 
-const roastFilters: ("All" | RecipeRoast)[] = ["All", "Medium", "Medium-Dark", "Truly Dark"];
+const roastFilters: ("All" | RecipeRoast)[] = ["All", "Dark", "Truly Dark"];
 const brewFilters: ("All" | RecipeBrewMethod)[] = ["All", "Moka Pot", "French Press", "Pour-Over", "Espresso"];
 
 const roastBadgeClasses: Record<RecipeRoast, string> = {
-  Medium: "bg-secondary text-secondary-foreground",
-  "Medium-Dark": "bg-taupe/30 text-espresso",
+  Dark: "bg-taupe/30 text-espresso",
   "Truly Dark": "bg-ivory text-rosegold",
 };
 

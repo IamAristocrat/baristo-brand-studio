@@ -5,6 +5,7 @@ import { useCart } from "@/hooks/use-cart";
 const links = [
   { label: "Home", href: "#home" },
   { label: "Roasts", href: "#roasts" },
+  { label: "Story", href: "#story" },
   { label: "Evidence", href: "#evidence" },
   { label: "Recipes", href: "#recipes" },
   { label: "Amazon Copy", href: "#amazon-copy" },

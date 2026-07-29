@@ -1,10 +1,10 @@
 # Baristo.Online
 
-> Baristo.Online is a premium Indian high-altitude Arabica coffee brand store — three master roasts (Medium, Medium-Dark, Truly Dark), twelve functional recipes, and a refined daily ritual.
+> Baristo.Online is a premium Indian high-altitude Arabica coffee brand store — two dark master roasts (Dark, Truly Dark), twelve functional recipes, and a refined daily ritual.
 
 ## Pages
 
 - [Home](/): Brand store landing with the roast collection, case packs, A+ brand story, quality evidence, and recipe ecosystem.
-- [Medium Roast](/roasts/medium): Clean, elegant, aromatic — brew guidance, tasting notes, and linked recipes.
-- [Medium-Dark Roast](/roasts/medium-dark): Deeper body with espresso-minded structure — brew guidance, tasting notes, and linked recipes.
+- [Our Story](/story): How Baristo sources, roasts, evidences and packs its two dark roasts.
+- [Dark Roast](/roasts/dark): Deeper body with espresso-minded structure — brew guidance, tasting notes, and linked recipes.
 - [Truly Dark Roast](/roasts/truly-dark): Bold, intense, roasted depth — brew guidance, tasting notes, and linked recipes.

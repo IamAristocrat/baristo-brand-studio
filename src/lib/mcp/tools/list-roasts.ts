@@ -5,7 +5,7 @@ export default defineTool({
   name: "list_roasts",
   title: "List Baristo roasts",
   description:
-    "List all Baristo.Online single-origin roasts (Medium, Medium-Dark, Truly Dark) with tasting notes, intensity, pricing (INR), and pouch size.",
+    "List all Baristo.Online single-origin roasts (Dark, Truly Dark) with tasting notes, intensity, pricing (INR), and pouch size.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
