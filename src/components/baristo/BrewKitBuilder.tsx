@@ -10,8 +10,7 @@ const pouchImages: Record<RoastKey, string> = {
   "truly-dark": pouchTrulyDark,
 };
 
-const roastNameToKey: Record<"Medium" | "Dark" | "Truly Dark", RoastKey> = {
-  Medium: "medium",
+const roastNameToKey: Record<"Dark" | "Truly Dark", RoastKey> = {
   "Dark": "dark",
   "Truly Dark": "truly-dark",
 };

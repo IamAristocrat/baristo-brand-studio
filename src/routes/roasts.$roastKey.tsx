@@ -23,7 +23,7 @@ const pouchImages: Record<RoastKey, string> = {
   "truly-dark": pouchTrulyDark,
 };
 
-const validKeys: RoastKey[] = ["medium", "dark", "truly-dark"];
+const validKeys: RoastKey[] = ["dark", "truly-dark"];
 
 export const Route = createFileRoute("/roasts/$roastKey")({
   loader: ({ params }) => {
