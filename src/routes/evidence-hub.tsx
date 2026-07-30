@@ -1,17 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { StoreNav } from "@/components/baristo/StoreNav";
-import { StoreFooter } from "@/components/baristo/StoreFooter";
-import { EvidenceHub } from "@/components/baristo/EvidenceHub";
-import { RoastingHub } from "@/components/baristo/RoastingHub";
-import { Testimonials } from "@/components/baristo/Testimonials";
-import { EvidenceBadges } from "@/components/baristo/EvidenceBadges";
-import { CartProvider } from "@/hooks/use-cart";
-import { CartDrawer } from "@/components/baristo/CartDrawer";
+import { ArrowLeft, Bean, Flame, MapPin, Microscope, ShieldCheck } from "lucide-react";
 
-const title = "Evidence Hub — Batch Traceability & Roasting | Baristo.Online";
+const title = "Evidence Policy — Baristo.Online";
 const description =
-  "Batch codes, roast dates and what each proof dossier includes for Baristo.Online premium ground coffee — released on demand or on application, plus the seven-stage roasting hub.";
+  "How Baristo.Online handles ingredient clarity, batch identity, origin information, roast records and available quality evidence without unsupported claims.";
 
 export const Route = createFileRoute("/evidence-hub")({
   head: () => ({
@@ -21,49 +13,70 @@ export const Route = createFileRoute("/evidence-hub")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://baristo.online/evidence-hub" }],
   }),
-  component: EvidenceHubPage,
+  component: EvidencePolicyPage,
 });
 
-function EvidenceHubPage() {
+const points = [
+  {
+    icon: Bean,
+    title: "Ingredient clarity",
+    copy: "100% roasted Arabica coffee. No chicory, fillers or artificial flavour in the coffee formulation.",
+  },
+  {
+    icon: MapPin,
+    title: "Origin reference",
+    copy: "Indian origin and available lot, estate or regional information are attached only after verification.",
+  },
+  {
+    icon: Flame,
+    title: "Roast identity",
+    copy: "The roast profile, roast date and packed date are published when the operating record is complete.",
+  },
+  {
+    icon: Microscope,
+    title: "Available quality evidence",
+    copy: "Third-party or internal quality records are linked only when they genuinely exist for the relevant batch.",
+  },
+];
+
+function EvidencePolicyPage() {
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-ivory">
-        <StoreNav />
-        <main className="pt-16">
-          <section className="relative overflow-hidden bg-gradient-ivory pt-10 pb-14">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(var(--rosegold)/0.14),_transparent_65%)]" />
-            <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-              <Link
-                to="/"
-                className="smallcaps inline-flex items-center gap-2 text-[11px] text-espresso/60 transition-colors hover:text-rosegold"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> Back to the store
-              </Link>
-              <p className="smallcaps mt-6 text-xs text-primary">Evidence Hub</p>
-              <h1 className="hairline mt-3 max-w-3xl font-display text-4xl font-semibold text-espresso sm:text-5xl">
-                Batch Traceability, Roasting Dates &amp; Proof — On Request
-              </h1>
-              <p className="mt-6 max-w-2xl text-muted-foreground">
-                Every pouch of Baristo.Online premium ground coffee is batch-coded and dated. The
-                documents behind those codes are released deliberately — on demand for provenance and
-                roast records, on application for purity, sensory and compliance files.
+    <main className="min-h-screen bg-obsidian px-4 py-14 text-ivory sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-5xl">
+        <Link to="/" hash="evidence" className="smallcaps inline-flex items-center gap-2 text-xs text-rosegold-light">
+          <ArrowLeft className="h-4 w-4" /> Back to Baristo.Online
+        </Link>
+        <p className="smallcaps mt-14 text-xs text-rosegold-light">Evidence Without Theatre</p>
+        <h1 className="mt-4 max-w-4xl font-display text-5xl font-semibold leading-tight sm:text-7xl">
+          Premium is not an adjective. It is a trail.
+        </h1>
+        <p className="mt-7 max-w-3xl text-base leading-8 text-ivory/62">
+          Baristo publishes what can be substantiated and withholds what cannot. Evidence should make the product clearer and more trustworthy, not stage a laboratory fantasy.
+        </p>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2">
+          {points.map(({ icon: Icon, title: pointTitle, copy }) => (
+            <article key={pointTitle} className="rounded-xl border border-rosegold/20 bg-white/[0.04] p-7">
+              <Icon className="h-6 w-6 text-rosegold-light" />
+              <h2 className="mt-5 font-display text-3xl font-semibold">{pointTitle}</h2>
+              <p className="mt-4 text-sm leading-7 text-ivory/58">{copy}</p>
+            </article>
+          ))}
+        </div>
+        <section className="mt-14 rounded-2xl border border-rosegold/25 bg-white/[0.04] p-8 sm:p-10">
+          <div className="flex items-start gap-4">
+            <ShieldCheck className="mt-1 h-7 w-7 shrink-0 text-rosegold-light" />
+            <div>
+              <h2 className="font-display text-3xl font-semibold">Claim discipline</h2>
+              <p className="mt-4 text-sm leading-7 text-ivory/58">
+                Baristo does not promise to diagnose, treat, cure or prevent disease. It does not guarantee cognitive enhancement, immunity, detoxification, a jitter-free response or another physiological outcome. Sensory and lifestyle language describes the ritual, not a medical effect.
               </p>
-              <EvidenceBadges
-                className="mt-8"
-                heading="Quality Evidence"
-              />
             </div>
-          </section>
-          <EvidenceHub />
-          <RoastingHub />
-          <Testimonials />
-        </main>
-        <StoreFooter />
-        <CartDrawer />
+          </div>
+        </section>
       </div>
-    </CartProvider>
+    </main>
   );
 }
