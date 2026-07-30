@@ -1,0 +1,19 @@
+#home h1::after {
+  content: "For Expresso Noble Minds.";
+  display: block;
+  margin-top: 1.5rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+  color: hsl(var(--rosegold));
+}
+
+@media (max-width: 640px) {
+  #home h1::after {
+    margin-top: 1.15rem;
+    font-size: 1.25rem;
+  }
+}
