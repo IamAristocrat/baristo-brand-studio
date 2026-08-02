@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { ReservationLayer } from "../components/baristo/ReservationLayer";
 
 const brandDescription =
   "Single-origin Indian Arabica from mountain coffee landscapes, developed into Noble Dark and Truly Dark for espresso-minded homes and private rituals of distinction.";
@@ -29,11 +29,11 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+    console.error("Baristo route error");
+  }, []);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -59,6 +59,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Baristo.Online — Born at Altitude. Roasted for Ascent." },
       { name: "description", content: brandDescription },
       { name: "author", content: "Baristo.Online" },
+      { name: "theme-color", content: "#11100e" },
       { property: "og:title", content: "Baristo.Online — Born at Altitude. Roasted for Ascent." },
       { property: "og:description", content: brandDescription },
       { property: "og:type", content: "website" },
@@ -75,7 +76,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "alternate icon", href: "/favicon.svg" },
       { rel: "canonical", href: "https://baristo.online" },
     ],
     scripts: [
@@ -89,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "https://baristo.online/#organization",
               name: "Baristo.Online",
               url: "https://baristo.online",
-              logo: "https://baristo.online/favicon.ico",
+              logo: "https://baristo.online/favicon.svg",
               description: brandDescription,
             },
             {
@@ -121,5 +123,10 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  return <QueryClientProvider client={queryClient}><Outlet /></QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+      <ReservationLayer />
+    </QueryClientProvider>
+  );
 }
