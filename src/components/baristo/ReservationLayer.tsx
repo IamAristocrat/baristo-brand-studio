@@ -211,7 +211,7 @@ export function ReservationLayer() {
             <p className="mt-4 text-sm leading-7 text-espresso/65">
               Reference <strong>{reservationId}</strong>. Baristo received your reservation at support@baristo.online.
               {acknowledgementSent
-                ? ` An acknowledgement was sent to ${form.email}.`
+                ? " An acknowledgement was sent to the email address provided."
                 : " The customer acknowledgement could not be delivered, but your reservation is recorded."}
             </p>
             <div className="mx-auto mt-7 max-w-md rounded-xl border border-rosegold/18 bg-white/65 p-5 text-left text-sm leading-7 text-espresso/70">
