@@ -42,7 +42,9 @@ async function createVerifiedTransport() {
   const user = process.env.SMTP_USER || DEFAULT_SMTP_USER;
   const pass = getSmtpPassword();
   const configuredPort = Number(process.env.SMTP_PORT || 0);
-  const ports = configuredPort ? [configuredPort] : [465, 587];
+  const ports = configuredPort
+    ? Array.from(new Set([configuredPort, configuredPort === 465 ? 587 : 465]))
+    : [465, 587];
   let lastError: unknown;
 
   if (!pass) {
