@@ -1,0 +1,58 @@
+name: Baristo responsive visual audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  responsive-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install application dependencies
+        run: npm install --include=dev --no-audit --no-fund
+
+      - name: Install visual-audit tools
+        run: npm install --no-save playwright@1.55.0 wait-on@8.0.4
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build production application
+        run: npm run build
+
+      - name: Start production server
+        run: |
+          npm run start > /tmp/baristo-server.log 2>&1 &
+          echo $! > /tmp/baristo-server.pid
+
+      - name: Wait for server
+        run: npx wait-on http://127.0.0.1:3000/api/health --timeout 45000
+
+      - name: Run responsive audit
+        run: node scripts/responsive-audit.mjs
+
+      - name: Upload responsive screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baristo-responsive-audit
+          path: artifacts/responsive
+          if-no-files-found: warn
+
+      - name: Print server log on failure
+        if: failure()
+        run: cat /tmp/baristo-server.log || true
