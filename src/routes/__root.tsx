@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { ReservationLayer } from "../components/baristo/ReservationLayer";
+import { FirstPourLayer } from "../components/baristo/FirstPourLayer";
 
 const brandDescription =
   "Single-origin Indian Arabica from mountain coffee landscapes, developed into Noble Dark and Truly Dark for espresso-minded homes and private rituals of distinction.";
@@ -127,6 +128,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <ReservationLayer />
+      <FirstPourLayer />
     </QueryClientProvider>
   );
 }
