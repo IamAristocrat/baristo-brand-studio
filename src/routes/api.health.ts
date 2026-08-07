@@ -20,6 +20,7 @@ export const Route = createFileRoute("/api/health")({
             service: "baristo-online",
             runtime: "node",
             reservations: smtpPasswordConfigured ? "configured" : "smtp-password-missing",
+            firstPour: smtpPasswordConfigured ? "configured" : "smtp-password-missing",
             smtp: {
               host: smtpHost,
               port: smtpPort,
