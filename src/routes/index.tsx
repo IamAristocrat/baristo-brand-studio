@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroMountains from "@/assets/hero-mountains.jpg";
 import { PublicStore } from "@/components/baristo/PublicStore";
 import { HomepageEnhancements } from "@/components/baristo/HomepageEnhancements";
-import "../experience.css";
 
 export const Route = createFileRoute("/")({
   head: () => ({
