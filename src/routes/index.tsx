@@ -3,6 +3,7 @@ import heroMountains from "@/assets/hero-mountains.jpg";
 import { PublicStore } from "@/components/baristo/PublicStore";
 import { HomepageEnhancements } from "@/components/baristo/HomepageEnhancements";
 import { JournalPortal } from "@/components/baristo/JournalPortal";
+import { HomepageNavigation } from "@/components/baristo/HomepageNavigation";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,6 +22,7 @@ export const Route = createFileRoute("/")({
 function BaristoHomepage() {
   return (
     <>
+      <HomepageNavigation />
       <PublicStore />
       <HomepageEnhancements />
       <JournalPortal />
