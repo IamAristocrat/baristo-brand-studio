@@ -1,0 +1,336 @@
+/* Baristo.Online — premium responsive experience layer */
+
+:root {
+  --baristo-glass: rgba(255, 255, 255, 0.64);
+  --baristo-glass-dark: rgba(255, 255, 255, 0.045);
+  --baristo-shine: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.04) 38%, rgba(255,248,236,.42) 50%, rgba(231,179,154,.18) 58%, transparent 72%);
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% -10%, rgba(231,179,154,.16), transparent 32rem),
+    radial-gradient(circle at 110% 25%, rgba(183,112,84,.08), transparent 26rem),
+    var(--ivory);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.35), transparent 65%);
+}
+
+h1, h2, h3, .font-display {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a, button, summary, input, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, [role="button"], summary {
+  touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--rosegold) 78%, white);
+  outline-offset: 3px;
+}
+
+.premium-glass {
+  background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.52));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.88), 0 24px 70px -42px rgba(74,45,35,.52);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+
+.premium-glass-dark {
+  background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 24px 70px -42px rgba(0,0,0,.85);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+}
+
+.premium-dialog {
+  box-shadow: 0 34px 120px -36px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.premium-shine-card,
+.recipe-detail-card,
+#roasts article,
+#story figure,
+#story .rounded-xl,
+#evidence article {
+  position: relative;
+  isolation: isolate;
+}
+
+.premium-shine-card::after,
+.recipe-detail-card::after,
+#roasts article::after,
+#evidence article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 0%, rgba(255,255,255,.2), transparent 38%);
+  opacity: .55;
+}
+
+[class*="bg-gradient-rose"] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+[class*="bg-gradient-rose"]::after {
+  content: "";
+  position: absolute;
+  inset: -40% -90%;
+  z-index: -1;
+  transform: translateX(-42%) rotate(12deg);
+  background: var(--baristo-shine);
+  opacity: .72;
+}
+
+.evidence-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: .45rem;
+  border: 1px solid rgba(231,179,154,.22);
+  border-radius: 999px;
+  padding: .65rem .9rem;
+  font-size: .68rem;
+  line-height: 1.1;
+  color: rgba(252,247,238,.72);
+  background: rgba(255,255,255,.035);
+  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.ritual-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  border: 1px solid rgba(183,112,84,.18);
+  border-radius: 999px;
+  padding: .35rem .6rem;
+  background: rgba(255,255,255,.72);
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: .34;
+}
+
+.ambient-orb-one {
+  width: 26rem;
+  height: 26rem;
+  left: -10rem;
+  top: -9rem;
+  background: rgba(183,112,84,.38);
+}
+
+.ambient-orb-two {
+  width: 22rem;
+  height: 22rem;
+  right: -7rem;
+  bottom: -8rem;
+  background: rgba(234,210,199,.16);
+}
+
+.recipe-detail-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.recipe-detail-card[open] {
+  border-color: color-mix(in oklab, var(--rosegold) 55%, transparent);
+  box-shadow: 0 24px 65px -36px rgba(74,45,35,.46);
+}
+
+/* Improve render cost on long marketing pages without changing content. */
+main > section:not(#home),
+[data-baristo-enhancement] > section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 780px;
+}
+
+/* Safe-area support for iOS and edge-to-edge displays. */
+header > div,
+footer > div,
+#home > div.relative,
+.cognition-section > div.relative,
+.ritual-library > div.relative {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .premium-shine-card,
+  .recipe-detail-card,
+  #roasts article,
+  #evidence article {
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  }
+
+  .premium-shine-card:hover,
+  .recipe-detail-card:hover,
+  #roasts article:hover,
+  #evidence article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 80px -42px rgba(74,45,35,.55);
+  }
+
+  .evidence-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(231,179,154,.48);
+    background: rgba(255,255,255,.065);
+  }
+
+  [class*="bg-gradient-rose"]:hover::after {
+    animation: baristo-shine 1.15s ease both;
+  }
+}
+
+@keyframes baristo-shine {
+  0% { transform: translateX(-55%) rotate(12deg); }
+  100% { transform: translateX(55%) rotate(12deg); }
+}
+
+/* 320–479 px: compact phones */
+@media (max-width: 479px) {
+  #home {
+    min-height: auto !important;
+  }
+
+  #home > div.relative {
+    min-height: auto !important;
+    gap: 1.75rem !important;
+    padding-top: 3.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  #home h1 {
+    font-size: clamp(3rem, 15.2vw, 4.25rem) !important;
+    line-height: .92 !important;
+  }
+
+  #home .relative.mx-auto.h-\[520px\] {
+    height: 445px !important;
+  }
+
+  #roasts article > div,
+  #story > div,
+  #evidence > div,
+  #ritual-lab > div {
+    min-width: 0;
+  }
+
+  #roasts article > div {
+    padding: 1.25rem;
+  }
+
+  .premium-dialog {
+    border-radius: 1rem;
+  }
+
+  .recipe-detail-card summary {
+    padding: 1.15rem;
+  }
+}
+
+/* 480–767 px: large phones / small tablets */
+@media (min-width: 480px) and (max-width: 767px) {
+  #home > div.relative {
+    gap: 2.5rem !important;
+    padding-top: 4rem !important;
+  }
+
+  #home h1 {
+    font-size: clamp(4rem, 12vw, 5.5rem) !important;
+  }
+}
+
+/* 768–1023 px: tablets, portrait and landscape */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #home {
+    min-height: auto !important;
+  }
+
+  #home > div.relative {
+    min-height: auto !important;
+    padding-top: 5rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .cognition-section .grid,
+  .ritual-library .grid {
+    min-width: 0;
+  }
+}
+
+/* 1024–1439 px: laptops and landscape tablets */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  #home h1 {
+    font-size: clamp(4.5rem, 6.2vw, 5.2rem) !important;
+  }
+
+  #home > div.relative {
+    gap: 2.5rem !important;
+  }
+}
+
+/* 1440 px and above: large desktop polish */
+@media (min-width: 1440px) {
+  #home > div.relative,
+  #roasts > div,
+  #story > div,
+  #evidence > div,
+  #ritual-lab > div,
+  .cognition-section > div.relative,
+  .ritual-library > div.relative {
+    max-width: 82rem;
+  }
+}
+
+/* Short landscape displays: avoid forcing content beneath the fold. */
+@media (min-width: 768px) and (max-height: 700px) {
+  #home {
+    min-height: auto !important;
+  }
+
+  #home > div.relative {
+    min-height: 650px !important;
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
