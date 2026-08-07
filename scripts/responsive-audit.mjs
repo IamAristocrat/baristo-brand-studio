@@ -15,46 +15,69 @@ const viewports = [
   { name: "large-desktop", width: 1920, height: 1080 },
 ];
 
+const journalViewports = [
+  { name: "journal-phone", width: 390, height: 844 },
+  { name: "journal-tablet", width: 820, height: 1180 },
+  { name: "journal-desktop", width: 1440, height: 900 },
+];
+
+const journalRoutes = [
+  { name: "journal-index", path: "/journal", selector: "#journal-articles" },
+  { name: "noble-dark-journal", path: "/journal/noble-dark-indian-arabica-espresso-minded-ritual", selector: "article" },
+  { name: "truly-dark-journal", path: "/journal/truly-dark-intense-dark-roast-indian-arabica", selector: "article" },
+];
+
 await fs.mkdir("artifacts/responsive", { recursive: true });
 const browser = await chromium.launch({ headless: true });
 const failures = [];
 const report = [];
 
+function collectConsole(page) {
+  const errors = [];
+  page.on("console", (message) => {
+    if (message.type() === "error" && !/favicon|font/i.test(message.text())) errors.push(message.text());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+  return errors;
+}
+
+async function geometry(page) {
+  return page.evaluate(() => {
+    const root = document.documentElement;
+    const widthOverflow = root.scrollWidth - window.innerWidth;
+    const sections = Array.from(document.querySelectorAll("main section, [data-baristo-enhancement] section, article"));
+    const badlyOverflowing = sections
+      .map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          id: element.id || element.getAttribute("data-baristo-enhancement") || element.tagName,
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width),
+        };
+      })
+      .filter((item) => item.left < -4 || item.right > window.innerWidth + 4);
+    return { scrollWidth: root.scrollWidth, innerWidth: window.innerWidth, widthOverflow, badlyOverflowing };
+  });
+}
+
 for (const viewport of viewports) {
   const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
   const page = await context.newPage();
-  const consoleErrors = [];
-  page.on("console", (message) => {
-    if (message.type() === "error" && !/favicon|font/i.test(message.text())) consoleErrors.push(message.text());
-  });
-  page.on("pageerror", (error) => consoleErrors.push(error.message));
+  const consoleErrors = collectConsole(page);
 
   try {
     await page.goto(baseURL, { waitUntil: "networkidle", timeout: 45_000 });
     await page.waitForSelector("#home", { timeout: 15_000 });
     await page.waitForSelector("#cognitive-intelligence", { timeout: 15_000 });
     await page.waitForSelector("#ritual-library", { timeout: 15_000 });
+    await page.waitForSelector("#journal-preview", { timeout: 15_000 });
 
-    const geometry = await page.evaluate(() => {
-      const root = document.documentElement;
-      const widthOverflow = root.scrollWidth - window.innerWidth;
-      const sections = Array.from(document.querySelectorAll("main section, [data-baristo-enhancement] section"));
-      const badlyOverflowing = sections
-        .map((element) => {
-          const rect = element.getBoundingClientRect();
-          return { id: element.id || element.getAttribute("data-baristo-enhancement") || element.tagName, left: rect.left, right: rect.right, width: rect.width };
-        })
-        .filter((item) => item.left < -4 || item.right > window.innerWidth + 4);
-      return { scrollWidth: root.scrollWidth, innerWidth: window.innerWidth, widthOverflow, badlyOverflowing };
-    });
-
-    if (geometry.widthOverflow > 3 || geometry.badlyOverflowing.length) {
-      failures.push(`${viewport.name}: horizontal overflow ${JSON.stringify(geometry)}`);
+    const pageGeometry = await geometry(page);
+    if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) {
+      failures.push(`${viewport.name}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
     }
-
-    if (consoleErrors.length) {
-      failures.push(`${viewport.name}: console errors: ${consoleErrors.join(" | ")}`);
-    }
+    if (consoleErrors.length) failures.push(`${viewport.name}: console errors: ${consoleErrors.join(" | ")}`);
 
     await page.screenshot({ path: `artifacts/responsive/${viewport.name}.png`, fullPage: true });
 
@@ -73,11 +96,36 @@ for (const viewport of viewports) {
       await page.getByRole("button", { name: /Close reservation/i }).click();
     }
 
-    report.push({ viewport, geometry, consoleErrors });
+    report.push({ route: "/", viewport, geometry: pageGeometry, consoleErrors });
   } catch (error) {
     failures.push(`${viewport.name}: ${error instanceof Error ? error.message : String(error)}`);
   } finally {
     await context.close();
+  }
+}
+
+for (const route of journalRoutes) {
+  for (const viewport of journalViewports) {
+    const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
+    const page = await context.newPage();
+    const consoleErrors = collectConsole(page);
+    const testName = `${route.name}-${viewport.name}`;
+
+    try {
+      await page.goto(`${baseURL}${route.path}`, { waitUntil: "networkidle", timeout: 45_000 });
+      await page.waitForSelector(route.selector, { timeout: 15_000 });
+      const pageGeometry = await geometry(page);
+      if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) {
+        failures.push(`${testName}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
+      }
+      if (consoleErrors.length) failures.push(`${testName}: console errors: ${consoleErrors.join(" | ")}`);
+      await page.screenshot({ path: `artifacts/responsive/${testName}.png`, fullPage: true });
+      report.push({ route: route.path, viewport, geometry: pageGeometry, consoleErrors });
+    } catch (error) {
+      failures.push(`${testName}: ${error instanceof Error ? error.message : String(error)}`);
+    } finally {
+      await context.close();
+    }
   }
 }
 
@@ -89,4 +137,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Responsive audit passed for ${viewports.length} representative viewports.`);
+console.log(`Responsive audit passed for ${viewports.length} homepage viewports and ${journalRoutes.length * journalViewports.length} Journal combinations.`);
