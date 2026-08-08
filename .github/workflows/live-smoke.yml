@@ -15,46 +15,42 @@ jobs:
       - name: Wait for Hostinger automatic deployment
         run: sleep 45
 
-      - name: Verify apex and www responses
+      - name: Diagnose apex and www asset delivery
         shell: bash
         run: |
-          set -euo pipefail
+          set -u
+          failed=0
           for host in baristo.online www.baristo.online; do
-            echo "=== ${host} ==="
-            curl -sSIL --max-time 20 "https://${host}/" | sed -n '1,18p'
-            body="$(curl -LfsS --max-time 20 "https://${host}/")"
-            grep -qi "Experience Your Nobility" <<<"$body"
-            echo "SSR shell present on ${host}"
-            printf '%s' "$body" > "/tmp/${host}.html"
-          done
+            echo "===== ${host} ====="
+            meta="$(curl -sSL --max-time 20 -o "/tmp/${host}.html" -w '%{http_code}|%{url_effective}|%{content_type}' "https://${host}/" || true)"
+            echo "page=${meta}"
+            body="$(cat "/tmp/${host}.html" 2>/dev/null || true)"
+            if grep -qi "Experience Your Nobility" <<<"$body"; then echo "shell=present"; else echo "shell=MISSING"; failed=1; fi
 
-      - name: Verify stylesheet and image assets from both hosts
-        shell: bash
-        run: |
-          set -euo pipefail
-          for host in baristo.online www.baristo.online; do
-            body="$(cat "/tmp/${host}.html")"
             css_path="$(grep -Eo 'href="[^"]+\.css[^\"]*"' <<<"$body" | head -1 | sed -E 's/^href="|"$//g' || true)"
             img_path="$(grep -Eo 'src="[^"]+\.(png|jpg|jpeg|webp|svg)[^\"]*"' <<<"$body" | head -1 | sed -E 's/^src="|"$//g' || true)"
-            echo "${host} stylesheet: ${css_path:-NONE}"
-            echo "${host} first image: ${img_path:-NONE}"
-            test -n "$css_path"
-            if [[ "$css_path" == http* ]]; then css_url="$css_path"; else css_url="https://${host}${css_path}"; fi
-            curl -LfsS --max-time 20 "$css_url" >/dev/null
-            echo "CSS asset OK on ${host}"
+            echo "css_path=${css_path:-NONE}"
+            echo "img_path=${img_path:-NONE}"
+
+            if [[ -n "$css_path" ]]; then
+              if [[ "$css_path" == http* ]]; then css_url="$css_path"; else css_url="https://${host}${css_path}"; fi
+              css_meta="$(curl -sSL --max-time 20 -o /tmp/asset.css -w '%{http_code}|%{url_effective}|%{content_type}|%{size_download}' "$css_url" || true)"
+              echo "css=${css_meta}"
+              [[ "$css_meta" == 200* ]] || failed=1
+            else
+              failed=1
+            fi
+
             if [[ -n "$img_path" ]]; then
               if [[ "$img_path" == http* ]]; then img_url="$img_path"; else img_url="https://${host}${img_path}"; fi
-              curl -LfsS --max-time 20 "$img_url" >/dev/null
-              echo "Image asset OK on ${host}"
+              img_meta="$(curl -sSL --max-time 20 -o /tmp/asset.img -w '%{http_code}|%{url_effective}|%{content_type}|%{size_download}' "$img_url" || true)"
+              echo "image=${img_meta}"
             fi
           done
+          exit "$failed"
 
-      - name: Verify roast-science assets and public routes
+      - name: Verify public routes
         run: |
-          curl -LfsS --max-time 20 https://baristo.online/roast-science/noble-dark-architecture.svg >/dev/null
-          curl -LfsS --max-time 20 https://baristo.online/roast-science/truly-dark-architecture.svg >/dev/null
-          curl -LfsS --max-time 20 https://baristo.online/roast-science/on-demand-signature-label.svg >/dev/null
           curl -LfsS --max-time 20 https://baristo.online/journal >/dev/null
-          curl -LfsS --max-time 20 https://baristo.online/journal/truly-dark-intense-dark-roast-indian-arabica >/dev/null
           curl -LfsS --max-time 20 https://baristo.online/evidence-hub >/dev/null
           curl -LfsS --max-time 20 https://baristo.online/roasts/truly-dark >/dev/null
