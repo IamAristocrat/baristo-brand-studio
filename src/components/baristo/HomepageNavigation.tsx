@@ -52,7 +52,7 @@ export function HomepageNavigation() {
           <span className="font-display text-xl font-semibold text-espresso">
             Baristo<span className="text-gradient-rose">.Online</span>
           </span>
-          <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Be Noble</span>
+          <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Experience Your Nobility.</span>
         </a>
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-4 xl:flex 2xl:gap-6">
