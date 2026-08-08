@@ -4,6 +4,7 @@ import { PublicStore } from "@/components/baristo/PublicStore";
 import { HomepageEnhancements } from "@/components/baristo/HomepageEnhancements";
 import { JournalPortal } from "@/components/baristo/JournalPortal";
 import { HomepageNavigation } from "@/components/baristo/HomepageNavigation";
+import { RoastSciencePortal } from "@/components/baristo/RoastSciencePortal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,6 +27,7 @@ function BaristoHomepage() {
       <PublicStore />
       <HomepageEnhancements />
       <JournalPortal />
+      <RoastSciencePortal />
     </>
   );
 }
