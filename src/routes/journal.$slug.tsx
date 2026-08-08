@@ -77,7 +77,7 @@ function JournalArticlePage() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <Link to="/" className="leading-none">
             <span className="font-display text-xl font-semibold">Baristo<span className="text-gradient-rose">.Online</span></span>
-            <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Be Noble</span>
+            <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Experience Your Nobility.</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link to="/journal" className="smallcaps hidden text-[10px] font-semibold text-espresso/58 hover:text-rosegold-light sm:inline-flex">Journal</Link>
