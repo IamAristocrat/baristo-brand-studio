@@ -35,7 +35,7 @@ function JournalNav() {
           <span className="font-display text-xl font-semibold text-espresso">
             Baristo<span className="text-gradient-rose">.Online</span>
           </span>
-          <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Be Noble</span>
+          <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Experience Your Nobility.</span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-3">
           <Link to="/" className="smallcaps hidden text-[10px] font-semibold text-espresso/60 hover:text-rosegold-light sm:inline-flex">
