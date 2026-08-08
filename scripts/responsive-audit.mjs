@@ -45,12 +45,12 @@ async function geometry(page) {
   return page.evaluate(() => {
     const root = document.documentElement;
     const widthOverflow = root.scrollWidth - window.innerWidth;
-    const sections = Array.from(document.querySelectorAll("main section, [data-baristo-enhancement] section, article"));
+    const sections = Array.from(document.querySelectorAll("main section, [data-baristo-enhancement] section, [data-baristo-science] section, article"));
     const badlyOverflowing = sections
       .map((element) => {
         const rect = element.getBoundingClientRect();
         return {
-          id: element.id || element.getAttribute("data-baristo-enhancement") || element.tagName,
+          id: element.id || element.getAttribute("data-baristo-enhancement") || element.getAttribute("data-baristo-science") || element.tagName,
           left: Math.round(rect.left),
           right: Math.round(rect.right),
           width: Math.round(rect.width),
@@ -72,11 +72,13 @@ for (const viewport of viewports) {
     await page.waitForSelector("#cognitive-intelligence", { timeout: 15_000 });
     await page.waitForSelector("#ritual-library", { timeout: 15_000 });
     await page.waitForSelector("#journal-preview", { timeout: 15_000 });
+    await page.waitForSelector("#roast-architecture", { timeout: 15_000 });
+    await page.waitForSelector("#brewing-intelligence", { timeout: 15_000 });
+    await page.waitForSelector("#on-demand-batch", { timeout: 15_000 });
+    await page.waitForSelector("#roast-faq", { timeout: 15_000 });
 
     const pageGeometry = await geometry(page);
-    if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) {
-      failures.push(`${viewport.name}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
-    }
+    if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) failures.push(`${viewport.name}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
     if (consoleErrors.length) failures.push(`${viewport.name}: console errors: ${consoleErrors.join(" | ")}`);
 
     await page.screenshot({ path: `artifacts/responsive/${viewport.name}.png`, fullPage: true });
@@ -115,9 +117,7 @@ for (const route of journalRoutes) {
       await page.goto(`${baseURL}${route.path}`, { waitUntil: "networkidle", timeout: 45_000 });
       await page.waitForSelector(route.selector, { timeout: 15_000 });
       const pageGeometry = await geometry(page);
-      if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) {
-        failures.push(`${testName}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
-      }
+      if (pageGeometry.widthOverflow > 3 || pageGeometry.badlyOverflowing.length) failures.push(`${testName}: horizontal overflow ${JSON.stringify(pageGeometry)}`);
       if (consoleErrors.length) failures.push(`${testName}: console errors: ${consoleErrors.join(" | ")}`);
       await page.screenshot({ path: `artifacts/responsive/${testName}.png`, fullPage: true });
       report.push({ route: route.path, viewport, geometry: pageGeometry, consoleErrors });
@@ -137,4 +137,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Responsive audit passed for ${viewports.length} homepage viewports and ${journalRoutes.length * journalViewports.length} Journal combinations.`);
+console.log(`Responsive audit passed for ${viewports.length} homepage viewports, including Roast Architecture, Brewing Intelligence, On-Demand Batch and FAQ, plus ${journalRoutes.length * journalViewports.length} Journal combinations.`);
