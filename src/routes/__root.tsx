@@ -124,33 +124,10 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function HeaderSloganSync() {
-  useEffect(() => {
-    const apply = () => {
-      document.querySelectorAll("header a").forEach((anchor) => {
-        const spans = anchor.querySelectorAll("span");
-        if (spans.length < 2) return;
-        const brandText = spans[0]?.textContent?.replace(/\s+/g, "").toLowerCase();
-        if (brandText !== "baristo.online") return;
-        const slogan = spans[spans.length - 1];
-        if (slogan) slogan.textContent = "Experience Your Nobility.";
-      });
-    };
-
-    apply();
-    const observer = new MutationObserver(apply);
-    observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
-  }, []);
-
-  return null;
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <HeaderSloganSync />
       <Outlet />
       <ReservationLayer />
       <FirstPourLayer />
