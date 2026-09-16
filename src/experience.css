@@ -334,3 +334,237 @@ footer > div,
     transition-duration: .01ms !important;
   }
 }
+
+
+/* -------------------------------------------------------------------------- */
+/* 2026-09 readability + contrast refinement                                  */
+/* Preserve Baristo palette while improving hierarchy across real displays.    */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --baristo-readable-espresso: #3b2119;
+  --baristo-readable-espresso-soft: #5b3a2f;
+  --baristo-readable-ivory: #fffaf1;
+  --baristo-readable-ivory-soft: #eee4d9;
+  --baristo-readable-rose: #a75438;
+  --baristo-readable-rose-dark: #d99a7e;
+  --baristo-border-strong: rgba(117, 62, 43, .24);
+}
+
+/* Stronger baseline typography. */
+body {
+  color: var(--baristo-readable-espresso);
+  font-weight: 450;
+  letter-spacing: .002em;
+}
+
+main p,
+main li {
+  line-height: 1.78;
+}
+
+main p {
+  font-size: max(.925rem, 1em);
+}
+
+h1, h2, h3, .font-display {
+  color: inherit;
+  letter-spacing: -.018em;
+}
+
+h1 {
+  text-shadow: 0 1px 0 rgba(255,255,255,.18);
+}
+
+/* Lift intentionally muted copy into a genuinely readable range. */
+main [class*="text-espresso/"],
+header [class*="text-espresso/"],
+footer [class*="text-espresso/"] {
+  color: var(--baristo-readable-espresso-soft) !important;
+}
+
+main .bg-obsidian [class*="text-ivory/"],
+main [class*="bg-obsidian"] [class*="text-ivory/"],
+footer.bg-obsidian [class*="text-ivory/"] {
+  color: var(--baristo-readable-ivory-soft) !important;
+}
+
+/* Rose-gold needs two contrast modes: deeper on ivory, luminous on obsidian. */
+main .bg-ivory .text-rosegold-light,
+main .bg-gradient-ivory .text-rosegold-light,
+main [class*="bg-white"] .text-rosegold-light,
+header .text-rosegold-light {
+  color: var(--baristo-readable-rose) !important;
+}
+
+main .bg-obsidian .text-rosegold-light,
+main [class*="bg-obsidian"] .text-rosegold-light,
+footer.bg-obsidian .text-rosegold-light {
+  color: var(--baristo-readable-rose-dark) !important;
+}
+
+/* Sections should read as distinct editorial chapters, not one pale canvas. */
+main > section {
+  position: relative;
+}
+
+main > section + section {
+  box-shadow: inset 0 1px 0 rgba(117,62,43,.10);
+}
+
+main > section.bg-obsidian,
+main > section[class*="bg-obsidian"] {
+  background:
+    radial-gradient(circle at 15% 5%, rgba(183,112,84,.13), transparent 30rem),
+    linear-gradient(155deg, #17130f 0%, #0d0c0b 58%, #17110e 100%) !important;
+}
+
+/* Premium card definition. */
+#roasts article,
+#evidence article,
+.ritual-library article,
+.recipe-detail-card,
+.premium-shine-card {
+  border-color: var(--baristo-border-strong) !important;
+  box-shadow:
+    0 24px 58px -34px rgba(53,28,20,.50),
+    0 6px 20px -14px rgba(53,28,20,.30),
+    inset 0 1px 0 rgba(255,255,255,.72);
+}
+
+#roasts article {
+  outline: 1px solid rgba(255,255,255,.24);
+  outline-offset: -2px;
+}
+
+#roasts article h3,
+#story h2,
+#evidence h2,
+#ritual-lab h2 {
+  font-weight: 650;
+}
+
+/* Chips and evidence tags: stronger edges and text. */
+#roasts article span.rounded-full,
+.ritual-chip,
+.evidence-link {
+  border-color: rgba(151,79,55,.38) !important;
+  font-weight: 600;
+}
+
+.evidence-link {
+  color: rgba(255,250,241,.88);
+  background: rgba(255,255,255,.07);
+}
+
+/* Buttons: increase visual authority and text legibility. */
+a[class*="bg-gradient-rose"],
+button[class*="bg-gradient-rose"] {
+  min-height: 48px;
+  border: 1px solid rgba(91,42,27,.28);
+  color: #2e160f !important;
+  font-weight: 800 !important;
+  letter-spacing: .15em;
+  box-shadow:
+    0 14px 34px -18px rgba(74,45,35,.65),
+    inset 0 1px 0 rgba(255,255,255,.42);
+}
+
+a[class*="bg-gradient-rose"]:hover,
+button[class*="bg-gradient-rose"]:hover {
+  filter: contrast(1.06) saturate(1.08);
+}
+
+/* Secondary buttons should not disappear into ivory. */
+a[class*="border-rosegold"],
+button[class*="border-rosegold"] {
+  border-color: rgba(139,72,49,.48) !important;
+}
+
+/* Navigation: crisp and readable in both static and scrolled states. */
+header {
+  border-bottom-color: rgba(107,56,39,.18) !important;
+}
+
+header nav a {
+  color: #4b2b21 !important;
+  font-weight: 700;
+}
+
+header nav a:hover {
+  color: #963f28 !important;
+}
+
+/* Price presentation should be unmistakable. */
+#roasts article .font-display.text-3xl,
+#roasts article .font-display.text-4xl {
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+/* Improve image/card separation while keeping the luxe softness. */
+figure,
+#story figure {
+  border: 1px solid rgba(117,62,43,.18);
+}
+
+figure figcaption {
+  font-weight: 600;
+}
+
+/* Desktop reading width and rhythm. */
+@media (min-width: 768px) {
+  main p {
+    font-size: max(.975rem, 1em);
+  }
+
+  main h2 {
+    line-height: 1.02;
+  }
+
+  #roasts article > div:last-child {
+    padding: 2.15rem;
+  }
+}
+
+/* Mobile: avoid tiny luxury typography becoming illegible. */
+@media (max-width: 767px) {
+  main p,
+  main li {
+    font-size: .95rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .smallcaps {
+    letter-spacing: .13em !important;
+  }
+
+  #roasts article span.rounded-full {
+    font-size: .75rem !important;
+  }
+
+  #roasts article {
+    border-width: 1px;
+  }
+
+  header {
+    background: rgba(252,247,238,.985) !important;
+  }
+}
+
+/* Higher-contrast operating-system preference gets an additional lift. */
+@media (prefers-contrast: more) {
+  main [class*="text-espresso/"] {
+    color: #321a13 !important;
+  }
+
+  main [class*="text-ivory/"] {
+    color: #fffdf8 !important;
+  }
+
+  #roasts article,
+  #evidence article,
+  .recipe-detail-card {
+    border-width: 2px;
+  }
+}
