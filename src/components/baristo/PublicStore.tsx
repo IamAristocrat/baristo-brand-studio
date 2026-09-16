@@ -85,23 +85,23 @@ function Pouch({
           alt="Baristo.Online medallion"
           className={`${compact ? "h-20 w-20" : "h-28 w-28"} rounded-full object-cover shadow-rose`}
         />
-        <p className={`smallcaps text-rosegold-light ${compact ? "mt-4 text-[7px]" : "mt-6 text-[9px]"}`}>
+        <p className={`smallcaps text-rosegold-light ${compact ? "mt-4 text-[7px]" : "mt-6 text-[10px]"}`}>
           Single-Origin Indian Arabica
         </p>
         <h3 className={`${compact ? "mt-2 text-3xl" : "mt-2 text-4xl"} font-display font-semibold leading-none`}>
           {roast.name}
         </h3>
-        <p className={`smallcaps mt-3 opacity-65 ${compact ? "text-[7px]" : "text-[9px]"}`}>
+        <p className={`smallcaps mt-3 opacity-85 ${compact ? "text-[7px]" : "text-[10px]"}`}>
           {roast.descriptor}
         </p>
         <div className={`${compact ? "my-3" : "my-5"} h-px w-20 bg-gradient-rose`} />
-        <p className={compact ? "text-[9px] opacity-70" : "text-xs opacity-70"}>
+        <p className={compact ? "text-[10px] opacity-90" : "text-xs opacity-90"}>
           Premium Ground Roasted Coffee
         </p>
         <p className={`mt-auto font-display font-semibold ${compact ? "text-base" : "text-xl"}`}>
           12 oz / 340 g
         </p>
-        <p className={`smallcaps mt-2 text-rosegold-light ${compact ? "text-[7px]" : "text-[9px]"}`}>
+        <p className={`smallcaps mt-2 text-rosegold-light ${compact ? "text-[7px]" : "text-[10px]"}`}>
           Be Noble
         </p>
       </div>
@@ -134,14 +134,14 @@ export function PublicStore() {
             <span className="font-display text-xl font-semibold">
               Baristo<span className="text-gradient-rose">.Online</span>
             </span>
-            <span className="smallcaps mt-1 block text-[9px] text-rosegold-light">Be Noble</span>
+            <span className="smallcaps mt-1 block text-[10px] text-rosegold-light">Be Noble</span>
           </a>
           <nav className="hidden gap-7 lg:flex">
             {["Roasts", "Story", "Evidence", "Ritual Lab"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="smallcaps text-xs text-espresso/65 hover:text-rosegold-light"
+                className="smallcaps text-xs text-espresso/85 hover:text-rosegold-light"
               >
                 {item}
               </a>
@@ -184,7 +184,7 @@ export function PublicStore() {
           <img
             src={heroMountains}
             alt="Indian mountain coffee landscape"
-            className="absolute inset-0 h-full w-full object-cover opacity-30"
+            className="absolute inset-0 h-full w-full object-cover opacity-55"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ivory/90 via-ivory/70 to-ivory" />
 
@@ -198,7 +198,7 @@ export function PublicStore() {
               <p className="mt-6 font-display text-2xl italic text-rosegold-light sm:text-3xl">
                 For Expresso Noble Minds.
               </p>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-espresso/72 sm:text-lg">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-espresso/90 sm:text-lg">
                 Two deliberate dark-roast expressions, crafted from Indian mountain Arabica for espresso-minded
                 homes and private rituals of distinction.
               </p>
@@ -258,7 +258,7 @@ export function PublicStore() {
             </p>
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3">
               {["100% Arabica", "No Chicory", "No Fillers", "Batch Identified"].map((item) => (
-                <span key={item} className="flex items-center gap-2 text-xs text-ivory/70">
+                <span key={item} className="flex items-center gap-2 text-xs text-ivory/90">
                   <Check className="h-3.5 w-3.5 text-rosegold-light" />
                   {item}
                 </span>
@@ -274,7 +274,7 @@ export function PublicStore() {
               <h2 className="mt-4 font-display text-4xl font-semibold sm:text-6xl">
                 One origin. Two deliberate depths.
               </h2>
-              <p className="mt-5 text-sm leading-7 text-espresso/65">
+              <p className="mt-5 text-sm leading-7 text-espresso/85">
                 Both roasts use one uncompromised format: 12 oz / 340 g premium ground roasted coffee at the
                 same launch price.
               </p>
@@ -302,7 +302,7 @@ export function PublicStore() {
                     <p className="smallcaps text-xs text-rosegold-light">{roast.descriptor}</p>
                     <h3 className="mt-3 font-display text-4xl font-semibold">{roast.name}</h3>
                     <p className="smallcaps mt-2 text-xs text-rosegold-light">{roast.line}</p>
-                    <p className={`mt-5 text-sm leading-7 ${roast.dark ? "text-ivory/65" : "text-espresso/68"}`}>
+                    <p className={`mt-5 text-sm leading-7 ${roast.dark ? "text-ivory/65" : "text-espresso/88"}`}>
                       {roast.copy}
                     </p>
                     <div className="mt-5 flex flex-wrap gap-2">
@@ -315,10 +315,10 @@ export function PublicStore() {
                     <div className="mt-auto pt-8">
                       <div className="flex items-end justify-between">
                         <div>
-                          <p className="smallcaps text-[9px] opacity-45">12 oz / 340 g</p>
+                          <p className="smallcaps text-[10px] opacity-90">12 oz / 340 g</p>
                           <p className="mt-1 font-display text-3xl font-semibold">{price}</p>
                         </div>
-                        <p className="text-sm opacity-30 line-through">{mrp}</p>
+                        <p className="text-sm opacity-55 line-through">{mrp}</p>
                       </div>
                       <a
                         href={waitlist}
@@ -348,7 +348,7 @@ export function PublicStore() {
               <h2 className="mt-4 font-display text-4xl font-semibold sm:text-6xl">
                 India does not imitate coffee luxury. It grows it.
               </h2>
-              <div className="mt-7 space-y-5 text-sm leading-8 text-espresso/68 sm:text-base">
+              <div className="mt-7 space-y-5 text-sm leading-8 text-espresso/88 sm:text-base">
                 <p>
                   Baristo begins with Indian mountain Arabica and develops it into Noble Dark and Truly Dark. The
                   ambition is not imported mimicry; it is provenance, roast discipline and sensory refinement.
@@ -382,7 +382,7 @@ export function PublicStore() {
             <h2 className="mt-4 max-w-4xl font-display text-4xl font-semibold sm:text-6xl">
               Premium is not an adjective. It is a trail.
             </h2>
-            <p className="mt-6 max-w-3xl text-sm leading-8 text-ivory/60">
+            <p className="mt-6 max-w-3xl text-sm leading-8 text-ivory/82">
               Baristo publishes only what genuinely exists for a batch: ingredient clarity, origin reference,
               roast identity and available quality records. No fictional laboratory spectacle.
             </p>
@@ -397,12 +397,12 @@ export function PublicStore() {
                   <article key={String(title)} className="rounded-xl border border-rosegold/20 bg-white/[.04] p-6">
                     <I className="h-6 w-6 text-rosegold-light" />
                     <h3 className="mt-5 font-display text-2xl">{String(title)}</h3>
-                    <p className="mt-3 text-xs leading-6 text-ivory/55">{String(copy)}</p>
+                    <p className="mt-3 text-xs leading-6 text-ivory/80">{String(copy)}</p>
                   </article>
                 );
               })}
             </div>
-            <p className="mt-8 text-xs leading-6 text-ivory/35">
+            <p className="mt-8 text-xs leading-6 text-ivory/65">
               No medicinal, disease-management or guaranteed cognitive-performance claims.
             </p>
           </div>
@@ -442,7 +442,7 @@ export function PublicStore() {
               <h2 className="mt-4 font-display text-4xl font-semibold sm:text-6xl">
                 One coffee. Twelve culinary expressions.
               </h2>
-              <p className="mt-6 text-sm leading-8 text-espresso/62">
+              <p className="mt-6 text-sm leading-8 text-espresso/84">
                 Recipes are secondary to the coffee and are culinary—not treatment protocols or synthetic
                 biohacks.
               </p>
@@ -469,7 +469,7 @@ export function PublicStore() {
             <h2 className="mt-4 font-display text-4xl font-semibold sm:text-6xl">
               The reviews begin after the coffee does.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-ivory/58">
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-ivory/82">
               Reviews will come from verified launch customers. Purchase opens when Amazon India FBA inventory
               is live.
             </p>
@@ -479,7 +479,7 @@ export function PublicStore() {
             >
               <Mail className="h-4 w-4" /> Join the First Pour
             </a>
-            <p className="smallcaps mt-5 text-[9px] text-ivory/35">Amazon India launch approaching</p>
+            <p className="smallcaps mt-5 text-[10px] text-ivory/65">Amazon India launch approaching</p>
           </div>
         </section>
       </main>
@@ -498,7 +498,7 @@ export function PublicStore() {
             <a href="mailto:support@baristo.online" className="text-sm text-rosegold-light">
               support@baristo.online
             </a>
-            <p className="mt-4 text-[9px] text-espresso/35">
+            <p className="mt-4 text-[10px] text-espresso/35">
               Not intended to diagnose, treat, cure or prevent disease.
             </p>
           </div>
