@@ -25,7 +25,7 @@ export const roasts: Roast[] = [
       "Premium ground coffee with deeper body and cocoa warmth with espresso-minded structure — cacao, toasted almond, and warm caramel into a long, noble finish.",
     recipeBase: "Classic espresso-style · Sigma · Burst · Milk-based rituals",
     sizes: [
-      { label: "12 oz / 340 g", sub: "Limited Reserve Edition · Premium Ground Coffee", grams: 340, price: 4279, mrp: 4779 },
+      { label: "12 oz / 340 g", sub: "Limited Reserve Edition · Premium Ground Coffee", grams: 340, price: 2579, mrp: 4779 },
     ],
     intensity: 4,
     cta: "Shop Dark",
@@ -39,7 +39,7 @@ export const roasts: Roast[] = [
       "Premium ground coffee, bold and intense in roasted depth — dark cacao and toasted walnut wrapped in smoked caramel, ending on a bold finish.",
     recipeBase: "Alpha · Rage · Cage · Charge · Phoenix",
     sizes: [
-      { label: "12 oz / 340 g", sub: "Limited Reserve Edition · Premium Ground Coffee", grams: 340, price: 4279, mrp: 4779 },
+      { label: "12 oz / 340 g", sub: "Limited Reserve Edition · Premium Ground Coffee", grams: 340, price: 2579, mrp: 4779 },
     ],
     intensity: 5,
     cta: "Shop Truly Dark",
