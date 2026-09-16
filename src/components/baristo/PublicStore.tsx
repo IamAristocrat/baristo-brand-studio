@@ -17,7 +17,7 @@ import espressoExtraction from "@/assets/gallery/g7-extraction.jpg";
 import ritualTools from "@/assets/gallery/g8-ritual-tools.jpg";
 import beansMacro from "@/assets/beans-macro.jpg";
 
-const price = "₹4,279";
+const price = "₹2,579";
 const mrp = "₹4,779";
 const waitlist =
   "mailto:support@baristo.online?subject=Join%20the%20Baristo%20First%20Pour&body=Please%20send%20me%20the%20Amazon%20India%20launch%20link.";
