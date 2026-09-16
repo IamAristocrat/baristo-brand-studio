@@ -14,7 +14,7 @@ const roasts = {
   "truly-dark": { key: "truly-dark" as const, name: "Truly Dark", descriptor: "Intense Dark Roast", tagline: "Intensity without vulgar bitterness", description: "An intense dark roast with dark cacao, toasted walnut and smoke-kissed caramel carried by a dense body and deliberate finish.", notes: ["Dark Cacao", "Toasted Walnut", "Smoked Caramel", "Bold Finish"] },
 };
 
-const price = 4279;
+const price = 2579;
 const mrp = 4779;
 
 export const Route = createFileRoute("/roasts/$roastKey")({
