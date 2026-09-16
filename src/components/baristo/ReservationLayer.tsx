@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { FormEvent, InputHTMLAttributes } from "react";
 import { CheckCircle2, Copy, Loader2, Mail, Minus, Plus, X } from "lucide-react";
 
-const UNIT_PRICE = 4279;
+const UNIT_PRICE = 2579;
 const PACK = "12 oz / 340 g";
 
 type RoastName = "Noble Dark" | "Truly Dark";
