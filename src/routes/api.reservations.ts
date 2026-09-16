@@ -122,7 +122,7 @@ export const Route = createFileRoute("/api/reservations")({
           const pack = clean(body.pack, 30);
           const page = clean(body.page, 300);
           const quantity = Number(body.quantity);
-          const unitPrice = 4279;
+          const unitPrice = 2579;
 
           if (!name || !email || !phone || !address || !city || !state || !postalCode || !body.consent) {
             return Response.json(
