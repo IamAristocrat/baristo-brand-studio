@@ -1,0 +1,37 @@
+name: Baristo Astra source bundle
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write bundle manifest
+        run: |
+          cat > ASTRA_BUNDLE_MANIFEST.txt <<EOF
+          Baristo.Online Astra Build Bundle
+          Repository: IamAristocrat/baristo-brand-studio
+          Commit: $GITHUB_SHA
+          Generated: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          Start with: docs/ASTRA_BUILD_HANDOFF.md
+          EOF
+
+      - name: Upload complete source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: baristo-online-astra-build
+          include-hidden-files: true
+          retention-days: 30
+          path: |
+            .
+            !.git/**
+            !node_modules/**
+            !.output/**
