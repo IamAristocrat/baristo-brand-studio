@@ -31,7 +31,7 @@ const initialForm: LeadForm = {
   brewStyle: "Espresso / Moka Pot",
   coffeeFrequency: "Daily",
   role: "",
-  interest: "Amazon launch & product access",
+  interest: "Reservation and product access",
   marketingConsent: false,
   company: "",
 };
@@ -247,7 +247,7 @@ export function FirstPourLayer() {
                 <option>Occasionally</option>
               </SelectField>
               <SelectField label="Primary interest" value={form.interest} onChange={(value) => setForm((state) => ({ ...state, interest: value }))}>
-                <option>Amazon launch & product access</option>
+                <option>Reservation and product access</option>
                 <option>Private home coffee ritual</option>
                 <option>Recipes & cognitive coffee intelligence</option>
                 <option>Gifting</option>

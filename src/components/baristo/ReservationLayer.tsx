@@ -52,7 +52,10 @@ function reservationText(roast: RoastName, form: FormState, total: number) {
     `Customer: ${form.name}`,
     `Email: ${form.email}`,
     `Mobile: ${form.phone}`,
-    `Address: ${form.address}, ${form.city}, ${form.state} ${form.postalCode}`,
+    `City: ${form.city}`,
+    `State: ${form.state || "Not provided"}`,
+    `Postal code: ${form.postalCode || "Not provided"}`,
+    `Shipping address: ${form.address || "To be confirmed"}`,
     "",
     "Status requested: Pending availability, delivery and payment verification",
   ].join("\n");
@@ -84,10 +87,11 @@ export function ReservationLayer() {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest("a");
       if (!anchor) return;
-      const label = anchor.textContent?.trim() ?? "";
-      if (!label.startsWith("Reserve ")) return;
+      const label = anchor.textContent?.replace(/\s+/g, " ").trim() ?? "";
+      const explicitRoast = anchor.dataset.reserveRoast;
+      if (!explicitRoast && !label.startsWith("Reserve ")) return;
       event.preventDefault();
-      const selected: RoastName = label.includes("Truly Dark") ? "Truly Dark" : "Noble Dark";
+      const selected: RoastName = explicitRoast === "Truly Dark" || label.includes("Truly Dark") ? "Truly Dark" : "Noble Dark";
       setRoast(selected);
       setStatus("idle");
       setMessage("");
@@ -254,10 +258,10 @@ export function ReservationLayer() {
               <Field label="Full name" required value={form.name} onChange={(value) => setForm((state) => ({ ...state, name: value }))} autoComplete="name" />
               <Field label="Mobile number" required value={form.phone} onChange={(value) => setForm((state) => ({ ...state, phone: value }))} autoComplete="tel" inputMode="tel" />
               <div className="sm:col-span-2"><Field label="Email address" required type="email" value={form.email} onChange={(value) => setForm((state) => ({ ...state, email: value }))} autoComplete="email" /></div>
-              <div className="sm:col-span-2"><Field label="Shipping address" required value={form.address} onChange={(value) => setForm((state) => ({ ...state, address: value }))} autoComplete="street-address" /></div>
+              <div className="sm:col-span-2"><Field label="Shipping address (optional)" value={form.address} onChange={(value) => setForm((state) => ({ ...state, address: value }))} autoComplete="street-address" /></div>
               <Field label="City" required value={form.city} onChange={(value) => setForm((state) => ({ ...state, city: value }))} autoComplete="address-level2" />
-              <Field label="State" required value={form.state} onChange={(value) => setForm((state) => ({ ...state, state: value }))} autoComplete="address-level1" />
-              <Field label="Postal code" required value={form.postalCode} onChange={(value) => setForm((state) => ({ ...state, postalCode: value }))} autoComplete="postal-code" inputMode="numeric" pattern="[0-9]{6}" />
+              <Field label="State (optional)" value={form.state} onChange={(value) => setForm((state) => ({ ...state, state: value }))} autoComplete="address-level1" />
+              <Field label="Indian postal code (optional)" value={form.postalCode} onChange={(value) => setForm((state) => ({ ...state, postalCode: value }))} autoComplete="postal-code" inputMode="numeric" pattern="[0-9]{6}" />
             </div>
 
             <label className="sr-only" aria-hidden="true">

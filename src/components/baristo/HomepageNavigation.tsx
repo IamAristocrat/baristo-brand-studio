@@ -17,7 +17,7 @@ export function HomepageNavigation() {
   useEffect(() => {
     const legacyHeader = document.querySelector<HTMLElement>("header:not(.baristo-primary-nav)");
     const previousDisplay = legacyHeader?.style.display ?? "";
-    const previousAriaHidden = legacyHeader?.getAttribute("aria-hidden");
+    const previousAriaHidden = legacyHeader?.getAttribute("aria-hidden") ?? null;
 
     if (legacyHeader) {
       legacyHeader.style.display = "none";

@@ -30,7 +30,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ reset }: { error: unknown; reset: () => void }) {
   const router = useRouter();
   useEffect(() => { console.error("Baristo route error"); }, []);
   return (

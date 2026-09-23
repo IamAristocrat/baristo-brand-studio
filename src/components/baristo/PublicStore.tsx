@@ -19,8 +19,9 @@ import beansMacro from "@/assets/beans-macro.jpg";
 
 const price = "₹2,579";
 const mrp = "₹4,779";
-const waitlist =
-  "mailto:support@baristo.online?subject=Join%20the%20Baristo%20First%20Pour&body=Please%20send%20me%20the%20Amazon%20India%20launch%20link.";
+const firstPour = "#first-pour";
+const reserveEmail = (roast: string) =>
+  `mailto:support@baristo.online?subject=${encodeURIComponent(`Baristo reservation request — ${roast}`)}&body=${encodeURIComponent(`I would like to reserve ${roast}, 12 oz / 340 g, at ₹2,579 per pack.\n\nQuantity: 1\nName: \nMobile: \nEmail: \nShipping address: \nCity: \nState: \nPostal code: \n\nPlease confirm availability, delivery and the final payable amount before payment.`)}`;
 
 const roasts = [
   {
@@ -149,7 +150,7 @@ export function PublicStore() {
           </nav>
           <div className="flex items-center gap-2">
             <a
-              href={waitlist}
+              href={firstPour}
               className="smallcaps hidden rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose sm:inline-flex"
             >
               Join First Pour
@@ -205,23 +206,25 @@ export function PublicStore() {
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="#noble-dark"
+                  href={reserveEmail("Noble Dark")}
+                  data-reserve-roast="Noble Dark"
                   className="smallcaps inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-gradient-rose px-6 text-xs font-bold text-espresso shadow-rose"
                 >
-                  Explore Noble Dark <ArrowRight className="h-4 w-4" />
+                  Reserve Noble Dark · ₹2,579 <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="#truly-dark"
+                  href={reserveEmail("Truly Dark")}
+                  data-reserve-roast="Truly Dark"
                   className="smallcaps inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-rosegold/45 bg-ivory/35 px-6 text-xs font-bold backdrop-blur-sm"
                 >
-                  Explore Truly Dark <ArrowRight className="h-4 w-4" />
+                  Reserve Truly Dark · ₹2,579 <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
               <a
-                href={waitlist}
+                href={firstPour}
                 className="smallcaps mt-5 inline-flex items-center gap-2 text-[10px] font-bold text-rosegold-light hover:text-espresso"
               >
-                <Mail className="h-3.5 w-3.5" /> Join the Amazon India First Pour
+                <Mail className="h-3.5 w-3.5" /> Join the First Pour Circle for updates
               </a>
             </div>
 
@@ -321,7 +324,8 @@ export function PublicStore() {
                         <p className="text-sm opacity-55 line-through">{mrp}</p>
                       </div>
                       <a
-                        href={waitlist}
+                        href={reserveEmail(roast.name)}
+                        data-reserve-roast={roast.name}
                         className="smallcaps mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-espresso shadow-rose"
                       >
                         Reserve {roast.name} <ArrowRight className="h-4 w-4" />
@@ -470,16 +474,16 @@ export function PublicStore() {
               The reviews begin after the coffee does.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-ivory/82">
-              Reviews will come from verified launch customers. Purchase opens when Amazon India FBA inventory
-              is live.
+              Reserve either roast at ₹2,579 per 340 g pack. We confirm availability, delivery and the final
+              payable amount before payment. Reviews will come from verified customers.
             </p>
             <a
-              href={waitlist}
+              href={firstPour}
               className="smallcaps mt-9 inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-gradient-rose px-7 text-xs font-bold text-espresso shadow-rose"
             >
               <Mail className="h-4 w-4" /> Join the First Pour
             </a>
-            <p className="smallcaps mt-5 text-[10px] text-ivory/65">Amazon India launch approaching</p>
+            <p className="smallcaps mt-5 text-[10px] text-ivory/75">Want a roast? Use the Reserve buttons above.</p>
           </div>
         </section>
       </main>

@@ -124,7 +124,7 @@ export const Route = createFileRoute("/api/reservations")({
           const quantity = Number(body.quantity);
           const unitPrice = 2579;
 
-          if (!name || !email || !phone || !address || !city || !state || !postalCode || !body.consent) {
+          if (!name || !email || !phone || !city || !body.consent) {
             return Response.json(
               { ok: false, code: "INCOMPLETE_FORM", message: "Complete every required field and provide consent." },
               { status: 400 },
@@ -136,7 +136,7 @@ export const Route = createFileRoute("/api/reservations")({
               { status: 400 },
             );
           }
-          if (!/^[0-9]{6}$/.test(postalCode)) {
+          if (postalCode && !/^[0-9]{6}$/.test(postalCode)) {
             return Response.json(
               { ok: false, code: "INVALID_POSTAL_CODE", message: "Enter a valid six-digit Indian postal code." },
               { status: 400 },
@@ -195,8 +195,8 @@ export const Route = createFileRoute("/api/reservations")({
               to: orderInbox,
               replyTo: email,
               subject: `New Baristo Reservation — ${roast} — ${id}`,
-              text: `Reservation ID: ${id}\nProduct: ${roast}\nPack: ${pack}\nQuantity: ${quantity}\nPrice per pack: INR ${unitPrice}\nProvisional total: INR ${total}\n\nCustomer: ${name}\nEmail: ${email}\nMobile: ${phone}\nAddress: ${address}, ${city}, ${state} ${postalCode}\n\nStatus: Pending availability, delivery and payment verification\nSource: ${page}`,
-              html: `<h2>New Baristo Reservation</h2><p><strong>Reservation ID:</strong> ${safe.id}</p><table cellpadding="6" cellspacing="0" border="1" style="border-collapse:collapse"><tr><td>Product</td><td>${safe.roast}</td></tr><tr><td>Pack</td><td>${safe.pack}</td></tr><tr><td>Quantity</td><td>${quantity}</td></tr><tr><td>Price per pack</td><td>₹${unitPrice.toLocaleString("en-IN")}</td></tr><tr><td>Provisional total</td><td><strong>₹${total.toLocaleString("en-IN")}</strong></td></tr></table><h3>Customer</h3><p>${safe.name}<br>${safe.email}<br>${safe.phone}<br>${safe.address}<br>${safe.city}, ${safe.state} ${safe.postalCode}</p><p><strong>Status:</strong> Pending availability, delivery and payment verification</p><p><small>Source: ${safe.page}</small></p>`,
+              text: `Reservation ID: ${id}\nProduct: ${roast}\nPack: ${pack}\nQuantity: ${quantity}\nPrice per pack: INR ${unitPrice}\nProvisional total: INR ${total}\n\nCustomer: ${name}\nEmail: ${email}\nMobile: ${phone}\nCity: ${city}\nState: ${state || "Not provided"}\nPostal code: ${postalCode || "Not provided"}\nShipping address: ${address || "To be confirmed"}\n\nStatus: Pending availability, delivery and payment verification\nSource: ${page}`,
+              html: `<h2>New Baristo Reservation</h2><p><strong>Reservation ID:</strong> ${safe.id}</p><table cellpadding="6" cellspacing="0" border="1" style="border-collapse:collapse"><tr><td>Product</td><td>${safe.roast}</td></tr><tr><td>Pack</td><td>${safe.pack}</td></tr><tr><td>Quantity</td><td>${quantity}</td></tr><tr><td>Price per pack</td><td>₹${unitPrice.toLocaleString("en-IN")}</td></tr><tr><td>Provisional total</td><td><strong>₹${total.toLocaleString("en-IN")}</strong></td></tr></table><h3>Customer</h3><p>${safe.name}<br>${safe.email}<br>${safe.phone}<br>City: ${safe.city}<br>State: ${safe.state || "Not provided"}<br>Postal code: ${safe.postalCode || "Not provided"}<br>Shipping address: ${safe.address || "To be confirmed"}</p><p><strong>Status:</strong> Pending availability, delivery and payment verification</p><p><small>Source: ${safe.page}</small></p>`,
             });
           } catch (error) {
             console.error("Reservation inbox delivery failed", error);
