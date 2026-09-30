@@ -1,0 +1,24 @@
+name: Baristo SMTP diagnostic
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smtp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Wait for Hostinger deployment
+        run: sleep 55
+
+      - name: Query live SMTP diagnostic
+        run: |
+          set -e
+          echo "=== https://baristo.online/api/health?smtp=1 ==="
+          curl -fsS --max-time 40 "https://baristo.online/api/health?smtp=1"
+          echo
