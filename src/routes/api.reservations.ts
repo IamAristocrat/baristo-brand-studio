@@ -64,6 +64,8 @@ async function createVerifiedTransport() {
       connectionTimeout: 12_000,
       greetingTimeout: 12_000,
       socketTimeout: 20_000,
+      dnsTimeout: 10_000,
+      family: 4,
       tls: { servername: host, minVersion: "TLSv1.2" },
     });
 
@@ -171,18 +173,29 @@ export const Route = createFileRoute("/api/reservations")({
           try {
             verified = await createVerifiedTransport();
           } catch (error) {
-            const missingPassword = error instanceof Error && error.name === "SmtpPasswordMissingError";
+            const err = error as Error & { code?: string; responseCode?: number };
+            const missingPassword = err?.name === "SmtpPasswordMissingError";
+            const authFailed = err?.code === "EAUTH" || err?.responseCode === 535;
+            const code = missingPassword
+              ? "SMTP_PASSWORD_MISSING"
+              : authFailed
+                ? "SMTP_AUTH_FAILED"
+                : "SMTP_CONNECTION_FAILED";
             console.error("Reservation email service unavailable", {
-              code: missingPassword ? "SMTP_PASSWORD_MISSING" : "SMTP_CONNECTION_FAILED",
-              error: error instanceof Error ? error.message : String(error),
+              code,
+              smtpCode: err?.code || null,
+              responseCode: err?.responseCode || null,
+              error: err?.message || String(error),
             });
             return Response.json(
               {
                 ok: false,
-                code: missingPassword ? "SMTP_PASSWORD_MISSING" : "SMTP_CONNECTION_FAILED",
+                code,
                 message: missingPassword
                   ? "Reservation email is not configured yet. Please contact support@baristo.online."
-                  : "The reservation email service could not connect. Please try again shortly or contact support@baristo.online.",
+                  : authFailed
+                    ? "The reservation email service is temporarily unavailable. Please use the email option below or contact support@baristo.online."
+                    : "The reservation email service could not connect. Please try again shortly or contact support@baristo.online.",
               },
               { status: 503 },
             );
