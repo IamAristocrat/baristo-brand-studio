@@ -61,6 +61,8 @@ async function createVerifiedTransport() {
       connectionTimeout: 12_000,
       greetingTimeout: 12_000,
       socketTimeout: 20_000,
+      dnsTimeout: 10_000,
+      family: 4,
       tls: { servername: host, minVersion: "TLSv1.2" },
     });
 
@@ -227,15 +229,24 @@ export const Route = createFileRoute("/api/first-pour")({
           return Response.json({ ok: true, leadId: id, acknowledgementSent });
         } catch (error) {
           console.error("First Pour signup failed", error);
-          const missingPassword = error instanceof Error && error.name === "SmtpPasswordMissingError";
+          const err = error as Error & { code?: string; responseCode?: number };
+          const missingPassword = err?.name === "SmtpPasswordMissingError";
+          const authFailed = err?.code === "EAUTH" || err?.responseCode === 535;
           return Response.json(
             {
               ok: false,
+              code: missingPassword
+                ? "SMTP_PASSWORD_MISSING"
+                : authFailed
+                  ? "SMTP_AUTH_FAILED"
+                  : "FIRST_POUR_SUBMISSION_FAILED",
               message: missingPassword
                 ? "First Pour email service is not configured yet. Please use the email fallback below."
-                : "First Pour signup could not be submitted. Please try again or use the email fallback below.",
+                : authFailed
+                  ? "First Pour email service is temporarily unavailable. Please use the email fallback below."
+                  : "First Pour signup could not be submitted. Please try again or use the email fallback below.",
             },
-            { status: missingPassword ? 503 : 500 },
+            { status: missingPassword || authFailed ? 503 : 500 },
           );
         }
       },
