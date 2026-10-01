@@ -25,7 +25,7 @@ jobs:
             meta="$(curl -sSL --max-time 20 -o "/tmp/${host}.html" -w '%{http_code}|%{url_effective}|%{content_type}' "https://${host}/" || true)"
             echo "page=${meta}"
             body="$(cat "/tmp/${host}.html" 2>/dev/null || true)"
-            if grep -qi "Experience Your Nobility" <<<"$body"; then echo "shell=present"; else echo "shell=MISSING"; failed=1; fi
+            if grep -qi "Experience Your Nobility" <<<"$body" && grep -qi "Ask Baristo" <<<"$body"; then echo "shell=present"; else echo "shell=MISSING"; failed=1; fi
 
             css_path="$(grep -Eo 'href="[^"]+\.css[^\"]*"' <<<"$body" | head -1 | sed -E 's/^href="|"$//g' || true)"
             img_path="$(grep -Eo 'src="[^"]+\.(png|jpg|jpeg|webp|svg)[^\"]*"' <<<"$body" | head -1 | sed -E 's/^src="|"$//g' || true)"
@@ -54,3 +54,13 @@ jobs:
           curl -LfsS --max-time 20 https://baristo.online/journal >/dev/null
           curl -LfsS --max-time 20 https://baristo.online/evidence-hub >/dev/null
           curl -LfsS --max-time 20 https://baristo.online/roasts/truly-dark >/dev/null
+
+
+      - name: Verify Baristo email API readiness
+        run: |
+          health="$(curl -LfsS --max-time 20 https://baristo.online/api/health)"
+          echo "$health"
+          grep -q '"reservations":"configured"' <<<"$health"
+          grep -q '"firstPour":"configured"' <<<"$health"
+          grep -q '"inquiries":"configured"' <<<"$health"
+          grep -q '"passwordConfigured":true' <<<"$health"
