@@ -170,7 +170,12 @@ export function ReservationLayer() {
       setStatus("success");
     } catch (error) {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Reservation could not be submitted.");
+      const reason = error instanceof Error ? error.message : "";
+      setMessage(
+        reason.includes("Too many attempts")
+          ? reason
+          : "We couldn't send this online just now. Use the email action below and press Send to deliver your reservation request to Baristo.",
+      );
     }
   }
 
@@ -276,10 +281,12 @@ export function ReservationLayer() {
 
             {status === "error" && (
               <div role="alert" className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800">
-                <p>{message}</p>
+                <p className="font-semibold">Online submission did not complete.</p>
+                <p className="mt-1">{message}</p>
+                <p className="mt-2 text-xs">Your request reaches Baristo only after you press Send in your email app.</p>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                   <a href={fallbackMailto} className="inline-flex items-center justify-center gap-2 rounded-md border border-red-300 bg-white px-4 py-2 text-xs font-semibold">
-                    <Mail className="h-4 w-4" /> Email completed reservation
+                    <Mail className="h-4 w-4" /> Open email app to send
                   </a>
                   <button type="button" onClick={copyReservation} className="inline-flex items-center justify-center gap-2 rounded-md border border-red-300 bg-white px-4 py-2 text-xs font-semibold">
                     <Copy className="h-4 w-4" /> {copied ? "Details copied" : "Copy reservation details"}
@@ -289,7 +296,7 @@ export function ReservationLayer() {
             )}
 
             <button disabled={status === "submitting"} className="smallcaps inline-flex w-full items-center justify-center gap-2 rounded-sm bg-gradient-rose px-6 py-4 text-xs font-bold text-espresso shadow-rose disabled:cursor-wait disabled:opacity-60">
-              {status === "submitting" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending reservation</> : `Submit reservation · ${formatInr(total)}`}
+              {status === "submitting" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending reservation</> : status === "error" ? "Try online submission again" : `Submit reservation · ${formatInr(total)}`}
             </button>
             <p className="text-center text-[11px] leading-5 text-espresso/45">
               No payment is collected on this page. Baristo sends a secure payment link only after verification.

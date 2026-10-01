@@ -149,9 +149,9 @@ export function FirstPourLayer() {
       setLeadId(data.leadId || "");
       setAcknowledgementSent(Boolean(data.acknowledgementSent));
       setStatus("success");
-    } catch (error) {
+    } catch {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "First Pour signup could not be submitted.");
+      setMessage("We couldn't complete signup online just now. Use the email action below and press Send to submit your First Pour details.");
     }
   }
 
@@ -279,10 +279,12 @@ export function FirstPourLayer() {
 
             {status === "error" && (
               <div role="alert" className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800">
-                <p>{message}</p>
+                <p className="font-semibold">Online signup did not complete.</p>
+                <p className="mt-1">{message}</p>
+                <p className="mt-2 text-xs">Your signup reaches Baristo only after you press Send in your email app.</p>
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                   <a href={fallbackMailto} className="inline-flex items-center justify-center gap-2 rounded-md border border-red-300 bg-white px-4 py-2 text-xs font-semibold">
-                    <Mail className="h-4 w-4" /> Join by email
+                    <Mail className="h-4 w-4" /> Open email app to send
                   </a>
                   <button type="button" onClick={copyLead} className="inline-flex items-center justify-center gap-2 rounded-md border border-red-300 bg-white px-4 py-2 text-xs font-semibold">
                     <Copy className="h-4 w-4" /> {copied ? "Details copied" : "Copy signup details"}

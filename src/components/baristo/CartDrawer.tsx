@@ -1,13 +1,34 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/use-cart";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const fmt = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 export function CartDrawer() {
   const { items, open, setOpen, setQty, remove, count, subtotal, savings, clear, lastAddedId, lastAddedAt } = useCart();
   const [placed, setPlaced] = useState(false);
+  const requestMailto = useMemo(() => {
+    const lines = items.map((item) =>
+      `${item.roastName} — ${item.sizeLabel} (${item.sizeSub}), quantity ${item.qty}, ${fmt(item.price)} each`,
+    );
+    const body = [
+      "Please check availability and delivery for this Baristo selection.",
+      "",
+      ...lines,
+      "",
+      `Provisional merchandise total: ${fmt(subtotal)}`,
+      "Name: ",
+      "Mobile: ",
+      "Email: ",
+      "Shipping address: ",
+      "City / PIN code: ",
+      "",
+      "Please confirm availability, shipping and final payable amount before payment. This email request is not a confirmed order.",
+    ].join("\n");
+    const subject = encodeURIComponent("Baristo availability request");
+    return `mailto:support@baristo.online?subject=${subject}&body=${encodeURIComponent(body)}`;
+  }, [items, subtotal]);
   const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
   const [flashId, setFlashId] = useState<string | null>(null);
 
@@ -52,19 +73,15 @@ export function CartDrawer() {
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-rose text-espresso shadow-rose">
               ✓
             </div>
-            <h3 className="font-display text-2xl font-semibold">Ritual reserved</h3>
-            <p className="text-sm text-espresso/60">
-              This is a preview checkout. Your selection has been noted for the launch cohort.
+            <h3 className="font-display text-2xl font-semibold">Request ready to send</h3>
+            <p className="text-sm text-espresso/70">
+              Your email app should open with this selection. Baristo receives the request only after you press Send; this is not an order or payment confirmation.
             </p>
             <button
-              onClick={() => {
-                clear();
-                setPlaced(false);
-                setOpen(false);
-              }}
+              onClick={() => setPlaced(false)}
               className="smallcaps mt-4 rounded-sm border border-rosegold/25 px-5 py-2.5 text-xs text-espresso hover:border-rosegold-light hover:text-rosegold-light"
             >
-              Continue Browsing
+              Return to Cart
             </button>
           </div>
         ) : items.length === 0 ? (
@@ -222,16 +239,17 @@ export function CartDrawer() {
                   {fmt(subtotal)}
                 </span>
               </div>
-              <p className="mt-1 text-[11px] text-espresso/40">
-                Inclusive of all taxes. Shipping calculated at checkout.
+              <p className="mt-1 text-[11px] leading-5 text-espresso/60">
+                No payment is collected here. Baristo verifies batch availability, delivery and the final payable amount before sending a payment link.
               </p>
 
-              <button
+              <a
+                href={requestMailto}
                 onClick={() => setPlaced(true)}
-                className="mt-4 w-full rounded-sm bg-gradient-rose px-5 py-3.5 text-xs font-bold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.01]"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-sm bg-gradient-rose px-5 py-3.5 text-center text-xs font-bold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.01]"
               >
-                Secure Checkout · {fmt(subtotal)}
-              </button>
+                Email Baristo for Availability · {fmt(subtotal)}
+              </a>
               <button
                 onClick={clear}
                 className="smallcaps mt-2 w-full text-[10px] text-espresso/40 hover:text-rosegold-light"
