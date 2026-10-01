@@ -21,6 +21,7 @@ export const Route = createFileRoute("/api/health")({
             runtime: "node",
             reservations: smtpPasswordConfigured ? "configured" : "smtp-password-missing",
             firstPour: smtpPasswordConfigured ? "configured" : "smtp-password-missing",
+            inquiries: smtpPasswordConfigured ? "configured" : "smtp-password-missing",
             smtp: {
               host: smtpHost,
               port: smtpPort,
