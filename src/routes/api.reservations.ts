@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import nodemailer from "nodemailer";
+import { reservationCustomerEmail, type BuyerRoast } from "../lib/baristo-email";
 
 const allowedRoasts = new Set(["Noble Dark", "Truly Dark"]);
 const recentRequests = new Map<string, number[]>();
@@ -225,13 +226,21 @@ export const Route = createFileRoute("/api/reservations")({
 
           let acknowledgementSent = true;
           try {
+            const customerMessage = reservationCustomerEmail({
+              name,
+              id,
+              roast: roast as BuyerRoast,
+              pack,
+              quantity,
+              total,
+            });
             await transport.sendMail({
               from: `Baristo.Online <${smtpFrom}>`,
               to: email,
               replyTo: orderInbox,
-              subject: `Baristo reservation received — ${id}`,
-              text: `Dear ${name},\n\nYour reservation has been received.\n\nReference: ${id}\nProduct: ${roast}\nPack: ${pack}\nQuantity: ${quantity}\nProvisional merchandise total: INR ${total}\n\nThis is not yet a confirmed order. Baristo will verify availability, delivery eligibility and the final payable amount before sending a secure payment link. Dispatch begins only after payment confirmation.\n\nBaristo.Online\nFor Expresso Noble Minds.`,
-              html: `<p>Dear ${safe.name},</p><h2>Your Baristo reservation has been received.</h2><p><strong>Reference:</strong> ${safe.id}</p><p>${safe.roast} · ${safe.pack}<br>Quantity: ${quantity}<br>Provisional merchandise total: <strong>₹${total.toLocaleString("en-IN")}</strong></p><p>This is not yet a confirmed order. Baristo will verify availability, delivery eligibility and the final payable amount before sending a secure payment link. Dispatch begins only after payment confirmation.</p><p>Baristo.Online<br><em>For Expresso Noble Minds.</em></p>`,
+              subject: customerMessage.subject,
+              text: customerMessage.text,
+              html: customerMessage.html,
             });
           } catch (error) {
             acknowledgementSent = false;
