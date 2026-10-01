@@ -90,6 +90,12 @@ for (const viewport of viewports) {
       await page.screenshot({ path: "artifacts/responsive/iphone-modern-first-pour.png", fullPage: false });
       await page.getByRole("button", { name: /Close First Pour form/i }).click();
 
+      const askBaristo = page.locator("a:visible").filter({ hasText: /Ask Baristo|Need help choosing/i }).first();
+      await askBaristo.click();
+      await page.getByRole("heading", { name: /^Ask Baristo$/i }).waitFor({ timeout: 5_000 });
+      await page.screenshot({ path: "artifacts/responsive/iphone-modern-buyer-concierge.png", fullPage: false });
+      await page.getByRole("button", { name: /Close buyer concierge/i }).click();
+
       const reserve = page.locator("a:visible").filter({ hasText: /Reserve Noble Dark/i }).first();
       await reserve.scrollIntoViewIfNeeded();
       await reserve.click();
