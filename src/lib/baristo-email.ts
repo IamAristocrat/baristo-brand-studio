@@ -236,7 +236,7 @@ export function inquiryCustomerEmail(input: {
   const normalized = input.preferredRoast === "Noble Dark" || input.preferredRoast === "Truly Dark"
     ? (input.preferredRoast as BuyerRoast)
     : null;
-  const selected = normalized ? roastCard(roastEmailProfiles[normalized]) : `${comparisonTable()}${roastCard(roastEmailProfiles["Noble Dark"])}${roastCard(roastEmailProfiles["Truly Dark"])}`;
+  const selected = normalized ? `${comparisonTable()}${roastCard(roastEmailProfiles[normalized])}` : `${comparisonTable()}${roastCard(roastEmailProfiles["Noble Dark"])}${roastCard(roastEmailProfiles["Truly Dark"])}`;
   const name = emailEscape(input.name);
   const id = emailEscape(input.id);
   const topic = emailEscape(input.topic);
@@ -255,7 +255,7 @@ export function inquiryCustomerEmail(input: {
     <p style="font-family:Arial,sans-serif;font-size:14px;line-height:1.75;color:#5b3a2f;">Reservation records purchase intent. Baristo verifies availability, delivery eligibility and the final payable amount before sending a secure payment link. Dispatch begins only after payment confirmation and On-Demand Batch preparation.</p>
     <h3 style="margin:24px 0 8px;font-family:Georgia,serif;font-size:24px;color:#3b2119;">Packaging transparency</h3>
     <p style="font-family:Arial,sans-serif;font-size:13px;line-height:1.7;color:#5b3a2f;">The imagery on this site represents the Baristo packaging design language. Current release batches are packed in premium pouches and finished with signature Baristo labels. Product quality, roast integrity, and brand specifications remain unchanged.</p>
-    <div style="margin-top:22px;">${button("See both roasts", "https://baristo.online/#roasts")}${button("Read the Journal", "https://baristo.online/journal", true)}</div>
+    <div style="margin-top:22px;">${button("Choose & Reserve", "https://baristo.online/#roasts")}${button("Read the Journal", "https://baristo.online/journal", true)}</div>
   `;
 
   const roastText = normalized
