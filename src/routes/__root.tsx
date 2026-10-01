@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import experienceCss from "../experience.css?url";
 import { ReservationLayer } from "../components/baristo/ReservationLayer";
 import { FirstPourLayer } from "../components/baristo/FirstPourLayer";
+import { BuyerConciergeLayer } from "../components/baristo/BuyerConciergeLayer";
 import { GlobalPackagingRepresentationNote } from "../components/baristo/PackagingRepresentation";
 
 const brandDescription =
@@ -91,6 +92,7 @@ function RootComponent() {
       <GlobalPackagingRepresentationNote />
       <ReservationLayer />
       <FirstPourLayer />
+      <BuyerConciergeLayer />
     </QueryClientProvider>
   );
 }
