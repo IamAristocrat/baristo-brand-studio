@@ -1,3 +1,4 @@
+import { inquiryWhatsApp } from "@/lib/baristo-whatsapp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -10,9 +11,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import experienceCss from "../experience.css?url";
-import { ReservationLayer } from "../components/baristo/ReservationLayer";
-import { FirstPourLayer } from "../components/baristo/FirstPourLayer";
-import { BuyerConciergeLayer } from "../components/baristo/BuyerConciergeLayer";
 import { GlobalPackagingRepresentationNote } from "../components/baristo/PackagingRepresentation";
 
 const brandDescription =
@@ -90,9 +88,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <GlobalPackagingRepresentationNote />
-      <ReservationLayer />
-      <FirstPourLayer />
-      <BuyerConciergeLayer />
+      <a href={inquiryWhatsApp} aria-label="Chat with Baristo on WhatsApp" className="fixed bottom-5 right-4 z-[80] rounded-full bg-[#166534] px-5 py-3 text-sm font-semibold text-white shadow-lg">WhatsApp Baristo</a>
     </QueryClientProvider>
   );
 }

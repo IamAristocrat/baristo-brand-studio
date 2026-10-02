@@ -1,3 +1,4 @@
+import { whatsappUrl } from "@/lib/baristo-whatsapp";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Check, FileText, Clock, ShieldCheck } from "lucide-react";
@@ -30,13 +31,7 @@ export function EvidenceHub() {
       toast.error("Select at least one proof dossier to request.");
       return;
     }
-    toast.success(
-      `${selected.length} proof ${selected.length === 1 ? "dossier" : "dossiers"} requested${
-        batch.trim() ? ` for batch ${batch.trim().toUpperCase()}` : ""
-      }`,
-      { description: "Release is on demand or on application — our roast desk responds by email." },
-    );
-    setSelected([]);
+    window.location.assign(whatsappUrl(`Hello Baristo, please share these proof dossiers: ${selected.join(", ")}. Batch: ${batch.trim() || "Not specified"}.`));
   };
 
   return (

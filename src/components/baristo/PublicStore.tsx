@@ -1,3 +1,4 @@
+import { firstPourWhatsApp, inquiryWhatsApp, reserveWhatsApp } from "@/lib/baristo-whatsapp";
 import { useEffect, useState } from "react";
 import {
   ArrowRight,
@@ -20,9 +21,8 @@ import beansMacro from "@/assets/beans-macro.jpg";
 
 const price = "₹2,579";
 const mrp = "₹4,779";
-const firstPour = "#first-pour";
-const reserveEmail = (roast: string) =>
-  `mailto:support@baristo.online?subject=${encodeURIComponent(`Baristo reservation request — ${roast}`)}&body=${encodeURIComponent(`I would like to reserve ${roast}, 12 oz / 340 g, at ₹2,579 per pack.\n\nQuantity: 1\nName: \nMobile: \nEmail: \nShipping address: \nCity: \nState: \nPostal code: \n\nPlease confirm availability, delivery and the final payable amount before payment.`)}`;
+const firstPour = firstPourWhatsApp;
+const reserveWhatsAppLink = reserveWhatsApp;
 
 const roasts = [
   {
@@ -207,14 +207,14 @@ export function PublicStore() {
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={reserveEmail("Noble Dark")}
+                  href={reserveWhatsAppLink("Noble Dark")}
                   data-reserve-roast="Noble Dark"
                   className="smallcaps inline-flex h-12 items-center justify-center gap-2 rounded-sm bg-gradient-rose px-6 text-xs font-bold text-espresso shadow-rose"
                 >
                   Reserve Noble Dark · ₹2,579 <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href={reserveEmail("Truly Dark")}
+                  href={reserveWhatsAppLink("Truly Dark")}
                   data-reserve-roast="Truly Dark"
                   className="smallcaps inline-flex h-12 items-center justify-center gap-2 rounded-sm border border-rosegold/45 bg-ivory/35 px-6 text-xs font-bold backdrop-blur-sm"
                 >
@@ -229,7 +229,7 @@ export function PublicStore() {
                   <Mail className="h-3.5 w-3.5" /> Join the First Pour Circle for updates
                 </a>
                 <a
-                  href="mailto:support@baristo.online"
+                  href={inquiryWhatsApp}
                   data-baristo-inquiry="true"
                   className="smallcaps inline-flex items-center gap-2 text-[10px] font-bold text-espresso/75 hover:text-rosegold-light"
                 >
@@ -334,14 +334,14 @@ export function PublicStore() {
                         <p className="text-sm opacity-55 line-through">{mrp}</p>
                       </div>
                       <a
-                        href={reserveEmail(roast.name)}
+                        href={reserveWhatsAppLink(roast.name)}
                         data-reserve-roast={roast.name}
                         className="smallcaps mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-gradient-rose px-5 py-3 text-xs font-bold text-espresso shadow-rose"
                       >
                         Reserve {roast.name} <ArrowRight className="h-4 w-4" />
                       </a>
                       <a
-                        href="mailto:support@baristo.online"
+                        href={inquiryWhatsApp}
                         data-baristo-inquiry="true"
                         data-inquiry-roast={roast.name}
                         className={`smallcaps mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-rosegold/30 px-5 py-3 text-[10px] font-bold transition-colors ${roast.dark ? "text-ivory hover:bg-white/5" : "text-espresso hover:bg-champagne/35"}`}
@@ -517,12 +517,12 @@ export function PublicStore() {
             </p>
           </div>
           <div className="md:text-right">
-            <a href="mailto:support@baristo.online" className="text-sm font-semibold text-rosegold-light">
-              support@baristo.online
+            <a href={inquiryWhatsApp} className="text-sm font-semibold text-rosegold-light">
+              WhatsApp: +91 98945 95035
             </a>
             <div className="mt-3">
               <a
-                href="mailto:support@baristo.online"
+                href={inquiryWhatsApp}
                 data-baristo-inquiry="true"
                 className="smallcaps inline-flex items-center gap-2 rounded-sm border border-rosegold/30 px-4 py-2 text-[10px] font-bold text-espresso hover:bg-champagne/35"
               >
@@ -530,7 +530,7 @@ export function PublicStore() {
               </a>
             </div>
             <p className="mt-4 text-[10px] text-espresso/45">
-              Buyer questions and reservations are handled through support@baristo.online.
+              Buyer questions and reservations are handled on WhatsApp. Press Send in WhatsApp to reach Baristo.
             </p>
             <p className="mt-2 text-[10px] text-espresso/35">
               Not intended to diagnose, treat, cure or prevent disease.

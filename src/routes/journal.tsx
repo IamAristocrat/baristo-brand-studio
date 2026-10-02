@@ -1,3 +1,4 @@
+import { firstPourWhatsApp } from "@/lib/baristo-whatsapp";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Brain, Clock3, Mountain, Sparkles } from "lucide-react";
 import { journalArticles } from "@/lib/journal-data";
@@ -44,7 +45,7 @@ function JournalNav() {
           <a href="#journal-articles" className="smallcaps hidden text-[10px] font-semibold text-espresso/60 hover:text-rosegold-light md:inline-flex">
             Product Essays
           </a>
-          <a href="#first-pour" className="smallcaps rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose">
+          <a href={firstPourWhatsApp} className="smallcaps rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose">
             Join First Pour
           </a>
         </div>
@@ -148,7 +149,7 @@ function JournalIndex() {
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-ivory/58">
               Join for launch access, roast intelligence, private tasting invitations and Baristo product updates. Joining the circle is not a reservation or confirmed order.
             </p>
-            <a href="#first-pour" className="smallcaps mt-9 inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-rose px-7 py-3 text-xs font-bold text-espresso shadow-rose">
+            <a href={firstPourWhatsApp} className="smallcaps mt-9 inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-rose px-7 py-3 text-xs font-bold text-espresso shadow-rose">
               Join the First Pour <ArrowRight className="h-4 w-4" />
             </a>
           </div>

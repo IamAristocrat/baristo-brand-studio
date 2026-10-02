@@ -1,3 +1,4 @@
+import { whatsappUrl } from "@/lib/baristo-whatsapp";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/use-cart";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
@@ -8,7 +9,7 @@ const fmt = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 export function CartDrawer() {
   const { items, open, setOpen, setQty, remove, count, subtotal, savings, clear, lastAddedId, lastAddedAt } = useCart();
   const [placed, setPlaced] = useState(false);
-  const requestMailto = useMemo(() => {
+  const requestWhatsApp = useMemo(() => {
     const lines = items.map((item) =>
       `${item.roastName} — ${item.sizeLabel} (${item.sizeSub}), quantity ${item.qty}, ${fmt(item.price)} each`,
     );
@@ -24,10 +25,9 @@ export function CartDrawer() {
       "Shipping address: ",
       "City / PIN code: ",
       "",
-      "Please confirm availability, shipping and final payable amount before payment. This email request is not a confirmed order.",
+      "Please confirm availability, shipping and final payable amount before payment. This WhatsApp request is not a confirmed order.",
     ].join("\n");
-    const subject = encodeURIComponent("Baristo availability request");
-    return `mailto:support@baristo.online?subject=${subject}&body=${encodeURIComponent(body)}`;
+    return whatsappUrl(body);
   }, [items, subtotal]);
   const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
   const [flashId, setFlashId] = useState<string | null>(null);
@@ -75,7 +75,7 @@ export function CartDrawer() {
             </div>
             <h3 className="font-display text-2xl font-semibold">Request ready to send</h3>
             <p className="text-sm text-espresso/70">
-              Your email app should open with this selection. Baristo receives the request only after you press Send; this is not an order or payment confirmation.
+              WhatsApp should open with this selection. Baristo receives the request only after you press Send; this is not an order or payment confirmation.
             </p>
             <button
               onClick={() => setPlaced(false)}
@@ -244,11 +244,11 @@ export function CartDrawer() {
               </p>
 
               <a
-                href={requestMailto}
+                href={requestWhatsApp}
                 onClick={() => setPlaced(true)}
                 className="mt-4 inline-flex w-full items-center justify-center rounded-sm bg-gradient-rose px-5 py-3.5 text-center text-xs font-bold tracking-widest text-espresso uppercase shadow-rose transition-transform hover:scale-[1.01]"
               >
-                Email Baristo for Availability · {fmt(subtotal)}
+                WhatsApp Baristo for Availability · {fmt(subtotal)}
               </a>
               <button
                 onClick={clear}

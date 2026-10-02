@@ -1,3 +1,4 @@
+import { firstPourWhatsApp, inquiryWhatsApp } from "@/lib/baristo-whatsapp";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -66,14 +67,14 @@ export function HomepageNavigation() {
             </a>
           ))}
           <a
-            href="mailto:support@baristo.online"
+            href={inquiryWhatsApp}
             data-baristo-inquiry="true"
             className="smallcaps whitespace-nowrap text-[10px] font-semibold text-espresso/72 transition-colors hover:text-rosegold-light"
           >
             Ask Baristo
           </a>
           <a
-            href="#first-pour"
+            href={firstPourWhatsApp}
             className="smallcaps ml-1 inline-flex min-h-10 items-center justify-center rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose transition-transform hover:-translate-y-0.5"
           >
             Join First Pour
@@ -107,7 +108,7 @@ export function HomepageNavigation() {
               </a>
             ))}
             <a
-              href="mailto:support@baristo.online"
+              href={inquiryWhatsApp}
               data-baristo-inquiry="true"
               onClick={() => setOpen(false)}
               className="smallcaps flex min-h-11 items-center rounded-lg px-4 text-sm font-semibold text-espresso/75 transition-colors hover:bg-champagne/35 hover:text-rosegold-light"
@@ -115,7 +116,7 @@ export function HomepageNavigation() {
               Ask Baristo
             </a>
             <a
-              href="#first-pour"
+              href={firstPourWhatsApp}
               onClick={() => setOpen(false)}
               className="smallcaps mt-2 flex min-h-12 items-center justify-center rounded-sm bg-gradient-rose px-5 text-xs font-bold text-espresso shadow-rose"
             >

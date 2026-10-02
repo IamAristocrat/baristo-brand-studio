@@ -1,3 +1,4 @@
+import { firstPourWhatsApp, reserveWhatsApp } from "@/lib/baristo-whatsapp";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Clock3, ExternalLink, ShieldCheck } from "lucide-react";
 import { getJournalArticle, journalArticles, type JournalArticle } from "@/lib/journal-data";
@@ -81,7 +82,7 @@ function JournalArticlePage() {
           </Link>
           <div className="flex items-center gap-3">
             <Link to="/journal" className="smallcaps hidden text-[10px] font-semibold text-espresso/58 hover:text-rosegold-light sm:inline-flex">Journal</Link>
-            <a href="#reserve-product" className="smallcaps rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose">Reserve {article.product}</a>
+            <a href={reserveWhatsApp(article.product)} className="smallcaps rounded-sm bg-gradient-rose px-4 py-2 text-[10px] font-bold text-espresso shadow-rose">Reserve {article.product}</a>
           </div>
         </div>
       </header>
@@ -183,7 +184,7 @@ function JournalArticlePage() {
                   <p className="smallcaps text-[10px] text-rosegold-light">The product</p>
                   <p className="mt-2 font-display text-2xl font-semibold">{article.product}</p>
                   <p className={`mt-3 text-xs leading-6 ${isTrulyDark ? "text-ivory/55" : "text-espresso/55"}`}>12 oz / 340 g · 100% single-origin Indian Arabica · premium ground roasted coffee.</p>
-                  <a href="#reserve-product" className="smallcaps mt-5 inline-flex w-full items-center justify-center rounded-sm bg-gradient-rose px-4 py-3 text-[10px] font-bold text-espresso shadow-rose">Reserve {article.product}</a>
+                  <a href={reserveWhatsApp(article.product)} className="smallcaps mt-5 inline-flex w-full items-center justify-center rounded-sm bg-gradient-rose px-4 py-3 text-[10px] font-bold text-espresso shadow-rose">Reserve {article.product}</a>
                 </div>
               </div>
             </aside>
@@ -195,8 +196,8 @@ function JournalArticlePage() {
               <h2 className="mt-4 font-display text-4xl font-semibold sm:text-6xl">You have read the argument. Now choose the cup.</h2>
               <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-ivory/58">A reservation records purchase intent. Baristo verifies availability and delivery before sending a secure payment link.</p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href="#reserve-product" className="smallcaps inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-rose px-7 py-3 text-xs font-bold text-espresso shadow-rose">Reserve {article.product} <ArrowRight className="h-4 w-4" /></a>
-                <a href="#first-pour" className="smallcaps inline-flex items-center justify-center gap-2 rounded-sm border border-rosegold/30 px-7 py-3 text-xs font-bold text-ivory">Join the First Pour</a>
+                <a href={reserveWhatsApp(article.product)} className="smallcaps inline-flex items-center justify-center gap-2 rounded-sm bg-gradient-rose px-7 py-3 text-xs font-bold text-espresso shadow-rose">Reserve {article.product} <ArrowRight className="h-4 w-4" /></a>
+                <a href={firstPourWhatsApp} className="smallcaps inline-flex items-center justify-center gap-2 rounded-sm border border-rosegold/30 px-7 py-3 text-xs font-bold text-ivory">Join the First Pour</a>
               </div>
             </div>
           </section>

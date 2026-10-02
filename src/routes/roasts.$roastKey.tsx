@@ -1,3 +1,4 @@
+import { reserveWhatsApp } from "@/lib/baristo-whatsapp";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Check } from "lucide-react";
 import medallion from "@/assets/medallion.png";
@@ -46,7 +47,7 @@ function RoastPage() {
               <div className="mt-7 flex flex-wrap gap-2">{roast.notes.map((note)=><span key={note} className="rounded-full border border-rosegold/25 px-3 py-1 text-xs">{note}</span>)}</div>
               <ul className={`mt-8 grid gap-3 text-sm ${isDark?"text-ivory/65":"text-espresso/65"}`}>{["100% roasted Arabica coffee","No chicory or fillers","One size: 12 oz / 340 g","On-Demand Batch presentation","Same launch price across both roasts"].map((item)=><li key={item} className="flex items-center gap-3"><Check className="h-4 w-4 text-rosegold-light" /> {item}</li>)}</ul>
               <div className="mt-10 flex items-end gap-4"><p className="font-display text-4xl font-semibold">₹{price.toLocaleString("en-IN")}</p><p className={`pb-1 text-sm line-through ${isDark?"text-ivory/30":"text-espresso/35"}`}>₹{mrp.toLocaleString("en-IN")}</p></div>
-              <a href="/#roasts" data-reserve-roast={roast.name} className="smallcaps mt-7 inline-flex h-12 items-center justify-center rounded-sm bg-gradient-rose px-7 text-xs font-bold text-espresso shadow-rose">Reserve {roast.name} — On-Demand Batch</a>
+              <a href={reserveWhatsApp(roast.name)} className="smallcaps mt-7 inline-flex h-12 items-center justify-center rounded-sm bg-gradient-rose px-7 text-xs font-bold text-espresso shadow-rose">Reserve {roast.name} — On-Demand Batch</a>
               <p className={`mt-4 text-xs leading-6 ${isDark?"text-ivory/35":"text-espresso/38"}`}>Reservation records purchase intent. Availability, delivery eligibility and final payable amount are verified before a secure payment link is sent.</p>
             </article>
           </div>
