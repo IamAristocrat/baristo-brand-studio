@@ -84,23 +84,17 @@ for (const viewport of viewports) {
     await page.screenshot({ path: `artifacts/responsive/${viewport.name}.png`, fullPage: true });
 
     if (viewport.name === "iphone-modern") {
+      const expectedWhatsAppPrefix = "https://wa.me/919894595035?text=";
       const firstPour = page.locator("a:visible").filter({ hasText: /First Pour/i }).first();
-      await firstPour.click();
-      await page.getByRole("heading", { name: /Join the First Pour Circle/i }).waitFor({ timeout: 5_000 });
-      await page.screenshot({ path: "artifacts/responsive/iphone-modern-first-pour.png", fullPage: false });
-      await page.getByRole("button", { name: /Close First Pour form/i }).click();
-
       const askBaristo = page.locator("a:visible").filter({ hasText: /Ask Baristo|Need help choosing/i }).first();
-      await askBaristo.click();
-      await page.getByRole("heading", { name: /^Ask Baristo$/i }).waitFor({ timeout: 5_000 });
-      await page.screenshot({ path: "artifacts/responsive/iphone-modern-buyer-concierge.png", fullPage: false });
-      await page.getByRole("button", { name: /Close buyer concierge/i }).click();
-
       const reserve = page.locator("a:visible").filter({ hasText: /Reserve Noble Dark/i }).first();
-      await reserve.scrollIntoViewIfNeeded();
-      await reserve.click();
-      await page.getByRole("heading", { name: /Reserve Noble Dark/i }).waitFor({ timeout: 5_000 });
-      await page.screenshot({ path: "artifacts/responsive/iphone-modern-reservation.png", fullPage: false });
+
+      for (const [name, cta] of [["First Pour", firstPour], ["Ask Baristo", askBaristo], ["Reserve Noble Dark", reserve]]) {
+        const href = await cta.getAttribute("href");
+        if (!href?.startsWith(expectedWhatsAppPrefix)) failures.push(`iphone-modern: ${name} does not point to Baristo WhatsApp`);
+      }
+
+      await page.screenshot({ path: "artifacts/responsive/iphone-modern-whatsapp-ctas.png", fullPage: false });
       await page.getByRole("button", { name: /Close reservation/i }).click();
     }
 
